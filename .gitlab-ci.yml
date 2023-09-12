@@ -36,4 +36,5 @@ deploy-pre:
   only:
     - main
   tags:
-    - gitlab
+    - gitlab 
+    
