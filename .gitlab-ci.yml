@@ -14,6 +14,7 @@ build-pre:
     name: simulator_company_static
   script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    - ls -lah
     - docker build . -f Dockerfile -t $CI_REGISTRY/$workspace/$name:latest  
     - docker push $CI_REGISTRY/$workspace/$name:latest
     - docker push $CI_REGISTRY/$workspace/$name:$CI_COMMIT_TAG
