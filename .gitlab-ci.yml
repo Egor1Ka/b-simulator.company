@@ -32,7 +32,7 @@ deploy-pre:
     - ssh ${SSH_USER}@${SSH_HOST} "sudo docker stop $CI_PROJECT_TITLE"
     - ssh ${SSH_USER}@${SSH_HOST} "sudo docker rm $CI_PROJECT_TITLE"
     - set -e
-    - ssh ${SSH_USER}@${SSH_HOST} "sudo docker run -p 3005:3000 --restart=always -d --name $CI_PROJECT_TITLE --privileged -t docker-hub.middleware.biz/utils-private/$CI_PROJECT_TITLE:latest /bin/bash"
+    - ssh ${SSH_USER}@${SSH_HOST} "sudo docker run -p 3005:3000 --restart=always -d --name $CI_PROJECT_TITLE --privileged -t $CI_REGISTRY/utils-private/$CI_PROJECT_TITLE:latest /bin/bash"
   only:
     - main
   tags:
