@@ -26,3 +26,11 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## How to go to live
+
+1. Use node:18.x
+2. Install yarn
+3. Run `yarn run build`
+4. Run `yarn run start`
+5. Production server opened on `localhost:3000`
