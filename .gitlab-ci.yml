@@ -27,7 +27,7 @@ deploy-pre:
     - mkdir -p ~/.ssh && chmod 700 ~/.ssh
     - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
     - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
-    - ssh ${SSH_USER}@${SSH_HOST} "sudo docker login -u \"$CI_REGISTRY_USER\" -p \"$CI_REGISTRY_PASSWORD\" $CI_REGISTRY && sudo docker pull $CI_REGISTRY/utils-private/CI_PROJECT_TITLE:latest"
+    - ssh ${SSH_USER}@${SSH_HOST} "sudo docker login -u \"$CI_REGISTRY_USER\" -p \"$CI_REGISTRY_PASSWORD\" $CI_REGISTRY && sudo docker pull $CI_REGISTRY/utils-private/$CI_PROJECT_TITLE:latest"
     - set +e
     - ssh ${SSH_USER}@${SSH_HOST} "sudo docker stop $CI_PROJECT_TITLE"
     - ssh ${SSH_USER}@${SSH_HOST} "sudo docker rm $CI_PROJECT_TITLE"
