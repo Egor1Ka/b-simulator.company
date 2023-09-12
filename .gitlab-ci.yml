@@ -7,23 +7,22 @@ stages:
   - deploy-pre
   - build-prod
 
-build-pre:
-  stage: build-pre
-  variables:
-    workspace: utils-private
-    name: simulator_company_static
-  script:
-    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-    - docker build . -f Dockerfile -t $CI_REGISTRY/$workspace/$name:latest  
-    - docker push $CI_REGISTRY/$workspace/$name:latest
-  only:
-    - main
-  tags:
-    - gitlab
+# build-pre:
+#   stage: build-pre
+#   variables:
+#     workspace: utils-private
+#     name: simulator_company_static
+#   script:
+#     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+#     - docker build . -f Dockerfile -t $CI_REGISTRY/$workspace/$name:latest  
+#     - docker push $CI_REGISTRY/$workspace/$name:latest
+#   only:
+#     - main
+#   tags:
+#     - gitlab
 
 deploy-pre:
   stage: deploy-pre
-  image: centos
   script: 
     - mkdir -p ~/.ssh && chmod 700 ~/.ssh
     - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
