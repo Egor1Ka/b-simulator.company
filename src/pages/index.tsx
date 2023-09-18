@@ -1,8 +1,12 @@
+import React, {
+} from 'react';
 import Image from 'next/image';
-import styles from './page.module.scss';
+import Layout from '../components/Layout';
 
-export default function Home() {
-  return (
+import styles from './index.module.scss';
+
+const Main: React.FC = () => (
+  <Layout>
     <main className={styles.main}>
       <div className={styles.description}>
         <p>
@@ -100,5 +104,7 @@ export default function Home() {
         </a>
       </div>
     </main>
-  );
-}
+  </Layout>
+);
+
+export default Main;
