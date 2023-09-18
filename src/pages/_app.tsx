@@ -1,4 +1,6 @@
 import React, { createContext, FC } from 'react';
+import { IntlProvider } from 'react-intl';
+import { Locale, useLocale } from '@/hooks/useLocale';
 
 import '../styles/global.scss';
 
@@ -19,10 +21,16 @@ const globalMeta: GlobalMeta = {
   metaDescription: 'The best site in the world',
 };
 
-const MyApp: FC<MyAppProps> = ({ Component, pageProps = {} }) => (
-  <GlobalContext.Provider value={globalMeta}>
-    <Component {...pageProps} />
-  </GlobalContext.Provider>
-);
+const MyApp: FC<MyAppProps> = ({ Component, pageProps = {} }) => {
+  const { locale, messages } = useLocale();
+
+  return (
+    <IntlProvider locale={locale as Locale} messages={messages}>
+      <GlobalContext.Provider value={globalMeta}>
+        <Component {...pageProps} />
+      </GlobalContext.Provider>
+    </IntlProvider>
+  );
+};
 
 export default MyApp;
