@@ -1,10 +1,12 @@
 import React, { ReactNode } from 'react';
 import Link from 'next/link';
 import styles from './button.module.scss';
+import classNames from 'classnames';
 
-interface ButtonProps {
+interface BaseButtonProps {
   children?: ReactNode;
-  buttonType?: 'primary' | 'secondary' | 'outlined',
+  type?: 'primary' | 'secondary' | 'outlined',
+  buttonType?: 'button' | 'externalLink' | 'internalLink'
   disabled?: boolean,
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   styleClass?: string;
@@ -12,9 +14,16 @@ interface ButtonProps {
   internalLink?: string;
 }
 
+type ButtonProps =
+  | (BaseButtonProps & { buttonType: 'button' })
+  | (BaseButtonProps & { buttonType: 'externalLink'; externalLink: string })
+  | (BaseButtonProps & { buttonType: 'internalLink'; internalLink: string });
+
+
 export default function Button({
   children,
-  buttonType = 'primary',
+  type = "primary",
+  buttonType = "button",
   disabled = false,
   onClick,
   styleClass,
@@ -28,12 +37,16 @@ export default function Button({
     }
   };
 
+  const buttonClasses = classNames(
+    styles[`button__${type}`],
+    styles.button,
+    styleClass
+  );
+
   const button: React.JSX.Element = (
     <button
       onClick={handleClick}
-      className={
-        `${styles[`button__${buttonType}`]}  ${styles.button} ${styleClass}`
-      }
+      className={buttonClasses}
       type="button"
       disabled={disabled}
       {...attrs}
@@ -42,7 +55,7 @@ export default function Button({
     </button>
   );
 
-  if (externalLink) {
+  if (buttonType === 'externalLink' && externalLink && !disabled) {
     return (
       <a href={externalLink} target="_blank" rel="noreferrer">
         {button}
@@ -50,7 +63,7 @@ export default function Button({
     );
   }
 
-  if (internalLink) {
+  if (buttonType === 'internalLink' && internalLink && !disabled) {
     return (
       <Link href={internalLink}>
         {button}

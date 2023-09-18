@@ -20,8 +20,8 @@ $secondary-color: var(--neutral-10, #FFF);
 $outlined-background-color: rgba(0, 97, 194, 0.24);
 $outlined-color: var(--neutral-10, #FFF);
 
-$disablet-background: #23262F;
-$disablet-color: rgba(53, 57, 69, 1);
+$disabled-background: #23262F;
+$disabled-color: rgba(53, 57, 69, 1);
 
 .button {
     cursor: pointer;
@@ -101,6 +101,6 @@ $disablet-color: rgba(53, 57, 69, 1);
 
 
 .button:disabled {
-    background: $disablet-background;
-    color: $disablet-color;
+    background: $disabled-background;
+    color: $disabled-color;
 }
