@@ -1,0 +1,106 @@
+$padding-top :10px;
+$horizontal-padding: 16px;
+$min-width: 132px;
+$min-heidth: 42px;
+$padding-focus: $padding-top - 3px $horizontal-padding - 3px;
+$border-radius: 100px;
+
+$font-size: 14px;
+$font-weight: 600;
+$line-height: 22px;
+
+$transition: 0.9s;
+
+$primary-background-color: var(--primary-gradient, linear-gradient(180deg, #245ED3 0%, #187ADC 100%));
+$primary-color : rgba(255, 255, 255, 1);
+
+$secondary-background-color: rgba(0, 97, 194, 0.24);
+$secondary-color: var(--neutral-10, #FFF);
+
+$outlined-background-color: rgba(0, 97, 194, 0.24);
+$outlined-color: var(--neutral-10, #FFF);
+
+$disablet-background: #23262F;
+$disablet-color: rgba(53, 57, 69, 1);
+
+.button {
+    cursor: pointer;
+    padding: $padding-top $horizontal-padding;
+    border: none;
+    min-width: $min-width ;
+    min-height: $min-heidth;
+    border-radius: $border-radius;
+    font-family: Open Sans;
+    font-size: $font-size;
+    font-style: normal;
+    font-weight: $font-weight;
+    line-height: $line-height;
+    background-color: $primary-background-color ;
+
+    //primary
+    &__primary {
+        background: $primary-background-color;
+        color: $primary-color;
+    }
+
+    &__primary:hover {
+        background: rgba(60, 157, 254, 1);
+    }
+
+    &__primary:active {
+        background: rgba(120, 192, 250, 1);
+    }
+
+    &__primary:focus {
+        background: var(--primary-gradient, linear-gradient(180deg, #245ED3 0%, #187ADC 100%));
+        padding: $padding-focus;
+        border: 3px solid var(--primary-focus, #2F4E6D);
+    }
+
+    //secondary
+    &__secondary {
+        background: $secondary-background-color;
+        color: $secondary-color;
+    }
+
+    &__secondary:hover {
+        color: var(--primary-hover, #3C9DFE);
+    }
+
+    &__secondary:active {
+        color: var(--primary-pressed, #78C0FA);
+    }
+
+    &__secondary:focus {
+        padding: $padding-focus;
+        border: 3px solid var(--primary-focus, #2F4E6D);
+    }
+
+    //outlined
+    &__outlined {
+        padding: $padding-top - 2px;
+        background: $outlined-background-color;
+        color: $outlined-color;
+        border: 2px solid var(--neutral-50, #353945);
+    }
+
+    &__outlined:hover {
+        color: rgba(60, 157, 254, 1);
+    }
+
+    &__outlined:active {
+        color: rgba(120, 192, 250, 1);
+    }
+
+    &__outlined:focus {
+        padding: $padding-focus;
+        color: rgba(255, 255, 255, 1);
+        border: 3px solid var(--primary-focus, #2F4E6D);
+    }
+}
+
+
+.button:disabled {
+    background: $disablet-background;
+    color: $disablet-color;
+}
