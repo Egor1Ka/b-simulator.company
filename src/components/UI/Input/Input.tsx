@@ -1,8 +1,9 @@
 import React, { ChangeEvent, ReactNode, useState, useEffect } from 'react';
-import styles from './input.module.scss';
+import styles from './Input.module.scss';
 import classNames from 'classnames';
 import Image from 'next/image';
 import emailIcon from '../../../assets/icons/email-icon.svg';
+import isEmailValid from '@/helpers/regularExpressions/isEmailValid';
 
 interface InputProps {
   value?: string;
@@ -10,9 +11,9 @@ interface InputProps {
   icon?: ReactNode | 'email';
   placeholder?: string;
   type?: string;
-  customValidator?: (value: string) => string | null;
-  onCustomError?: (error?: string | null) => void;
-  disabbled?: boolean;
+  disabled?: boolean;
+  error?: string | null;
+  styleClass?: string;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -21,54 +22,38 @@ const Input: React.FC<InputProps> = ({
   icon,
   placeholder,
   type = "text",
-  customValidator,
-  onCustomError,
-  disabbled
+  disabled,
+  error,
+  styleClass
 }) => {
-  const [error, setError] = useState<string | null>(null);
+  const [inputError, setInputErrorr] = useState<string | null>(null);
   const isValueDefined = value !== null && value !== undefined;
-  
+
   useEffect(() => {
     if (type === 'email' && isValueDefined) {
       handleEmailValidation();
-    } else if (customValidator && isValueDefined) {
-      handleCustomValidation();
+    } else if (error && error && isValueDefined) {
+      setInputErrorr(error);
+    } else if (!error && isValueDefined) {
+      setInputErrorr(null);
     }
-  }, [type, value, customValidator, onCustomError]);
+  }, [error, value]);
 
   const handleEmailValidation = () => {
     if (value && !isEmailValid(value)) {
       const errorMessage = 'Input correct email';
-      setError(errorMessage);
-      onCustomError && onCustomError(errorMessage);
+      setInputErrorr(errorMessage);
     } else {
-      setError(null);
-    }
-  };
-
-  const handleCustomValidation = () => {
-    if (value !== null && value !== undefined && value.length === 0) {
-      setError(null);
-    }
-    else if (value && customValidator) {
-      const customError = customValidator(value);
-      setError(customError);
-      if (onCustomError) {
-        onCustomError(customError);
-      }
+      setInputErrorr(null);
     }
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(value)
     onChange && onChange(event);
   };
 
-  const isEmailValid = (value: string) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(value);
-  };
-
-  const formGroupClass = classNames(styles["form-group"], { [styles["form-group__disabled"]]: disabbled });
+  const formGroupClass = classNames(styles["form-group"], { [styles["form-group__disabled"]]: disabled }, styleClass);
 
   return (
     <div className={formGroupClass}>
@@ -81,9 +66,9 @@ const Input: React.FC<InputProps> = ({
         value={value}
         onChange={handleInputChange}
         placeholder={placeholder}
-        disabled={disabbled}
+        disabled={disabled}
       />
-      {error && <div className={styles["form-group__error"]}>{error}</div>}
+      {inputError && <div className={styles["form-group__error"]}>{inputError}</div>}
     </div >
   );
 };
