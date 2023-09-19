@@ -1,11 +1,11 @@
 import React, { ReactNode } from 'react';
 import Link from 'next/link';
-import styles from './button.module.scss';
 import classNames from 'classnames';
+import styles from './button.module.scss';
 
 interface ButtonProps {
   children?: ReactNode;
-  type?: 'primary' | 'secondary' | 'outlined',
+  type?: 'primary' | 'secondary' | 'outlined' | 'transparent',
   link?: string,
   disabled?: boolean,
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
@@ -14,7 +14,7 @@ interface ButtonProps {
 
 export default function Button({
   children,
-  type = "primary",
+  type = 'primary',
   link,
   disabled = false,
   onClick,
@@ -35,7 +35,7 @@ export default function Button({
   const buttonClasses = classNames(
     styles[`button__${type}`],
     styles.button,
-    styleClass
+    styleClass,
   );
 
   const button: React.JSX.Element = (
@@ -58,8 +58,8 @@ export default function Button({
         </a>
       );
     }
-    return <Link href={link}>{button}</Link>
-  };
+    return <Link href={link}>{button}</Link>;
+  }
 
   return button;
 }
