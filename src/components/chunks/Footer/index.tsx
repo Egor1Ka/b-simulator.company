@@ -1,5 +1,8 @@
 import React from 'react';
+import Image from 'next/image';
 import Button from '../../UI/Button';
+import awsPartnerImg from '../../../../public/aws-partner.png';
+import corezoidLogoImg from '../../../../public/corezoid-logo.png';
 import style from './Footer.module.scss';
 
 function Footer() {
@@ -35,7 +38,35 @@ function Footer() {
           </div>
         </div>
         <hr />
-        <div className={style.footerContentBottom} />
+        <div className={style.footerContentBottom}>
+          <div className={style.groupC}>
+            <section style={{ display: 'flex', alignItems: 'center' }}>
+              <Image
+                src={corezoidLogoImg}
+                alt="logo"
+                height={48}
+              />
+            </section>
+            <section>
+              2023 © Corezoid Inc., 541 Jefferson Avenue, Suite 100,
+              {' '}
+              <br />
+              Redwood City, CA 94063. All rights reserved.
+              {' '}
+              <br />
+              Patent protected. Powered by Erlang.
+            </section>
+          </div>
+          <div className={style.groupD}>
+            <section style={{ display: 'flex', alignItems: 'center' }}>
+              <Image
+                src={awsPartnerImg}
+                alt="aws partner"
+                height={60}
+              />
+            </section>
+          </div>
+        </div>
       </div>
     </footer>
   );

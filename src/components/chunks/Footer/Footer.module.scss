@@ -8,6 +8,7 @@
     padding-right: 24px;
     padding-left: 24px;
     padding-top: 28px;
+    padding-bottom: 48px;
     max-width: 1192px;
     width: 100%;
     flex-direction:column;
@@ -66,6 +67,33 @@
         p {
             margin-top: 8px;
             margin-bottom: 16px;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 22px;
         }
+
+        h5 {
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 22px;
+            color: rgba(141, 148, 167, 1);
+            text-transform: uppercase;
+        }
+    }
+}
+
+.footerContentBottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .groupC, .groupD {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between; 
+        gap: 40px;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 20px;
     }
 }
