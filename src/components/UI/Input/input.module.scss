@@ -1,0 +1,88 @@
+$form-group-border: 1px solid var(--neutral-40, #8D94A7);
+
+$input-margin: 10px 16px 10px 12px;
+$icon-margin: 10px 0px 10px 16px;
+$active-input-color : var(--primary-main, #1973E8);
+$hover-input-color: var(--primary-pressed, #78C0FA);
+$disabled-input-placeholder-color: var(--neutral-50, #353945);
+
+$bachground-color: #0D0E12;
+$font-family: Open Sans;
+$font-size: 14px;
+$font-style: normal;
+$font-weight: 400;
+$line-height: 22px;
+
+$error-color: var(--danger-main, #F43131);
+
+$disabled-bodrder-collor: var(--neutral-50, #353945);
+
+.form-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    border: $form-group-border;
+    border-radius: 100px;
+    width: 100%;
+    background-color: $bachground-color;
+
+    font-family: $font-family;
+    font-size: $font-size;
+    font-style: $font-style;
+    font-weight: $font-weight;
+    line-height: $line-height;
+
+    &__disabled {
+        border: 1px solid $disabled-bodrder-collor;
+    }
+
+    &__error {
+        border: 1px solid $error-color;
+    }
+
+    .icon__container {
+        background-color: $bachground-color;
+        margin: $icon-margin;
+    }
+
+    .input {
+        margin: $input-margin;
+        width: 100%;
+        background-color: $bachground-color;
+        border: none;
+    }
+
+    .input::placeholder {
+        font-family: $font-family;
+        font-size: $font-size;
+        font-style: $font-style;
+        font-weight: $font-weight;
+        line-height: $line-height;
+    }
+
+    .input:focus::placeholder {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .input:focus {
+        caret-color: $active-input-color;
+    }
+
+    input:disabled::placeholder {
+        color: $disabled-input-placeholder-color;
+    }
+}
+
+.form-group:hover {
+    border: 1px solid $hover-input-color;
+}
+
+.form-group:focus-within {
+    border: 1px solid $active-input-color ;
+}
+
+.form-group__disabled:hover {
+    border: 1px solid $disabled-bodrder-collor;
+}

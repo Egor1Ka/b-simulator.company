@@ -1,0 +1,44 @@
+    
+  .mainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: black;
+  
+    .textCenter {
+      text-align: center;
+      h1,
+      h3 {
+        text-align: center;
+        margin: 10px;
+        cursor: default;
+      }
+  
+      h1 {
+        font-size: 8em;
+        transition: font-size 200ms ease-in-out;
+        border-bottom: 1px dashed white;
+      }
+      
+      button {
+        border: 1px solid white;
+        background: transparent;
+        outline: none;
+        padding: 10px 20px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: black;
+        text-transform: uppercase;
+        text-decoration: underline;
+        transition: background-color 200ms ease-in;
+        margin: 20px 0;
+        
+        &:hover {
+          background-color: white;
+          color: #555;
+          cursor: pointer;
+        }
+      }
+    }
+  }
