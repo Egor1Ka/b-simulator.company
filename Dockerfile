@@ -1,4 +1,4 @@
-FROM node:18
+FROM node:18.12.1
 COPY . /simulator_company_static
 WORKDIR /simulator_company_static
 RUN yarn install && yarn run build
