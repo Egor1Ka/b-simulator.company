@@ -4,7 +4,7 @@ import React, {
 import classNames from 'classnames';
 import Image from 'next/image';
 import emailIcon from '../../../../public/icons/email-icon.svg';
-import styles from './Input.module.scss';
+import styles from './input.module.scss';
 
 interface InputProps {
   value?: string;
