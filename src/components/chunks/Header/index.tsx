@@ -10,6 +10,14 @@ import logo from '../../../../public/logo.svg';
 function Header() {
   const router = useRouter();
 
+  const goToLogIn = () => {
+    window.open('https://account.corezoid.com/enter/login', '_self');
+  };
+
+  const goToControl = () => {
+    window.open('https://control.events', '_self');
+  };
+
   return (
     <header className={style.header}>
       <div className={style.headerContent}>
@@ -53,8 +61,8 @@ function Header() {
         </div>
 
         <div className={style.loginGroup}>
-          <Button type="outlined">Login</Button>
-          <Button>Create Actor</Button>
+          <Button onClick={goToLogIn} type="outlined">Login</Button>
+          <Button onClick={goToControl}>Create Actor</Button>
         </div>
       </div>
     </header>
