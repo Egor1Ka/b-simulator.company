@@ -1,5 +1,6 @@
 .footer {
     border-top: 1px solid rgba(53, 57, 69, 1);
+    background-color: rgba(13, 14, 18, 1);
 }
 
 .footerContent {
@@ -11,7 +12,7 @@
     padding-bottom: 48px;
     max-width: 1192px;
     width: 100%;
-    flex-direction:column;
+    flex-direction: column;
 
     hr {
         border-top: 1px solid rgba(50, 50, 50, 1);
