@@ -10,6 +10,7 @@ interface ButtonProps {
   disabled?: boolean,
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   styleClass?: string;
+  style?: object
 }
 
 export default function Button({
@@ -19,6 +20,7 @@ export default function Button({
   disabled = false,
   onClick,
   styleClass,
+  style,
   ...attrs
 }: ButtonProps): React.JSX.Element {
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -44,6 +46,7 @@ export default function Button({
       className={buttonClasses}
       type="button"
       disabled={disabled}
+      style={style}
       {...attrs}
     >
       {children}
