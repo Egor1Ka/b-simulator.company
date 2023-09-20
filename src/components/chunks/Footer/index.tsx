@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Button from '../../UI/Button';
+import Input from '../../UI/Input';
 import awsPartnerImg from '../../../../public/aws-partner.png';
 import corezoidLogoImg from '../../../../public/corezoid-logo.png';
 import style from './Footer.module.scss';
 
 function Footer() {
+  const [email, setEmail] = useState('');
+  const handleChangeEmail = (value: string) => {
+    setEmail(value);
+  };
   return (
     <footer className={style.footer}>
       <div className={style.footerContent}>
@@ -33,7 +38,14 @@ function Footer() {
             <section>
               <h5>Subscribe to our newsletter</h5>
               <p>The latest Corezoid news, articles, and resources, sent straight to your inbox.</p>
-              <Button>Subscribe</Button>
+              <div className={style.emailGroup}>
+                <Input
+                  value={email}
+                  onChange={handleChangeEmail}
+                  placeholder="Your email address"
+                />
+                <Button>Subscribe</Button>
+              </div>
             </section>
           </div>
         </div>

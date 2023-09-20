@@ -1,5 +1,4 @@
 $form-group-border: 1px solid var(--neutral-40, #8D94A7);
-$form-group-max-width: 375px;
 
 $input-margin: 10px 16px 10px 12px;
 $icon-margin: 10px 0px 10px 16px;
@@ -25,7 +24,7 @@ $disabled-bodrder-collor: var(--neutral-50, #353945);
     position: relative;
     border: $form-group-border;
     border-radius: 100px;
-    max-width: $form-group-max-width;
+    width: 100%;
     background-color: $bachground-color;
 
     font-family: $font-family;
@@ -36,6 +35,10 @@ $disabled-bodrder-collor: var(--neutral-50, #353945);
 
     &__disabled {
         border: 1px solid $disabled-bodrder-collor;
+    }
+
+    &__error {
+        border: 1px solid $error-color;
     }
 
     .icon__container {
@@ -69,19 +72,6 @@ $disabled-bodrder-collor: var(--neutral-50, #353945);
 
     input:disabled::placeholder {
         color: $disabled-input-placeholder-color;
-    }
-
-    &__error {
-        position: absolute;
-        top: 45px;
-        left: 15px;
-        display: block;
-        color: $error-color;
-        font-family: Inter;
-        font-size: 12px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 16px;
     }
 }
 
