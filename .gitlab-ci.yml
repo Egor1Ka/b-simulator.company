@@ -15,8 +15,8 @@ build-pre:
     NODE_ENV: "development"
   script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-      --build-arg NODE_ENV=development
     - docker build . -f Dockerfile -t $CI_REGISTRY/$workspace/$name:latest  
+        --build-arg NODE_ENV=development
     - docker push $CI_REGISTRY/$workspace/$name:latest
   only:
     - main
