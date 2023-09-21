@@ -2,6 +2,10 @@ import React, { createContext, FC } from 'react';
 import { IntlProvider } from 'react-intl';
 import { Locale, useLocale } from '@/hooks/useLocale';
 
+import GtpScript from '../components/scripts/gtm';
+import LinkedInScript from '../components/scripts/linkedin';
+import MetaScript from '../components/scripts/meta';
+
 import '../styles/global.scss';
 
 interface GlobalMeta {
@@ -23,13 +27,20 @@ const globalMeta: GlobalMeta = {
 
 const MyApp: FC<MyAppProps> = ({ Component, pageProps = {} }) => {
   const { locale, messages } = useLocale();
+  const isProduction = process.env.IS_PRODUCTION_BUILD;
 
   return (
-    <IntlProvider locale={locale as Locale} messages={messages}>
-      <GlobalContext.Provider value={globalMeta}>
-        <Component {...pageProps} />
-      </GlobalContext.Provider>
-    </IntlProvider>
+    <>
+      {isProduction && <GtpScript />}
+      {isProduction && <LinkedInScript />}
+      {isProduction && <MetaScript />}
+
+      <IntlProvider locale={locale as Locale} messages={messages}>
+        <GlobalContext.Provider value={globalMeta}>
+          <Component {...pageProps} />
+        </GlobalContext.Provider>
+      </IntlProvider>
+    </>
   );
 };
 
