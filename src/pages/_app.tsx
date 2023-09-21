@@ -5,6 +5,7 @@ import { Locale, useLocale } from '@/hooks/useLocale';
 import GtpScript from '../components/scripts/gtm';
 import LinkedInScript from '../components/scripts/linkedin';
 import MetaScript from '../components/scripts/meta';
+import ControlChat from '../components/scripts/controlChat';
 
 import '../styles/global.scss';
 
@@ -34,6 +35,7 @@ const MyApp: FC<MyAppProps> = ({ Component, pageProps = {} }) => {
       {isProduction && <GtpScript />}
       {isProduction && <LinkedInScript />}
       {isProduction && <MetaScript />}
+      <ControlChat />
 
       <IntlProvider locale={locale as Locale} messages={messages}>
         <GlobalContext.Provider value={globalMeta}>
