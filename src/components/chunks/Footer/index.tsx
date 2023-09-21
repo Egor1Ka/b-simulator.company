@@ -5,12 +5,36 @@ import Input from '../../UI/Input';
 import awsPartnerImg from '../../../../public/aws-partner.png';
 import corezoidLogoImg from '../../../../public/corezoid-logo.png';
 import style from './Footer.module.scss';
+import fetchRequest from '@/API/fetchRequest';
+import isEmailValid from '@/helpers/regularExpressions/isEmailValid';
+import footerRequest from '@/API/footerRequest';
 
-function Footer() {
+function Footer(): React.JSX.Element {
   const [email, setEmail] = useState('');
+  const [emailError, setemailError] = useState<null | string>(null);
+
   const handleChangeEmail = (value: string) => {
+    if (value.length === 0) {
+      setemailError(null);
+    } else {
+      setemailError(isEmailValid(value) ? null : 'Input correct email');
+    }
     setEmail(value);
   };
+
+  const handleSendEmailClick = async () => {
+    if (!email) {
+      setemailError('Email is required');
+    } else if (!emailError) {
+      try {
+        const response = await footerRequest(email);
+        setEmail('');
+      } catch (error) {
+        setemailError('server error');
+      }
+    }
+  };
+
   return (
     <footer className={style.footer}>
       <div className={style.footerContent}>
@@ -40,11 +64,13 @@ function Footer() {
               <p>The latest Corezoid news, articles, and resources, sent straight to your inbox.</p>
               <div className={style.emailGroup}>
                 <Input
+                  error={emailError}
+                  type='email'
                   value={email}
                   onChange={handleChangeEmail}
                   placeholder="Your email address"
                 />
-                <Button>Subscribe</Button>
+                <Button onClick={handleSendEmailClick}>Subscribe</Button>
               </div>
             </section>
           </div>
