@@ -9,6 +9,9 @@ const nextConfig = {
     loader: 'default',
     domains: ['localhost'],
   },
+  env: {
+    IS_PRODUCTION_BUILD: process.env.NODE_ENV === 'production'
+  }
 };
 
 module.exports = nextConfig;
