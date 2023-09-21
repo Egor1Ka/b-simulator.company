@@ -1,4 +1,6 @@
 FROM node:18.12.1
+ARG NODE_ENV
+ENV NODE_ENV=$NODE_ENV
 COPY . /simulator_company_static
 WORKDIR /simulator_company_static
 RUN yarn install && yarn run build
