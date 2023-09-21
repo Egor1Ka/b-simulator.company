@@ -1,17 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Button from '../../UI/Button';
 import Input from '../../UI/Input';
 import awsPartnerImg from '../../../../public/aws-partner.png';
 import corezoidLogoImg from '../../../../public/corezoid-logo.png';
 import style from './Footer.module.scss';
-import fetchRequest from '@/API/fetchRequest';
 import isEmailValid from '@/helpers/regularExpressions/isEmailValid';
-import footerRequest from '@/API/footerRequest';
+import emailSubscribeRequest from '@/API/emailSubscribeRequest';
+import SuccessNotification from '@/components/UI/SuccessNotification';
 
 function Footer(): React.JSX.Element {
   const [email, setEmail] = useState('');
+  const [successMessage, setSuccessMessage] = useState(false);
   const [emailError, setemailError] = useState<null | string>(null);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setSuccessMessage(false), 3000);
+    return () => clearTimeout(timeout);
+  }, [successMessage]);
 
   const handleChangeEmail = (value: string) => {
     if (value.length === 0) {
@@ -27,8 +33,9 @@ function Footer(): React.JSX.Element {
       setemailError('Email is required');
     } else if (!emailError) {
       try {
-        const response = await footerRequest(email);
+        const response = await emailSubscribeRequest(email);
         setEmail('');
+        setSuccessMessage(true);
       } catch (error) {
         setemailError('server error');
       }
@@ -106,6 +113,7 @@ function Footer(): React.JSX.Element {
           </div>
         </div>
       </div>
+      {successMessage && <SuccessNotification message='sucess'/>}
     </footer>
   );
 }

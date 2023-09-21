@@ -1,6 +1,6 @@
 import fetchRequest from "./fetchRequest";
 
-const footerRequest = async (email: string) => {
+const emailSubscribeRequest = async (email: string) => {
     try {
         const url = process.env.NEXT_PUBLIC_FOOTER_WEBHOOK_APGV_DEV as string;
         const method = 'POST';
@@ -24,4 +24,4 @@ const footerRequest = async (email: string) => {
     }
 }
 
-export default footerRequest;
+export default emailSubscribeRequest;
