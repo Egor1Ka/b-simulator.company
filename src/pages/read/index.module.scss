@@ -1,0 +1,22 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100%;
+  background-color: rgba(13, 14, 18, 1);
+}
+
+.mainContent {
+  display: flex;
+  margin: auto;
+  padding-right: 24px;
+  padding-left: 24px;
+  padding-top: 0;
+  padding-bottom: 0;
+  max-width: 1192px;
+  width: 100%;
+  flex-direction: column;
+}
+
+
