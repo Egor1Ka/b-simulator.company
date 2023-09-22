@@ -17,6 +17,19 @@ $error-color: var(--danger-main, #F43131);
 
 $disabled-bodrder-collor: var(--neutral-50, #353945);
 
+
+.form-group:hover {
+    border: 1px solid $hover-input-color;
+}
+
+.form-group:focus-within {
+    border: 1px solid $active-input-color ;
+}
+
+.form-group__disabled:hover {
+    border: 1px solid $disabled-bodrder-collor;
+}
+
 .form-group {
     display: flex;
     flex-direction: row;
@@ -35,10 +48,6 @@ $disabled-bodrder-collor: var(--neutral-50, #353945);
 
     &__disabled {
         border: 1px solid $disabled-bodrder-collor;
-    }
-
-    &__error {
-        border: 1px solid $error-color;
     }
 
     .icon__container {
@@ -73,16 +82,28 @@ $disabled-bodrder-collor: var(--neutral-50, #353945);
     input:disabled::placeholder {
         color: $disabled-input-placeholder-color;
     }
-}
 
-.form-group:hover {
-    border: 1px solid $hover-input-color;
-}
+    //
 
-.form-group:focus-within {
-    border: 1px solid $active-input-color ;
-}
+    &__error {
+        border-color: $error-color;
 
-.form-group__disabled:hover {
-    border: 1px solid $disabled-bodrder-collor;
+        &:focus-within {
+            border-color: $error-color;
+        }
+
+        &:hover {
+            border-color: $error-color;
+        }
+
+        &__mesage {
+            position: absolute;
+            top: 100%;
+            left: 5%;
+            color: $error-color;
+            font-size: 12px;
+            font-weight: 400;
+        }
+    }
+
 }
