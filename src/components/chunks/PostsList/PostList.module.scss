@@ -1,0 +1,12 @@
+.postList {
+    margin-top: 96px;
+    margin-bottom: 96px;
+
+    ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: auto;
+        gap: 48px;
+    }
+
+}

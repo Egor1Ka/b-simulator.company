@@ -13,6 +13,7 @@ build-pre:
     workspace: utils-private
     name: simulator_company_static
     NODE_ENV: "development"
+    ## NODE_ENV: possible values "development" | "production" , use "production" when build to prod
   script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     - docker build . -f Dockerfile -t $CI_REGISTRY/$workspace/$name:latest  
