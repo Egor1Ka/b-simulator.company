@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
+import isEmailValid from '@/helpers/regularExpressions/isEmailValid';
+import emailSubscribeRequest from '@/API/emailSubscribeRequest';
+import SuccessNotification from '@/components/UI/SuccessNotification';
 import Button from '../../UI/Button';
 import Input from '../../UI/Input';
 import awsPartnerImg from '../../../../public/aws-partner.png';
 import corezoidLogoImg from '../../../../public/corezoid-logo.png';
 import style from './Footer.module.scss';
-import isEmailValid from '@/helpers/regularExpressions/isEmailValid';
-import emailSubscribeRequest from '@/API/emailSubscribeRequest';
-import SuccessNotification from '@/components/UI/SuccessNotification';
 
 function Footer(): React.JSX.Element {
   const [email, setEmail] = useState('');
@@ -33,7 +33,7 @@ function Footer(): React.JSX.Element {
       setemailError('Email is required');
     } else if (!emailError) {
       try {
-        const response = await emailSubscribeRequest(email);
+        await emailSubscribeRequest(email);
         setEmail('');
         setSuccessMessage(true);
       } catch (error) {
@@ -72,7 +72,7 @@ function Footer(): React.JSX.Element {
               <div className={style.emailGroup}>
                 <Input
                   error={emailError}
-                  type='email'
+                  type="email"
                   value={email}
                   onChange={handleChangeEmail}
                   placeholder="Your email address"
@@ -113,7 +113,7 @@ function Footer(): React.JSX.Element {
           </div>
         </div>
       </div>
-      {successMessage && <SuccessNotification message='sucess'/>}
+      {successMessage && <SuccessNotification message="sucess" />}
     </footer>
   );
 }

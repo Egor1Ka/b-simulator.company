@@ -6,7 +6,6 @@ import Link from 'next/link';
 import Button from '../../UI/Button';
 import style from './Header.module.scss';
 import logo from '../../../../public/logo.svg';
-import SuccessNotification from '@/components/UI/SuccessNotification';
 
 function Header() {
   const router = useRouter();

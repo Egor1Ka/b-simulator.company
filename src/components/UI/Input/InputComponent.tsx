@@ -56,7 +56,7 @@ const Input: React.FC<InputProps> = ({
         placeholder={placeholder}
         disabled={disabled}
       />
-      {error&&<span className={styles['form-group__error__mesage']}>{error}</span>}
+      {error && <span className={styles['form-group__error__mesage']}>{error}</span>}
     </div>
   );
 };
