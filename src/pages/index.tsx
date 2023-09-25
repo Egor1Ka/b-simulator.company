@@ -2,6 +2,7 @@ import React, {
 } from 'react';
 import Image from 'next/image';
 import Button from '@/components/UI/Button';
+import TextUnderlied from '@/components/chunks/TextUnderlied';
 // import { useTranslate } from '@/hooks/useTranslate';
 import twinImg from '../../public/twin.png';
 import mainImg from '../../public/main.png';
@@ -31,7 +32,9 @@ const Main: React.FC = () => (
               {' '}
               <br />
               {' '}
-              of your Company
+              of your
+              {' '}
+              <TextUnderlied>Company</TextUnderlied>
             </span>
           </h1>
           <p>
