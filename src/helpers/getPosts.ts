@@ -6,6 +6,7 @@ import matter, { GrayMatterFile } from 'gray-matter';
 export interface PostData {
   id: string;
   date: string;
+  tags: string[]
   [key: string]: any;
 }
 
@@ -22,6 +23,7 @@ function getSortedPostsData(startIndex: number, endIndex: number): PostData[] {
     return {
       id,
       date: matterResult.data.date,
+      tags: matterResult.data.tags,
       ...matterResult.data,
     };
   });

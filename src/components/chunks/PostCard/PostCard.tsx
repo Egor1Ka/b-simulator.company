@@ -18,9 +18,22 @@ const PostCard: React.FC<PostProps> = ({ item }) => (
       />
     </div>
     <div className={styles.postGroup}>
-      <div><span className={styles.tag}>{item.category[0]}</span></div>
-      <span className={styles.date}>{item.date}</span>
-      <h5 className={styles.title}>{item.title}</h5>
+      <div>
+        <span className={styles.date}>{item.date}</span>
+        <h5 className={styles.title}>{item.title}</h5>
+      </div>
+      <div className={styles.tagList}>
+        <hr />
+        <div style={{ height: 22 }}>
+          <div className={styles.tagListContainer}>
+            {item.tags ? (
+              <ul>
+                {item.tags.map((t) => <li className={styles.tagList} key={t}>{`#${t}`}</li>)}
+              </ul>
+            ) : null}
+          </div>
+        </div>
+      </div>
     </div>
   </li>
 );
