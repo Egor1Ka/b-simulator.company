@@ -1,7 +1,7 @@
 $license-padding: 24px 40px 48px 40px;
 
 .license {
-    &__active {
+    &Active {
         width: 100%;
         padding: $license-padding;
         border: 1px solid var(--neutral-50, #353945);
@@ -9,7 +9,7 @@ $license-padding: 24px 40px 48px 40px;
         border-radius: 8px;
     }
 
-    &__disabled {
+    &Disabled {
         width: 100%;
         padding: $license-padding;
         background: rgba(255, 255, 255, 0.06);
@@ -18,27 +18,27 @@ $license-padding: 24px 40px 48px 40px;
         margin-left: 10px;
     }
 
-    &__container {
+    &Container {
         display: flex;
         flex-direction: column;
         height: 100%;
     }
 
-    &__title {
+    &Title {
         font-family: Open Sans;
         font-size: 24px;
         font-weight: 600;
         line-height: 28px;
     }
 
-    &__options__container {
+    &OptionsContainer {
         display: flex;
         gap: 10px;
         font-size: 14px;
         font-weight: 500;
         line-height: normal;
 
-        .active__option {
+        .ActiveOption {
             margin-top: 12px;
             padding: 4px 8px;
             border-radius: 6px;
@@ -48,7 +48,7 @@ $license-padding: 24px 40px 48px 40px;
             color: var(--primary-text, #70B3FF);
         }
 
-        .disabled__option {
+        .DisabledOption {
             margin-top: 12px;
             padding: 4px 8px;
             border-radius: 6px;
@@ -58,7 +58,7 @@ $license-padding: 24px 40px 48px 40px;
         }
     }
 
-    &__description {
+    &Description {
         margin-top: 16px;
         padding-bottom: 24px;
         margin-bottom: auto;

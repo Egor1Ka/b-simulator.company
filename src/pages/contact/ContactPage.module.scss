@@ -8,7 +8,7 @@
 }
 
 .get {
-    &__title {
+    &Title {
         padding: 48px 0px;
         color: var(--neutral-10, #FFF);
         text-align: center;
@@ -20,7 +20,7 @@
     }
 }
 
-.contact-us {
+.contactUs {
     display: flex;
     margin-top: 24px;
     width: 100%;
@@ -29,13 +29,13 @@
     gap: 20px;
     min-height: 400px;
 
-    &__info {
+    &Info {
         text-align: inherit;
         padding-right: 10%;
         width: 100%;
     }
 
-    &__title {
+    &Title {
 
         padding-top: 16px;
         font-size: 32px;
@@ -44,7 +44,7 @@
         line-height: 40px;
     }
 
-    &__description {
+    &Description {
         padding-top: 12px;
         font-size: 18px;
         font-style: normal;
@@ -52,38 +52,40 @@
         line-height: 24px;
     }
 
-    &__iframe__container {
+    &IframeContainer {
         width: 100%;
+
     }
 
-    &__iframe {
+    &Iframe {
         width: 100%;
         height: 100%;
-
+        border: 1px solid var(--neutral-50, #353945);
+        border-radius: 10px;
     }
 
 }
 
 .workshop {
-    &__section {
+    &Section {
         margin-top: 144px;
         display: flex;
         gap: 48px;
         width: 100%;
     }
 
-    &__info__container {
+    &InfoContainer {
         width: 100%;
         display: flex;
         flex-direction: column;
     }
 
-    &__image__container {
+    &ImageContainer {
         position: relative;
         width: 100%;
     }
 
-    &__info__title {
+    &InfoTitle {
         text-align: inherit;
         color: var(--neutral-10, #FFF);
         font-size: 32px;
@@ -92,24 +94,24 @@
         margin-bottom: 24px;
     }
 
-    &__info__details {
+    &InfoDetails {
         font-size: 16px;
         font-weight: 400;
         line-height: 24px;
     }
 
-    &__info__details:first-of-type {
+    &InfoDetails:first-of-type {
         margin-right: 32px;
     }
 
-    &__info__training__program {
+    &InfoTrainingProgram {
         margin-top: 8px;
         font-size: 16px;
         font-weight: 600;
         line-height: 24px;
     }
 
-    &__info__description {
+    &InfoDescription {
         margin-top: 16px;
         margin-bottom: auto;
         padding-bottom: 24px;
@@ -118,7 +120,7 @@
         line-height: 24px;
     }
 
-    &__image__description {
+    &ImageDescription {
         position: absolute;
         width: 100%;
         bottom: 0;
@@ -131,22 +133,22 @@
         line-height: 26px;
     }
 
-    &__image {
+    &Image {
         width: 100%;
     }
 
-    &__info__button {
+    &InfoButton {
         width: fit-content;
     }
 
-    &__image__section {
+    &ImageSection {
         width: 100%;
     }
 
 }
 
 .knowledge {
-    &__card__container {
+    &CardContainer {
         margin-top: 144px;
         display: flex;
         width: 100%;
@@ -154,15 +156,15 @@
         gap: 20px;
     }
 
-    &__card__button {
+    &CardButton {
         width: 100%;
     }
 }
 
 .request {
 
-
-    &__section {
+    &Section {
+        
         margin-top: 144px;
         border-radius: 8px;
         border: 1px solid var(--neutral-50, #353945);
@@ -172,25 +174,25 @@
         background: radial-gradient(100% 100% at 50% 100%, rgb(85 140 240 / 29%) 0%, rgba(67, 138, 244, 0) 94.3%);
     }
 
-    &__scontainer {
+    &Container {
         display: flex;
         justify-content: space-between
     }
 
-    &__email_container {
+    &EmailContainer {
         display: flex;
         flex-direction: row;
         align-items: center;
         gap: 16px;
     }
 
-    &__title {
+    &Title {
         font-size: 32px;
         font-weight: 600;
         line-height: 40px;
     }
 
-    &__description {
+    &Description {
         margin-top: 12px;
         font-size: 16px;
         font-weight: 400;
@@ -209,64 +211,64 @@
     flex-direction: column;
     align-items: center;
 
-    &__section {
+    &Section {
         margin-top: 144px;
         margin-bottom: 144px;
         width: 100%;
     }
 
-    &__container {
+    &Container {
         display: flex;
         width: 100%;
         gap: 16px;
 
     }
 
-    &__img__container__control {
+    &ImgContainerControl {
         padding: 40px 40px;
     }
 
-    &__img__container_book {
+    &ImgContainerBook {
         padding: 20px 32px;
     }
 
-    &__text {
+    &Text {
         text-align: center;
         font-weight: 400;
         font-family: Open Sans;
     }
 
-    &__title {
+    &Title {
         font-size: 24px;
         font-style: normal;
         font-weight: 600;
         line-height: 32px;
     }
 
-    &__description__book {
+    &DescriptionВook {
         padding-top: 8px;
         font-size: 18px;
         line-height: 24px;
     }
 
-    &__description__control {
+    &DescriptionControl {
         padding-top: 8px;
         font-size: 12px;
         line-height: 20px;
     }
 
-    &__button__container {
+    &ButtonContainer {
         padding-top: 24px;
         width: 100%;
         display: flex;
         justify-content: space-between;
     }
 
-    &__button__container__book {
+    &ButtonContainerBook {
         padding-top: 24px;
     }
 
-    &__download__button {
+    &DownloadButton {
         background: rgba(255, 255, 255, 0.06);
         display: flex;
         gap: 8px;

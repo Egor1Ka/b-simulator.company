@@ -16,25 +16,25 @@ const Contact: React.FC = () => {
   return (
     <Layout>
       <div className={`${styles.container} contact`}>
-        <h1 className={`${styles.get__title}`}>{t('contact.contact')} <span className='underlining'>{t('contact.us')}</span> </h1>
-        <section className={styles['contact-us']}>
-          <div className={styles['contact-us__info']}>
-            <h2 className={styles['contact-us__title']}>{t('contact.contact-us__title')}</h2>
-            <p className={styles['contact-us__description']}>{t('contact.contact-us__description')}</p>
+        <h1 className={`${styles.getTitle}`}>{t('contact.contact')} <span className='underlining'>{t('contact.us')}</span> </h1>
+        <section className={styles.contactUs}>
+          <div className={styles.contactUsInfo}>
+            <h2 className={styles.contactUsTitle}>{t('contact.contactUs__title')}</h2>
+            <p className={styles.contactUsDescription}>{t('contact.contactUs__description')}</p>
           </div>
-          <div className={styles['contact-us__iframe__container']}>
-            <iframe src={contactUs_CDU_Lik} className={styles['contact-us__iframe']} />
+          <div className={styles.contactUsIframeContainer}>
+            <iframe src={contactUs_CDU_Lik} className={styles.contactUsIframe} />
           </div>
         </section>
-        <section className={styles.workshop__section}>
-          <div className={styles.workshop__image__section}>
-            <div className={styles.workshop__image__container}>
-              <Image alt='workshop' src={imageWorkshop} className={styles.workshop__image} />
-              <div className={styles.workshop__image__description}>The Curse of Frankenstein (1957) movie still</div>
+        <section className={styles.workshopSection}>
+          <div className={styles.workshopImageSection}>
+            <div className={styles.workshopImageContainer}>
+              <Image alt='workshop' src={imageWorkshop} className={styles.workshopImage} />
+              <div className={styles.workshopImageDescription}>The Curse of Frankenstein (1957) movie still</div>
             </div>
           </div>
-          <div className={styles.workshop__info__container}>
-            <h2 className={styles.workshop__info__title}>
+          <div className={styles.workshopInfoContainer}>
+            <h2 className={styles.workshopInfoTitle}>
               <p className='underlining'>
                 {t('contact.workshop__title')}
               </p>
@@ -42,12 +42,12 @@ const Contact: React.FC = () => {
               {t('contact.workshop__сase')}
             </h2>
             <div>
-              <span className={styles.workshop__info__details}> {t('contact.workshop__participants')} </span>
-              <span className={styles.workshop__info__details}>{t('contact.workshop__price')}</span>
+              <span className={styles.workshopInfoDetails}> {t('contact.workshop__participants')} </span>
+              <span className={styles.workshopInfoDetails}>{t('contact.workshop__price')}</span>
             </div>
-            <p className={styles.workshop__info__training__program}>{t('contact.workshop__training__program')}</p>
-            <p className={styles.workshop__info__description}>{t('contact.workshop__description')}</p>
-            <div styleClass={styles.workshop__info__button}>
+            <p className={styles.workshopInfoTrainingProgram}>{t('contact.workshop__training__program')}</p>
+            <p className={styles.workshopInfoDescription}>{t('contact.workshop__description')}</p>
+            <div styleClass={styles.workshopInfoButton}>
               <Button
                 type='secondary'
                 link='https://calendly.com/middleware/workshop'
@@ -55,7 +55,7 @@ const Contact: React.FC = () => {
             </div>
           </div>
         </section>
-        <section className={styles.knowledge__card__container}>
+        <section className={styles.knowledgeCardContainer}>
           <ContactCard
             title="Certification"
             options={['Junior', 'Middle', 'Senior']}
@@ -63,7 +63,7 @@ const Contact: React.FC = () => {
             description='RPS: 2 to unlimited <br /> Storage: 15 GB to unlimited <br /> Starting at $40'
             button={
               <Button
-                styleClass={styles.license__button}
+                styleClass={styles.licenseButton}
                 disabled>Coming Soon
               </Button>
             } />
@@ -75,7 +75,7 @@ const Contact: React.FC = () => {
             button={
               <Button
                 type='secondary'
-                styleClass={styles.knowledge__card__button}
+                styleClass={styles.knowledgeCardButton}
                 link='https://calendly.com/middleware/workshop'
               >Book</Button>
             } />
@@ -87,26 +87,26 @@ const Contact: React.FC = () => {
               <Button
                 type='secondary'
                 link='https://calendly.com/middleware/workshop'
-                styleClass={styles.knowledge__card__button}
+                styleClass={styles.knowledgeCardButton}
               >Explore</Button>
             } />
         </section>
-        <section className={styles.request__section}>
-          <div className={styles.request__scontainer}>
-            <div className={styles.request__text}>
-              <h3 className={styles.request__title}>
-                {t('contact.request-p1')}
+        <section className={styles.requestSection}>
+          <div className={styles.requestContainer}>
+            <div className={styles.requestText}>
+              <h3 className={styles.requestTitle}>
+                {t('contact.requestP1')}
                 <span className={`underlining`}>
-                  {t('contact.request-p2')}
+                  {t('contact.requestP2')}
                 </span>
               </h3>
-              <p className={styles.request__description}>
+              <p className={styles.requestDescription}>
                 {t('contact.request_descripton')}
               </p>
             </div>
-            <div className={styles.request__email_container}>
+            <div className={styles.requestEmailContainer}>
               <Input
-                styleClass={styles.request__input}
+                styleClass={styles.requestInput}
                 placeholder="Your email address"
                 type='email'
               />

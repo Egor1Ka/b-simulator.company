@@ -12,29 +12,29 @@ interface ContactCarddProps {
 const ContactCard: React.FC<ContactCarddProps> = ({ type, title, description, button, options }) => {
 
   const typeCard = classNames({
-    [styles.license__active]: type === 'active',
-    [styles.license__disabled]: type === 'disabled',
+    [styles.licenseActive]: type === 'active',
+    [styles.licenseDisabled]: type === 'disabled',
   });
 
   const optionType = classNames({
-    [styles.active__option]: type === 'active',
-    [styles.disabled__option]: type === 'disabled',
+    [styles.ActiveOption]: type === 'active',
+    [styles.DisabledOption]: type === 'disabled',
   });
 
   return (
     <div className={typeCard}>
-      <div className={styles.license__container}>
-        <h2 className={styles.license__title}>
+      <div className={styles.licenseContainer}>
+        <h2 className={styles.licenseTitle}>
           {title}
         </h2>
-        <ul className={styles.license__options__container}>
+        <ul className={styles.licenseOptionsContainer}>
           {options?.map(item => (
             <li key={item} className={optionType}>
               {item}
             </li>
           ))}
         </ul>
-        <p className={styles.license__description} dangerouslySetInnerHTML={{ __html: description }}></p>
+        <p className={styles.licenseDescription} dangerouslySetInnerHTML={{ __html: description }}></p>
         {
           button
         }

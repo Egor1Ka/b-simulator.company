@@ -12,14 +12,14 @@
         "workshop__price": "Price: 1500$",
         "workshop__training__program": "Individual Simulator.Company training for teams and corporate clients",
         "workshop__description": "This is the fastest way to get going with Simulator.Company. We will create an individualized education program based on your needs. As a result, you will have a well-educated team and a working prototype of your business process.",
-        "request-p1": "Request a ",
-        "request-p2": "Demo",
+        "requestP1": "Request a ",
+        "requestP2": "Demo",
         "request_descripton": "Learn more about Simulator.Company",
-        "card__title__control-p1": "Simulator.company",
-        "card__title__control-p2": "server for self-hosting",
+        "card__title__controlP1": "Simulator.company",
+        "card__title__controlP2": "server for self-hosting",
         "card__description__control": "Publish interactive maps to get map services from your own server or laptop.",
         "card__description__book": "Alexander Witez",
-        "contact-us__title": "Got a question or suggestion?",
-        "contact-us__description": "We'd love to hear it! We are happy to answer any inquiries related to purchasing, billing, cooperation, as well as any questions and suggestions."
+        "contactUs__title": "Got a question or suggestion?",
+        "contactUs__description": "We'd love to hear it! We are happy to answer any inquiries related to purchasing, billing, cooperation, as well as any questions and suggestions."
     }
 }
