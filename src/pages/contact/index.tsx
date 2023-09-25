@@ -16,7 +16,7 @@ const Contact: React.FC = () => {
   return (
     <Layout>
       <div className={`${styles.container} contact`}>
-        <h1 className={`${styles.getTitle}`}>{t('contact.contact')} <span className='underlining'>{t('contact.us')}</span> </h1>
+        <h1 className={`${styles.contactTitle}`}>{t('contact.contact')} <span className='underlining'>{t('contact.us')}</span> </h1>
         <section className={styles.contactUs}>
           <div className={styles.contactUsInfo}>
             <h2 className={styles.contactUsTitle}>{t('contact.contactUs__title')}</h2>
@@ -47,8 +47,9 @@ const Contact: React.FC = () => {
             </div>
             <p className={styles.workshopInfoTrainingProgram}>{t('contact.workshop__training__program')}</p>
             <p className={styles.workshopInfoDescription}>{t('contact.workshop__description')}</p>
-            <div styleClass={styles.workshopInfoButton}>
+            <div className={styles.workshopInfoButtonContainer}>
               <Button
+                styleClass={styles.workshopInfoButton}
                 type='secondary'
                 link='https://calendly.com/middleware/workshop'
               >Book workshop</Button>
@@ -110,10 +111,13 @@ const Contact: React.FC = () => {
                 placeholder="Your email address"
                 type='email'
               />
-              <Button
-                link='/test'
-              >Get Presentation
-              </Button>
+              <div className={styles.requestButtonContainer}>
+                <Button
+                  styleClass={styles.requestButton}
+                  link='/test'
+                >Get Presentation
+                </Button>
+              </div>
             </div>
           </div>
         </section>
