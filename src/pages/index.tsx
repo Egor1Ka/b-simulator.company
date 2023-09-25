@@ -31,7 +31,7 @@ const Main: React.FC = () => (
               {' '}
               <br />
               {' '}
-              or your Company
+              of your Company
             </span>
           </h1>
           <p>
