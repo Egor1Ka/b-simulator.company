@@ -15,6 +15,7 @@ const PostCard: React.FC<PostProps> = ({ item }) => (
         src={item.image}
         layout="fill"
         objectFit="cover"
+        style={{ objectPosition: 'center 25%' }}
       />
     </div>
     <div className={styles.postGroup}>
