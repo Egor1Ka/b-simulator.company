@@ -5,15 +5,15 @@ import Button from '@/components/UI/Button';
 import { useTranslate } from '@/hooks/useTranslate';
 import Image from 'next/image';
 import Input from '@/components/UI/Input';
+import TextUnderlied from '@/components/chunks/TextUnderlied';
 import imageWorkshop from '../../../public/images/workshop.png';
 import ContactCard from '../../components/chunks/ContactCard/index';
 import styles from './ContactPage.module.scss';
-import TextUnderlied from '@/components/chunks/TextUnderlied';
 
 const contactUsCDU = process.env.NEXT_PUBLIC_CONTAT_US_SDU_LINK;
 const Contact: React.FC = () => {
   const { t } = useTranslate();
-  
+
   return (
     <Layout>
       <div className={`${styles.container} contact`}>
