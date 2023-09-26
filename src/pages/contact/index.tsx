@@ -6,21 +6,21 @@ import { useTranslate } from '@/hooks/useTranslate';
 import Image from 'next/image';
 import Input from '@/components/UI/Input';
 import imageWorkshop from '../../../public/images/workshop.png';
-import ContactCard from './ContactCard/index';
+import ContactCard from '../../components/chunks/ContactCard/index';
 import styles from './ContactPage.module.scss';
+import TextUnderlied from '@/components/chunks/TextUnderlied';
 
-const CONTACT_US_CDU = process.env.NEXT_PUBLIC_CONTAT_US_SDU_LINK_DEV;
-
+const contactUsCDU = process.env.NEXT_PUBLIC_CONTAT_US_SDU_LINK;
 const Contact: React.FC = () => {
   const { t } = useTranslate();
-
+  
   return (
     <Layout>
       <div className={`${styles.container} contact`}>
         <h1 className={`${styles.contactTitle}`}>
           {t('contact.contact')}
           {' '}
-          <span className="underlining">{t('contact.us')}</span>
+          <TextUnderlied>{t('contact.us')}</TextUnderlied>
           {' '}
         </h1>
         <section className={styles.contactUs}>
@@ -31,7 +31,7 @@ const Contact: React.FC = () => {
           <div className={styles.contactUsIframeContainer}>
             <iframe
               title="Script"
-              src={CONTACT_US_CDU}
+              src={contactUsCDU}
               className={styles.contactUsIframe}
             />
           </div>
@@ -47,9 +47,11 @@ const Contact: React.FC = () => {
           </div>
           <div className={styles.workshopInfoContainer}>
             <h2 className={styles.workshopInfoTitle}>
-              <p className="underlining">
-                {t('contact.workshop__title')}
-              </p>
+              <TextUnderlied>
+                <p>
+                  {t('contact.workshop__title')}
+                </p>
+              </TextUnderlied>
               <br />
               {t('contact.workshop__сase')}
             </h2>
@@ -67,10 +69,9 @@ const Contact: React.FC = () => {
               <Button
                 styleClass={styles.workshopInfoButton}
                 type="secondary"
-                link="https://calendly.com/middleware/workshop"
+                link={process.env.NEXT_PUBLIC_CALENDLY_WORKSHOP_LINK}
               >
                 Book workshop
-
               </Button>
             </div>
           </div>
@@ -80,7 +81,7 @@ const Contact: React.FC = () => {
             title="Certification"
             options={['Junior', 'Middle', 'Senior']}
             type="disabled"
-            description="RPS: 2 to unlimited <br /> Storage: 15 GB to unlimited <br /> Starting at $40"
+            description="Junior Test: 20 min <br /> Middle Test: 6 hours <br /> Senior Test: 12 hours"
             button={(
               <Button
                 styleClass={styles.licenseButton}
@@ -99,7 +100,7 @@ const Contact: React.FC = () => {
               <Button
                 type="secondary"
                 styleClass={styles.knowledgeCardButton}
-                link="https://calendly.com/middleware/workshop"
+                link={process.env.NEXT_PUBLIC_CALENDLY_SHARING_NIGH_LINK}
               >
                 Book
               </Button>
@@ -112,10 +113,10 @@ const Contact: React.FC = () => {
             button={(
               <Button
                 type="secondary"
-                link="https://calendly.com/middleware/workshop"
+                link=""
                 styleClass={styles.knowledgeCardButton}
               >
-                Explore
+                Get Presentation
               </Button>
             )}
           />
@@ -125,9 +126,9 @@ const Contact: React.FC = () => {
             <div className={styles.requestText}>
               <h3 className={styles.requestTitle}>
                 {t('contact.requestP1')}
-                <span className="underlining">
+                <TextUnderlied>
                   {t('contact.requestP2')}
-                </span>
+                </TextUnderlied>
               </h3>
               <p className={styles.requestDescription}>
                 {t('contact.request_descripton')}
@@ -142,9 +143,9 @@ const Contact: React.FC = () => {
               <div className={styles.requestButtonContainer}>
                 <Button
                   styleClass={styles.requestButton}
-                  link="/test"
+                  link=""
                 >
-                  Get Presentation
+                  Request Demo
                 </Button>
               </div>
             </div>

@@ -2,7 +2,7 @@ import fetchRequest from './fetchRequest';
 
 const emailSubscribeRequest = async (email: string) => {
   try {
-    const url = process.env.NEXT_PUBLIC_FOOTER_WEBHOOK_APGV_DEV as string;
+    const url = process.env.NEXT_PUBLIC_FOOTER_WEBHOOK_APGV as string;
     const method = 'POST';
     const dataToSend = {
       from: 'simulator web site',
