@@ -1,7 +1,8 @@
 import React, {
 } from 'react';
-import styles from './ContactCard.module.scss'
 import classNames from 'classnames';
+import styles from './ContactCard.module.scss';
+
 interface ContactCarddProps {
   type?: 'active' | 'disabled',
   title: string;
@@ -9,8 +10,9 @@ interface ContactCarddProps {
   button: React.ReactNode;
   options?: string[]
 }
-const ContactCard: React.FC<ContactCarddProps> = ({ type, title, description, button, options }) => {
-
+const ContactCard: React.FC<ContactCarddProps> = ({
+  type, title, description, button, options,
+}) => {
   const typeCard = classNames({
     [styles.licenseActive]: type === 'active',
     [styles.licenseDisabled]: type === 'disabled',
@@ -28,18 +30,21 @@ const ContactCard: React.FC<ContactCarddProps> = ({ type, title, description, bu
           {title}
         </h2>
         <ul className={styles.licenseOptionsContainer}>
-          {options?.map(item => (
+          {options?.map((item) => (
             <li key={item} className={optionType}>
               {item}
             </li>
           ))}
         </ul>
-        <p className={styles.licenseDescription} dangerouslySetInnerHTML={{ __html: description }}></p>
+        <p
+          className={styles.licenseDescription}
+          dangerouslySetInnerHTML={{ __html: description }}
+        />
         {
           button
         }
       </div>
-    </div >
+    </div>
   );
 };
 

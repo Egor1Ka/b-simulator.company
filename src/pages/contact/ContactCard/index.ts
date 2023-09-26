@@ -1,3 +1,3 @@
-import ContactCard from "./ContactCard";
+import ContactCard from './ContactCard';
 
 export default ContactCard;

@@ -12,7 +12,7 @@ export interface PostData {
 
 const postsDirectory: string = path.join(process.cwd(), 'posts/en');
 
-function getSortedPostsData(startIndex: number, endIndex: number): PostData[] {
+function getSortedPostsData(page: number): { posts: PostData[]; totalPages: number } {
   const fileNames: string[] = fs.readdirSync(postsDirectory);
   const allPostsData: PostData[] = fileNames.map((fileName: string) => {
     const id: string = fileName.replace(/\.md$/, '');
@@ -35,9 +35,15 @@ function getSortedPostsData(startIndex: number, endIndex: number): PostData[] {
     return -1;
   });
 
-  return sorted.slice(startIndex, endIndex);
+  const postsPerPage = 10;
+  const totalPages = Math.ceil(sorted.length / postsPerPage);
+  const startIndex = (page - 1) * postsPerPage;
+  const endIndex = startIndex + postsPerPage;
+
+  return {
+    posts: sorted.slice(startIndex, endIndex),
+    totalPages,
+  };
 }
 
-export {
-  getSortedPostsData,
-};
+export { getSortedPostsData };
