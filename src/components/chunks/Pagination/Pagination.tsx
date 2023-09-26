@@ -1,6 +1,7 @@
 /* eslint-disable react/no-array-index-key */
-import React from 'react';
+import React, { useEffect } from 'react';
 import cn from 'classnames';
+import { useRouter } from 'next/navigation';
 import styles from './Pagination.module.scss';
 
 interface PaginationProps {
@@ -10,6 +11,29 @@ interface PaginationProps {
 
 const Pagination: React.FC<PaginationProps> = ({ pages, active }) => {
   const maxDisplayPages = 5;
+  const router = useRouter();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [active]);
+
+  const handlePageClick = (page: number) => {
+    router.push(`/read${page > 1 ? `/page/${page}#top` : '#top'}`);
+  };
+
+  const handleNextClick = () => {
+    if (active < pages) {
+      const nextPage = active + 1;
+      handlePageClick(nextPage);
+    }
+  };
+
+  const handlePrevClick = () => {
+    if (active > 1) {
+      const prevPage = active - 1;
+      handlePageClick(prevPage);
+    }
+  };
 
   const getPageNumbers = () => {
     if (pages <= maxDisplayPages) {
@@ -40,7 +64,11 @@ const Pagination: React.FC<PaginationProps> = ({ pages, active }) => {
   return (
     <div className={styles.pagination}>
       {active > 1 ? (
-        <button type="button" className={styles.textButton}>
+        <button
+          type="button"
+          className={styles.textButton}
+          onClick={handlePrevClick}
+        >
           Previous
         </button>
       ) : <div />}
@@ -57,6 +85,7 @@ const Pagination: React.FC<PaginationProps> = ({ pages, active }) => {
                   className={cn(styles.textButton, styles.fixed, {
                     [styles.active]: page === active,
                   })}
+                  onClick={() => handlePageClick(page as number)}
                 >
                   {page}
                 </button>
@@ -67,7 +96,11 @@ const Pagination: React.FC<PaginationProps> = ({ pages, active }) => {
       </div>
 
       {active < pages ? (
-        <button type="button" className={styles.textButton}>
+        <button
+          type="button"
+          className={styles.textButton}
+          onClick={handleNextClick}
+        >
           Next
         </button>
       ) : <div />}
