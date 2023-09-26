@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import PostCard from '../PostCard';
 import { PostData } from '../../../helpers/getPosts';
 
@@ -8,18 +7,14 @@ interface ReadProps {
   initialPosts: PostData[];
 }
 
-const PostList: React.FC<ReadProps> = ({ initialPosts }) => {
-  const [posts] = useState<PostData[]>(initialPosts);
-
-  return (
-    <div className={styles.postList}>
-      <ul>
-        {posts.map((post) => (
-          <PostCard key={post.id} item={post} />
-        ))}
-      </ul>
-    </div>
-  );
-};
+const PostList: React.FC<ReadProps> = ({ initialPosts }) => (
+  <div className={styles.postList}>
+    <ul>
+      {initialPosts.map((post) => (
+        <PostCard key={post.id} item={post} />
+      ))}
+    </ul>
+  </div>
+);
 
 export default PostList;
