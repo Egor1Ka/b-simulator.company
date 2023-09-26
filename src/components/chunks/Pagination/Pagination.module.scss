@@ -1,0 +1,37 @@
+.pagination {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    transition: all .3s;
+    width: 100%;
+
+    ul {
+        display: flex;
+        flex-direction: row;
+        gap: 24px;
+    }
+}
+
+.textButton {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 22px;
+    text-align: left;
+    padding: 10px;
+    background-color: transparent;
+
+    &.fixed {
+        width: 32px;
+        height: 32px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &.active {
+        border-radius: 4px;
+        background-color: rgba(25, 115, 232, 1);
+    }
+}

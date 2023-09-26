@@ -1,0 +1,385 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 6rem;
+  min-height: 100%;
+}
+
+.contact {
+  &Title {
+    padding: 48px 0px;
+    color: var(--neutral-10, #FFF);
+    text-align: center;
+    font-family: Open Sans;
+    font-size: 56px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 64px;
+  }
+}
+
+.contactUs {
+  display: flex;
+  margin-top: 24px;
+  width: 100%;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 490px;
+
+  &Info {
+    text-align: inherit;
+    padding-right: 10%;
+    width: 100%;
+  }
+
+  &Title {
+
+    padding-top: 16px;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 40px;
+  }
+
+  &Description {
+    padding-top: 12px;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  &IframeContainer {
+    width: 100%;
+
+  }
+
+  &Iframe {
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--neutral-50, #353945);
+    border-radius: 10px;
+  }
+
+}
+
+.workshop {
+  &Section {
+    margin-top: 144px;
+    display: flex;
+    gap: 48px;
+    width: 100%;
+    min-height: 350px;
+  }
+
+  &InfoContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &InfoTitle {
+    text-align: inherit;
+    color: var(--neutral-10, #FFF);
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 24px;
+    margin-bottom: 24px;
+  }
+
+  &InfoDetails {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  &InfoDetails:first-of-type {
+    margin-right: 32px;
+  }
+
+  &InfoTrainingProgram {
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+  }
+
+  &InfoDescription {
+    margin-top: 16px;
+    margin-bottom: auto;
+    padding-bottom: 24px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  &ImageDescription {
+    white-space: nowrap;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+    background: rgba(15, 19, 28, 0.32);
+    backdrop-filter: blur(6px);
+    padding: 8px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  &InfoButton {
+    width: fit-content;
+  }
+
+  &ImageSection {
+    min-height: 350px;
+    width: 100%;
+    height: 100%;
+  }
+
+  &Image {
+    width: 100%;
+    min-height: 350px;
+  }
+
+  &ImageContainer {
+    position: relative;
+    width: 100%;
+    min-height: 350px;
+  }
+
+}
+
+.knowledge {
+  &CardContainer {
+    margin-top: 144px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  &CardButton {
+    width: 100%;
+  }
+}
+
+.request {
+
+  &Section {
+    margin-top: 144px;
+    border-radius: 8px;
+    border: 1px solid var(--neutral-50, #353945);
+    padding: 72px 40px;
+    margin-bottom: 96px;
+    width: 100%;
+    background: radial-gradient(100% 100% at 50% 100%, rgb(85 140 240 / 29%) 0%, rgba(67, 138, 244, 0) 94.3%);
+  }
+
+  &Container {
+    display: flex;
+    justify-content: space-between
+  }
+
+  &EmailContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    min-width: 440px;
+  }
+
+  &Title {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 40px;
+  }
+
+  &Description {
+    margin-top: 12px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+  }
+
+
+}
+
+.card {
+  border-radius: 8px;
+  border: 1px solid var(--neutral-50, #353945);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 48px 24px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  &Section {
+    margin-top: 144px;
+    margin-bottom: 144px;
+    width: 100%;
+  }
+
+  &Container {
+    display: flex;
+    width: 100%;
+    gap: 16px;
+
+  }
+
+  &ImgContainerControl {
+    padding: 40px 40px;
+  }
+
+  &ImgContainerBook {
+    padding: 20px 32px;
+  }
+
+  &Text {
+    text-align: center;
+    font-weight: 400;
+    font-family: Open Sans;
+  }
+
+  &Title {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+  }
+
+  &DescriptionВook {
+    padding-top: 8px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  &DescriptionControl {
+    padding-top: 8px;
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  &ButtonContainer {
+    padding-top: 24px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &ButtonContainerBook {
+    padding-top: 24px;
+  }
+
+  &DownloadButton {
+    background: rgba(255, 255, 255, 0.06);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+}
+
+
+
+@media (max-width: 1280px) {
+  .container {
+    padding: 1rem 3rem;
+  }
+
+}
+
+
+@media (max-width: 1000px) {
+
+  .knowledge {
+    &CardContainer {
+      flex-direction: column
+    }
+
+    &CardButton {
+      margin-top: 95px;
+    }
+
+  }
+}
+
+
+@media (max-width: 900px) {
+
+  .contactUs {
+    flex-direction: column;
+    gap: 48px;
+
+    &IframeContainer {
+      height: 490px;
+    }
+
+    &Info {
+      padding-right: initial;
+      width: 100%;
+    }
+
+  }
+
+  .request {
+    &Container {
+      flex-direction: column;
+    }
+
+    &Text {
+      margin-bottom:24px;
+      text-align: center;
+    }
+
+  }
+
+  .workshop {
+    &Section {
+      flex-direction: column;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+
+  .contact {
+    &Title {
+      padding: 24px 0px;
+    }
+  }
+
+  .container {
+    padding: 1rem 1rem;
+  }
+
+  .workshop {
+    &InfoButton {
+      width: 100%;
+    }
+  }
+
+  .request {
+    &EmailContainer {
+      flex-direction: column
+    }
+
+    &ButtonContainer {
+      display: block;
+      width: 100%;
+    }
+
+    &Button {
+      width: 100%;
+    }
+
+    &EmailContainer {
+      min-width: initial;
+      width: 100%;
+    }
+  }
+}

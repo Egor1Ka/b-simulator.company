@@ -34,6 +34,7 @@ $disabled-color: rgba(53, 57, 69, 1);
     font-weight: $font-weight;
     line-height: $line-height;
     background-color: $primary-background-color ;
+    white-space: nowrap;
 
     //primary
     &__primary {
