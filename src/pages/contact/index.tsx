@@ -13,7 +13,7 @@ import TextUnderlied from '@/components/chunks/TextUnderlied';
 const contactUsCDU = process.env.NEXT_PUBLIC_CONTAT_US_SDU_LINK;
 const Contact: React.FC = () => {
   const { t } = useTranslate();
-
+  
   return (
     <Layout>
       <div className={`${styles.container} contact`}>
@@ -69,7 +69,7 @@ const Contact: React.FC = () => {
               <Button
                 styleClass={styles.workshopInfoButton}
                 type="secondary"
-                link="https://calendly.com/middleware/workshop"
+                link={process.env.NEXT_PUBLIC_CALENDLY_WORKSHOP_LINK}
               >
                 Book workshop
               </Button>
@@ -100,7 +100,7 @@ const Contact: React.FC = () => {
               <Button
                 type="secondary"
                 styleClass={styles.knowledgeCardButton}
-                link="https://calendly.com/middleware/sharing-nigh"
+                link={process.env.NEXT_PUBLIC_CALENDLY_SHARING_NIGH_LINK}
               >
                 Book
               </Button>
@@ -113,7 +113,7 @@ const Contact: React.FC = () => {
             button={(
               <Button
                 type="secondary"
-                link="https://calendly.com/middleware/sharing-night"
+                link=""
                 styleClass={styles.knowledgeCardButton}
               >
                 Get Presentation
