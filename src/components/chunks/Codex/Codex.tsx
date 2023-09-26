@@ -12,6 +12,8 @@ const Codex: React.FC = () => {
   };
 
   return (
+
+    
     <div className={style.codexContainer}>
       <div className={style.containerGroup}>
         <div className={style.imgBlock}>
