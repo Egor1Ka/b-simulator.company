@@ -16,8 +16,8 @@ build-pre:
     ## NODE_ENV: possible values "development" | "production" , use "production" when build to prod
   script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-      --build-arg NODE_ENV=development
     - docker build . -f Dockerfile -t $CI_REGISTRY/$workspace/$name:latest  
+        --build-arg NODE_ENV=development
     - docker push $CI_REGISTRY/$workspace/$name:latest
   only:
     - main
@@ -34,6 +34,7 @@ deploy-pre:
     - set +e
     - ssh ${SSH_USER}@${SSH_HOST} "sudo docker stop $CI_PROJECT_TITLE"
     - ssh ${SSH_USER}@${SSH_HOST} "sudo docker rm $CI_PROJECT_TITLE"
+    - ssh ${SSH_USER}@${SSH_HOST} "sudo docker rmi $(docker images | grep none | awk '{print $3}' | tr '\n' ' ') "
     - set -e
     - ssh ${SSH_USER}@${SSH_HOST} "sudo docker run -p 3005:3000 --restart=always -d --name $CI_PROJECT_TITLE --privileged -t $CI_REGISTRY/utils-private/$CI_PROJECT_TITLE:latest "
   only:
