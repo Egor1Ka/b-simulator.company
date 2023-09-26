@@ -18,7 +18,7 @@ const Pagination: React.FC<PaginationProps> = ({ pages, active }) => {
   }, [active]);
 
   const handlePageClick = (page: number) => {
-    router.push(`/read${page > 1 ? `/page/${page}#top` : '#top'}`);
+    router.push(`/read${page > 1 ? `/page/${page}` : ''}`);
   };
 
   const handleNextClick = () => {
@@ -42,7 +42,7 @@ const Pagination: React.FC<PaginationProps> = ({ pages, active }) => {
 
     const pageNumbers: (number | 'ellipsis')[] = [1, 2, 3];
 
-    if (active > 3) {
+    if (active > 4) {
       pageNumbers.push('ellipsis');
     }
 
@@ -50,7 +50,7 @@ const Pagination: React.FC<PaginationProps> = ({ pages, active }) => {
       pageNumbers.push(i);
     }
 
-    if (active < pages - 3) {
+    if (active < pages - 4) {
       pageNumbers.push('ellipsis');
     }
 
