@@ -6,10 +6,21 @@ import TextUnderlied from '@/components/chunks/TextUnderlied';
 import ContactCard from '@/components/chunks/ContactCard';
 import Button from '@/components/UI/Button';
 import CardFAQ from '@/components/chunks/CardFAQ/CardFAQ';
+import debug from '../../../public/videos/Debug.mp4'
 import styles from './ByPage.module.scss';
 
 const Contact: React.FC = () => {
   const { t } = useTranslate();
+  const video = (
+    <video
+      src={debug}
+      autoPlay
+      muted
+      loop
+      className={styles.video}
+      controls={false}
+      style={{ width: '100%', height: '100%' }} />
+  );
 
   return (
     <Layout>
@@ -63,8 +74,7 @@ const Contact: React.FC = () => {
         <section className={styles.questionDescription}>
           <CardFAQ
             media={(
-              // eslint-disable-next-line jsx-a11y/media-has-caption
-              <video src="../../../public/videos/Debug.mp4" controls style={{ width: '100%', height: '100%' }} />
+              video
             )}
             title={t('by.titleCard1')}
             description={t('by.descriptionCard1')}

@@ -48,3 +48,19 @@
         margin-right: 0px;
     }
 }
+
+@media (max-width: 900px) {
+    .card {
+        display: block;
+    }
+
+    .media {
+        margin-bottom: 40px;
+    }
+
+    .title {
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 32px;
+    }
+}
