@@ -6,7 +6,7 @@ import TextUnderlied from '@/components/chunks/TextUnderlied';
 import ContactCard from '@/components/chunks/ContactCard';
 import Button from '@/components/UI/Button';
 import CardFAQ from '@/components/chunks/CardFAQ/CardFAQ';
-import debug from '../../../public/videos/Debug.mp4'
+import debug from '../../../public/videos/Debug.mp4';
 import styles from './ByPage.module.scss';
 
 const Contact: React.FC = () => {
@@ -19,7 +19,8 @@ const Contact: React.FC = () => {
       loop
       className={styles.video}
       controls={false}
-      style={{ width: '100%', height: '100%' }} />
+      style={{ width: '100%', height: '100%' }}
+    />
   );
 
   return (
