@@ -7,12 +7,21 @@
     width: 100%;
     flex-direction: column;
 
+    table {
+        border-collapse: separate;
+        border-spacing: 0 8px;
+      }
+
     h1, h2, h3, h4, h5, h6, ul, ol, p, iframe, table, blockquote {
         margin-bottom: 24px;
     }
 
     h2 {
         font-size: 24px;
+    }
+
+    em {
+        font-style: italic;
     }
 
     h3 {
@@ -50,19 +59,15 @@
     }
 
     blockquote {
-        border: 4px solid #187ADC;
-        padding: 36px 36px 12px;
-        margin: 0 0 24px;
-        
+        padding: 24px;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 32px;
+        text-align: left;
+        background-color: #072645;
+
         p {
-            font-family: 'Open-Sans', sans-serif;
-            font-weight: 600;
-            font-size: 20px;
-            line-height: 1.5;
-        }
-        em {
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            font-size: 20px;
+            margin-bottom: 0;
         }
     }
 
