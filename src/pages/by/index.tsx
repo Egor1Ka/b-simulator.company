@@ -1,14 +1,13 @@
-/* eslint-disable jsx-a11y/media-has-caption */
 import React, {
 } from 'react';
 import Layout from '@/components/chunks/Layout';
 import { useTranslate } from '@/hooks/useTranslate';
-import styles from './ByPage.module.scss';
 import TextUnderlied from '@/components/chunks/TextUnderlied';
 import ContactCard from '@/components/chunks/ContactCard';
 import Button from '@/components/UI/Button';
 import CardFAQ from '@/components/chunks/CardFAQ/CardFAQ';
-import img from '../../../public/videos/aws-partner.png'
+import styles from './ByPage.module.scss';
+
 const Contact: React.FC = () => {
   const { t } = useTranslate();
 
