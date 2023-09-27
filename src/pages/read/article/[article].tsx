@@ -40,15 +40,6 @@ const Article: React.FC<ReadProps> = ({ data }) => {
             </ul>
             <div />
           </div>
-          <div className={styles.imageWrapper}>
-            <Image
-              src={data.image}
-              alt="main"
-              layout="responsive"
-              width={400}
-              height={400}
-            />
-          </div>
           <div className={styles.articleContainer}>
             <MarcdownRenderer data={data.content} />
           </div>
