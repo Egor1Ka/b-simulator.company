@@ -119,7 +119,7 @@ function Footer(): React.JSX.Element {
           </div>
         </div>
       </div>
-      {successMessage && <SuccessNotification message="sucess" />}
+      {successMessage && <SuccessNotification message="success" />}
     </footer>
   );
 }

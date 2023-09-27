@@ -7,7 +7,7 @@ import ContactCard from '@/components/chunks/ContactCard';
 import Button from '@/components/UI/Button';
 import CardFAQ from '@/components/chunks/CardFAQ/CardFAQ';
 import debug from '../../../public/videos/Debug.mp4';
-import styles from './ByPage.module.scss';
+import styles from './BuyPage.module.scss';
 
 const Contact: React.FC = () => {
   const { t } = useTranslate();
