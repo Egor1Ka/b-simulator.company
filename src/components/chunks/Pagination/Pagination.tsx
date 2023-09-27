@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import React, { useEffect } from 'react';
+import React from 'react';
 import cn from 'classnames';
 import { useRouter } from 'next/navigation';
 import styles from './Pagination.module.scss';
@@ -12,10 +12,6 @@ interface PaginationProps {
 const Pagination: React.FC<PaginationProps> = ({ pages, active }) => {
   const maxDisplayPages = 5;
   const router = useRouter();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [active]);
 
   const handlePageClick = (page: number) => {
     router.push(`/read${page > 1 ? `/page/${page}` : ''}`);
