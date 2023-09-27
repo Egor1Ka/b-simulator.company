@@ -6,7 +6,8 @@ import matter, { GrayMatterFile } from 'gray-matter';
 export interface PostData {
   id: string;
   date: string;
-  tags: string[]
+  tags: string[],
+  content?: string,
   [key: string]: any;
 }
 
@@ -46,4 +47,30 @@ function getSortedPostsData(page: number): { posts: PostData[]; totalPages: numb
   };
 }
 
-export { getSortedPostsData };
+function getPostData(slug: string): { data: PostData | null } {
+  const fullPath: string = path.join(postsDirectory, `${slug}.md`);
+
+  try {
+    const fileContents: string = fs.readFileSync(fullPath, 'utf8');
+    const matterResult: GrayMatterFile<string> = matter(fileContents);
+
+    const postData: PostData = {
+      id: slug,
+      date: matterResult.data.date,
+      tags: matterResult.data.tags,
+      content: matterResult.content,
+      ...matterResult.data,
+    };
+
+    return {
+      data: postData,
+    };
+  } catch (error) {
+    console.error('Error loading post data:', error);
+    return {
+      data: null,
+    };
+  }
+}
+
+export { getSortedPostsData, getPostData };
