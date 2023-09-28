@@ -97,6 +97,19 @@
   background: radial-gradient(100% 100% at 0% 0%, rgba(90, 152, 255, 70%) 0%, rgba(67, 138, 244, 0) 94.3%);
 }
 
+.cardListTitle {
+  font-weight: 900;
+
+}
+
+.descriptionList {
+  margin-top: 30px;
+  padding-left: 15px;
+
+  li {
+    list-style-type: disc;
+  }
+}
 
 @media (max-width: 1280px) {
   .container {

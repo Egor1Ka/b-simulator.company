@@ -79,9 +79,24 @@ const Contact: React.FC = () => {
               video
             )}
             title={t('by.titleCard1')}
-            description={t('by.descriptionCard1')}
+            description={t('by.descriptionMainCard')}
             styleClass={styles.mainCard}
-          />
+          >
+            <ul className={styles.descriptionList}>
+              <li>
+                <span className={styles.cardListTitle}>{t('by.descriptionMainCardListItem1Title')}</span>
+                {t('by.descriptionMainCardListItem1')}
+              </li>
+              <li>
+                <span className={styles.cardListTitle}>{t('by.descriptionMainCardListItem2Title')}</span>
+                {t('by.descriptionMainCardListItem2')}
+              </li>
+              <li>
+                <span className={styles.cardListTitle}>{t('by.descriptionMainCardListItem3Title')}</span>
+                {t('by.descriptionMainCardListItem3')}
+              </li>
+            </ul>
+          </CardFAQ>
           <div className={styles.cardList}>
             <CardFAQ title={t('by.titleCard1')} description={t('by.descriptionCard1')} styleClass={styles.card1} />
             <CardFAQ title={t('by.titleCard2')} description={t('by.descriptionCard2')} styleClass={styles.card2} />
