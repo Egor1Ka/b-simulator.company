@@ -2,12 +2,12 @@
     position: fixed;
     top: 10%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(50%);
     background-color: #0a6ae8;
     color: #fff;
     padding: 10px 20px;
     border-radius: 4px;
-    opacity: 0;
+    opacity: 1;
     animation: slide-in-out 3s ease-in-out;
 }
 
