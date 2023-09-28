@@ -28,6 +28,7 @@ const Contact: React.FC = () => {
       <div className={`${styles.container}`}>
         <h1 className={styles.title}>
           {t('by.titleP1')}
+          {' '}
           <TextUnderlied>{t('by.titleP2')}</TextUnderlied>
           <br />
           {t('by.titleP3')}
