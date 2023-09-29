@@ -1,17 +1,17 @@
 import React, { useRef, useState, useEffect } from 'react';
 import Layout from '@/components/chunks/Layout';
 import Button from '@/components/UI/Button';
-import { useTranslate } from '@/hooks/useTranslate';
 import Image from 'next/image';
-import Input from '@/components/UI/Input';
 import TextUnderlied from '@/components/chunks/TextUnderlied';
-import imageWorkshop from '../../../public/images/workshop.png';
-import ContactCard from '../../components/chunks/ContactCard/index';
 import emailSubscribeRequest from '@/API/emailSubscribeRequest';
 import isEmailValid from '@/helpers/regularExpressions/isEmailValid';
 import SuccessNotification from '@/components/UI/SuccessNotification';
-
+import { useTranslate } from '@/hooks/useTranslate';
+import Input from '@/components/UI/Input';
+import ContactCard from '../../components/chunks/ContactCard/index';
+import imageWorkshop from '../../../public/images/workshop.png';
 import styles from './ContactPage.module.scss';
+
 const contactUsCDU = process.env.NEXT_PUBLIC_CONTAT_US_SDU_LINK;
 const Contact: React.FC = () => {
   const { t } = useTranslate();
@@ -21,15 +21,14 @@ const Contact: React.FC = () => {
 
   const [emailPresentation, setEmailPresentation] = useState('');
   const [emailErrorPresentation, setEmailErrorPresentation] = useState<null | string>(null);
-  const hasEnteredInvalidEmaiPresentationlOnce = useRef<boolean>(true);
-
+  const hasEnteredInvalidPresentationlOnce = useRef<boolean>(true);
 
   const [successMessage, setSuccessMessage] = useState(false);
 
   const handleChangeEmailPresentation = (value: string) => {
     if (value.length === 0) {
       setEmailErrorPresentation(null);
-    } else if (!hasEnteredInvalidEmaiPresentationlOnce.current && !isEmailValid(emailPresentation)) {
+    } else if (!hasEnteredInvalidPresentationlOnce.current && !isEmailValid(emailPresentation)) {
       setEmailErrorPresentation('Invalid email address');
     } else {
       setEmailErrorPresentation(null);
@@ -42,13 +41,13 @@ const Contact: React.FC = () => {
       setEmailErrorPresentation('Email is required');
     } else if (!isEmailValid(emailPresentation)) {
       setEmailErrorPresentation('Invalid email address');
-      hasEnteredInvalidEmaiPresentationlOnce.current = false;
+      hasEnteredInvalidPresentationlOnce.current = false;
     } else if (!emailErrorPresentation) {
       try {
-        await emailSubscribeRequest(emailPresentation,'GET_Presentation');
+        await emailSubscribeRequest(emailPresentation, 'GET_Presentation');
         setEmailPresentation('');
         setSuccessMessage(true);
-        hasEnteredInvalidEmaiPresentationlOnce.current = true;
+        hasEnteredInvalidPresentationlOnce.current = true;
       } catch (error) {
         setEmailErrorPresentation('server error');
       }
@@ -74,7 +73,7 @@ const Contact: React.FC = () => {
       hasEnteredInvalidEmaiDemolOnce.current = false;
     } else if (!emaiDemolError) {
       try {
-        await emailSubscribeRequest(emailDemo,'GET_Demo');
+        await emailSubscribeRequest(emailDemo, 'GET_Demo');
         setEmailDemo('');
         setSuccessMessage(true);
         hasEnteredInvalidEmaiDemolOnce.current = true;
@@ -83,8 +82,6 @@ const Contact: React.FC = () => {
       }
     }
   };
-
-
 
   useEffect(() => {
     const timeout = setTimeout(() => setSuccessMessage(false), 3000);
@@ -146,7 +143,9 @@ const Contact: React.FC = () => {
               <Button
                 styleClass={styles.workshopInfoButton}
                 type="secondary"
-                link={process.env.NEXT_PUBLIC_CALENDLY_WORKSHOP_LINK}
+                link={
+                  process.env.NEXT_PUBLIC_CALENDLY_WORKSHOP_LINK
+                }
               >
                 Book workshop
               </Button>
@@ -189,13 +188,15 @@ const Contact: React.FC = () => {
             title="Get your presentation "
             type="active"
             description="Learn more about Simulator.Company"
-            input={<Input
-              placeholder="Your email "
-              type="email"
-              value={emailPresentation}
-              onChange={handleChangeEmailPresentation}
-              error={emailErrorPresentation}
-            />}
+            input={(
+              <Input
+                placeholder="Your email"
+                type="email"
+                value={emailPresentation}
+                onChange={handleChangeEmailPresentation}
+                error={emailErrorPresentation}
+              />
+            )}
             button={(
               <Button
                 type="secondary"
@@ -213,14 +214,15 @@ const Contact: React.FC = () => {
             title="Request a Demo"
             type="active"
             description="See our product in action. Discover how our solution can transform your business"
-            input={
+            input={(
               <Input
                 placeholder="Your email "
                 type="email"
                 value={emailDemo}
                 onChange={handleChangeEmailDemo}
-                error={emaiDemolError} />
-            }
+                error={emaiDemolError}
+              />
+            )}
             button={(
               <Button
                 type="secondary"

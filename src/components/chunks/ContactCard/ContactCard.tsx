@@ -13,7 +13,7 @@ interface ContactCarddProps {
   styleClass?: string;
 }
 const ContactCard: React.FC<ContactCarddProps> = ({
-  type, title, description, button, options, input, styleClass
+  type, title, description, button, options, input, styleClass,
 }) => {
   const typeCard = classNames({
     [styles.licenseActive]: type === 'active',
@@ -24,7 +24,6 @@ const ContactCard: React.FC<ContactCarddProps> = ({
     [styles.ActiveOption]: type === 'active',
     [styles.DisabledOption]: type === 'disabled',
   });
-  
   return (
     <div className={classNames(typeCard, styleClass)}>
       <div className={styles.licenseContainer}>
