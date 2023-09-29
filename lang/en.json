@@ -21,5 +21,24 @@
         "card__description__book": "Alexander Witez",
         "contactUs__title": "Got a question or suggestion?",
         "contactUs__description": "We'd love to hear it! We are happy to answer any inquiries related to purchasing, billing, cooperation, as well as any questions and suggestions."
+    },
+    "by": {
+        "titleP1": "Get the",
+        "titleP2": "right plan",
+        "titleP3": "for your business",
+        "questitonTitle": "F.A.Q.",
+        "questitonDescription": "Do you have any questions? We will happily answer them!",
+        "titleCard1": "What is a state change and how do you calculate it?",
+        "titleCard2": "What happens if I consume all the state changes of my pricing plan?",
+        "titleCard3": "Is support included in pricing plans?",
+        "titleCard4": "Do you have a free plan?",
+        "titleCard5": "Do you refund?",
+        "titleCard6": "Can I change my pricing plan?",
+        "descriptionCard1": "A state change happens when a task is transferred from one node to another. A task consumes 3 statechanges going through 4 nodes. Total number of state changes can be expressed as SC = (N - 1) * T, where SC is the number of state changes, N is the number of nodes in a process, and T is the number of tasks received by this process.",
+        "descriptionCard2": "After consuming all state changes of your pricing plan we will limit your speed to 2 tasks per second until payment is made. If the total number of consumed state changes exceeds 120% of your pricing plan, we will block your account until payment is made.",
+        "descriptionCard3": "Yes, all clients receive a Basic free support package. Other support packages can be purchased separately. More details on support page.",
+        "descriptionCard4": "No, but we have a 30-day trial that is given to all users after registration.",
+        "descriptionCard5": "No, we do not provide such a function.",
+        "descriptionCard6": "Yes, you can. You pay for the new pricing package and the old subscription will automatically deactivate while new one launches."
     }
 }
