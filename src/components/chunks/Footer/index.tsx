@@ -38,7 +38,7 @@ function Footer(): React.JSX.Element {
       hasEnteredInvalidEmailOnce.current = false;
     } else if (!emailError) {
       try {
-        await emailSubscribeRequest(email);
+        await emailSubscribeRequest(email, 'GET_News');
         setEmail('');
         setSuccessMessage(true);
         hasEnteredInvalidEmailOnce.current = true;

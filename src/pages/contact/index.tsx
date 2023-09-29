@@ -1,5 +1,4 @@
-import React, {
-} from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Layout from '@/components/chunks/Layout';
 import Button from '@/components/UI/Button';
 import { useTranslate } from '@/hooks/useTranslate';
@@ -8,11 +7,89 @@ import Input from '@/components/UI/Input';
 import TextUnderlied from '@/components/chunks/TextUnderlied';
 import imageWorkshop from '../../../public/images/workshop.png';
 import ContactCard from '../../components/chunks/ContactCard/index';
-import styles from './ContactPage.module.scss';
+import emailSubscribeRequest from '@/API/emailSubscribeRequest';
+import isEmailValid from '@/helpers/regularExpressions/isEmailValid';
+import SuccessNotification from '@/components/UI/SuccessNotification';
 
+import styles from './ContactPage.module.scss';
 const contactUsCDU = process.env.NEXT_PUBLIC_CONTAT_US_SDU_LINK;
 const Contact: React.FC = () => {
   const { t } = useTranslate();
+  const [emailDemo, setEmailDemo] = useState('');
+  const [emaiDemolError, setEmailDemoError] = useState<null | string>(null);
+  const hasEnteredInvalidEmaiDemolOnce = useRef<boolean>(true);
+
+  const [emailPresentation, setEmailPresentation] = useState('');
+  const [emailErrorPresentation, setEmailErrorPresentation] = useState<null | string>(null);
+  const hasEnteredInvalidEmaiPresentationlOnce = useRef<boolean>(true);
+
+
+  const [successMessage, setSuccessMessage] = useState(false);
+
+  const handleChangeEmailPresentation = (value: string) => {
+    if (value.length === 0) {
+      setEmailErrorPresentation(null);
+    } else if (!hasEnteredInvalidEmaiPresentationlOnce.current && !isEmailValid(emailPresentation)) {
+      setEmailErrorPresentation('Invalid email address');
+    } else {
+      setEmailErrorPresentation(null);
+    }
+    setEmailPresentation(value);
+  };
+
+  const handleSendEmailClickPresentation = async () => {
+    if (!emailPresentation) {
+      setEmailErrorPresentation('Email is required');
+    } else if (!isEmailValid(emailPresentation)) {
+      setEmailErrorPresentation('Invalid email address');
+      hasEnteredInvalidEmaiPresentationlOnce.current = false;
+    } else if (!emailErrorPresentation) {
+      try {
+        await emailSubscribeRequest(emailPresentation,'GET_Presentation');
+        setEmailPresentation('');
+        setSuccessMessage(true);
+        hasEnteredInvalidEmaiPresentationlOnce.current = true;
+      } catch (error) {
+        setEmailErrorPresentation('server error');
+      }
+    }
+  };
+
+  const handleChangeEmailDemo = (value: string) => {
+    if (value.length === 0) {
+      setEmailDemoError(null);
+    } else if (!hasEnteredInvalidEmaiDemolOnce.current && !isEmailValid(emailDemo)) {
+      setEmailDemoError('Invalid email address');
+    } else {
+      setEmailDemoError(null);
+    }
+    setEmailDemo(value);
+  };
+
+  const handleSendEmailClickDemo = async () => {
+    if (!emailDemo) {
+      setEmailDemoError('Email is required');
+    } else if (!isEmailValid(emailDemo)) {
+      setEmailDemoError('Invalid email address');
+      hasEnteredInvalidEmaiDemolOnce.current = false;
+    } else if (!emaiDemolError) {
+      try {
+        await emailSubscribeRequest(emailDemo,'GET_Demo');
+        setEmailDemo('');
+        setSuccessMessage(true);
+        hasEnteredInvalidEmaiDemolOnce.current = true;
+      } catch (error) {
+        setEmailDemoError('server error');
+      }
+    }
+  };
+
+
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setSuccessMessage(false), 3000);
+    return () => clearTimeout(timeout);
+  }, [successMessage]);
 
   return (
     <Layout>
@@ -84,7 +161,7 @@ const Contact: React.FC = () => {
             description="Junior Test: 20 min <br /> Middle Test: 6 hours <br /> Senior Test: 12 hours"
             button={(
               <Button
-                styleClass={styles.licenseButton}
+                styleClass={styles.knowledgeCardButton}
                 disabled
               >
                 Coming Soon
@@ -95,6 +172,7 @@ const Contact: React.FC = () => {
             title="Knowledge
             Sharing Night"
             type="active"
+            styleClass={styles.card2}
             description="Duration: 2 hours <br />Participants: at least 2"
             button={(
               <Button
@@ -107,51 +185,55 @@ const Contact: React.FC = () => {
             )}
           />
           <ContactCard
+            styleClass={styles.card3}
             title="Get your presentation "
             type="active"
             description="Learn more about Simulator.Company"
+            input={<Input
+              placeholder="Your email "
+              type="email"
+              value={emailPresentation}
+              onChange={handleChangeEmailPresentation}
+              error={emailErrorPresentation}
+            />}
             button={(
               <Button
                 type="secondary"
                 link=""
                 styleClass={styles.knowledgeCardButton}
+                onClick={handleSendEmailClickPresentation}
+              >
+                Get Presentation
+              </Button>
+            )}
+          />
+
+          <ContactCard
+            styleClass={styles.card4}
+            title="Request a Demo"
+            type="active"
+            description="See our product in action. Discover how our solution can transform your business"
+            input={
+              <Input
+                placeholder="Your email "
+                type="email"
+                value={emailDemo}
+                onChange={handleChangeEmailDemo}
+                error={emaiDemolError} />
+            }
+            button={(
+              <Button
+                type="secondary"
+                link=""
+                styleClass={styles.knowledgeCardButton}
+                onClick={handleSendEmailClickDemo}
               >
                 Get Presentation
               </Button>
             )}
           />
         </section>
-        <section className={styles.requestSection}>
-          <div className={styles.requestContainer}>
-            <div className={styles.requestText}>
-              <h3 className={styles.requestTitle}>
-                {t('contact.requestP1')}
-                <TextUnderlied>
-                  {t('contact.requestP2')}
-                </TextUnderlied>
-              </h3>
-              <p className={styles.requestDescription}>
-                {t('contact.request_descripton')}
-              </p>
-            </div>
-            <div className={styles.requestEmailContainer}>
-              <Input
-                styleClass={styles.requestInput}
-                placeholder="Your email address"
-                type="email"
-              />
-              <div className={styles.requestButtonContainer}>
-                <Button
-                  styleClass={styles.requestButton}
-                  link=""
-                >
-                  Request Demo
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
-
+        {successMessage && <SuccessNotification message="sucess" />}
       </div>
     </Layout>
   );

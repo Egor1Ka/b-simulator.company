@@ -66,6 +66,22 @@
 
 }
 
+.card1 {
+  background: radial-gradient(50% 50% at 50% 50%, rgba(41, 97, 190, 0.72) 0%, rgba(67, 138, 244, 0.00) 94.3%);
+}
+
+.card2 {
+  background: radial-gradient(100% 100% at 0% 100%, rgb(69 110 179 / 72%) 0%, rgba(67, 138, 244, 0) 94.3%)
+}
+
+.card3 {
+  background: radial-gradient(100% 100% at 100% 0%, rgb(69 110 179 / 72%) 0%, rgba(67, 138, 244, 0) 94.3%)
+}
+
+.card4 {
+  background: radial-gradient(100% 100% at 0% 0%, rgb(69 110 179 / 72%) 0%, rgba(67, 138, 244, 0) 94.3%)
+}
+
 .workshop {
   &Section {
     margin-top: 144px;
@@ -156,13 +172,15 @@
 .knowledge {
   &CardContainer {
     margin-top: 144px;
-    display: flex;
+    margin-bottom: 96px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 20px;
     width: 100%;
-    justify-content: space-between;
-    gap: 20px;
   }
 
   &CardButton {
+    margin-top: 26px;
     width: 100%;
   }
 }
@@ -295,16 +313,10 @@
 
 
 @media (max-width: 1000px) {
-
   .knowledge {
     &CardContainer {
       flex-direction: column
     }
-
-    &CardButton {
-      margin-top: 95px;
-    }
-
   }
 }
 
@@ -332,10 +344,15 @@
     }
 
     &Text {
-      margin-bottom:24px;
+      margin-bottom: 24px;
       text-align: center;
     }
+  }
 
+  .knowledge {
+    &CardContainer {
+      grid-template-columns: none;
+    }
   }
 
   .workshop {
