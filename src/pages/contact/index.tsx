@@ -11,6 +11,7 @@ import Input from '@/components/UI/Input';
 import ContactCard from '../../components/chunks/ContactCard/index';
 import imageWorkshop from '../../../public/images/workshop.png';
 import styles from './ContactPage.module.scss';
+import classNames from 'classnames';
 
 const contactUsCDU = process.env.NEXT_PUBLIC_CONTAT_US_SDU_LINK;
 const Contact: React.FC = () => {
@@ -24,6 +25,7 @@ const Contact: React.FC = () => {
   const hasEnteredInvalidPresentationlOnce = useRef<boolean>(true);
 
   const [successMessage, setSuccessMessage] = useState(false);
+  const [iframeLoaded, setIframeLoaded] = useState(false);
 
   const handleChangeEmailPresentation = (value: string) => {
     if (value.length === 0) {
@@ -83,11 +85,19 @@ const Contact: React.FC = () => {
     }
   };
 
+  const handleIframeLoad = () => {
+    setTimeout(() => setIframeLoaded(true), 200);
+  };
+  
   useEffect(() => {
     const timeout = setTimeout(() => setSuccessMessage(false), 3000);
     return () => clearTimeout(timeout);
   }, [successMessage]);
 
+  const containerClasses = classNames({
+    [styles.contactUsIframeContainer]: true,
+    [styles.loaded]: iframeLoaded,
+  });
   return (
     <Layout>
       <div className={`${styles.container} contact`}>
@@ -102,8 +112,9 @@ const Contact: React.FC = () => {
             <h2 className={styles.contactUsTitle}>{t('contact.contactUs__title')}</h2>
             <p className={styles.contactUsDescription}>{t('contact.contactUs__description')}</p>
           </div>
-          <div className={styles.contactUsIframeContainer}>
+          <div className={containerClasses}>
             <iframe
+              onLoad={handleIframeLoad}
               title="Script"
               src={contactUsCDU}
               className={styles.contactUsIframe}

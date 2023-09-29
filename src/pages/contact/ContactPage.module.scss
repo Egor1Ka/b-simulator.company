@@ -54,7 +54,11 @@
 
   &IframeContainer {
     width: 100%;
+    opacity: 0;
+  }
 
+  .loaded {
+    opacity: 1;
   }
 
   &Iframe {
