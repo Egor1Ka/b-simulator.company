@@ -8,10 +8,10 @@ import isEmailValid from '@/helpers/regularExpressions/isEmailValid';
 import SuccessNotification from '@/components/UI/SuccessNotification';
 import { useTranslate } from '@/hooks/useTranslate';
 import Input from '@/components/UI/Input';
+import classNames from 'classnames';
 import ContactCard from '../../components/chunks/ContactCard/index';
 import imageWorkshop from '../../../public/images/workshop.png';
 import styles from './ContactPage.module.scss';
-import classNames from 'classnames';
 
 const contactUsCDU = process.env.NEXT_PUBLIC_CONTAT_US_SDU_LINK;
 const Contact: React.FC = () => {
@@ -88,7 +88,7 @@ const Contact: React.FC = () => {
   const handleIframeLoad = () => {
     setTimeout(() => setIframeLoaded(true), 200);
   };
-  
+
   useEffect(() => {
     const timeout = setTimeout(() => setSuccessMessage(false), 3000);
     return () => clearTimeout(timeout);
