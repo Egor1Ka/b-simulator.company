@@ -68,12 +68,11 @@ const Contact: React.FC = () => {
           <h2 className={styles.questionTitle}>
             {t('by.questitonTitle')}
           </h2>
-
-          <h4 className={styles.questionDescription}>
+          <h4 className={styles.description}>
             {t('by.questitonDescription')}
           </h4>
         </section>
-        <section className={styles.questionDescription}>
+        <section className={`${styles.questionDescription}`}>
           <CardFAQ
             media={(
               video
@@ -102,8 +101,51 @@ const Contact: React.FC = () => {
             <CardFAQ title={t('by.titleCard2')} description={t('by.descriptionCard2')} styleClass={styles.card2} />
             <CardFAQ title={t('by.titleCard3')} description={t('by.descriptionCard3')} styleClass={styles.card3} />
             <CardFAQ title={t('by.titleCard4')} description={t('by.descriptionCard4')} styleClass={styles.card4} />
-            <CardFAQ title={t('by.titleCard5')} description={t('by.descriptionCard5')} styleClass={styles.card5} />
+          </div>
+          <CardFAQ
+            title={t('by.titleCard5')}
+            styleClass={styles.card5}
+          >
+            <div >
+              <div className={styles.descriptionSection}>
+                <div className={styles.P1}>
+                  <h5>{t('by.descriptionCard5P1')}</h5>
+                  <ul className={`${styles.descriptionList} ${styles.descriptionListLicenses}`}>
+                    <li>
+                      {t('by.descriptionMainCardP1ListItem1')}
+                    </li>
+                    <li>
+                      {t('by.descriptionMainCardP1ListItem2')}
+                    </li>
+                    <li>
+                      {t('by.descriptionMainCardP1ListItem3')}
+                    </li>
+                  </ul>
+                </div>
+                <div className={styles.P2}>
+                  <h5>{t('by.descriptionCard5P2')}</h5>
+                  <ul className={`${styles.descriptionList} ${styles.descriptionListLicenses}`}>
+                    <li>
+                      {t('by.descriptionMainCardP2ListItem1')}
+                    </li>
+                    <li>
+                      {t('by.descriptionMainCardP2ListItem2')}
+                    </li>
+                    <li>
+                      {t('by.descriptionMainCardP2ListItem3')}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className={styles.P3}>
+                <h5> {t('by.descriptionCard5P3')}</h5>
+                <p> {t('by.descriptionMainCard5P3ListItem1')}</p>
+              </div>
+            </div>
+          </CardFAQ>
+          <div className={styles.cardList}>
             <CardFAQ title={t('by.titleCard6')} description={t('by.descriptionCard6')} styleClass={styles.card6} />
+            <CardFAQ title={t('by.titleCard7')} description={t('by.descriptionCard7')} styleClass={styles.card7} />
           </div>
         </section>
       </div>

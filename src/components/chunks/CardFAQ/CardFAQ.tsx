@@ -3,7 +3,7 @@ import style from './CardFAQ.module.scss';
 
 interface ContactCarddProps {
   title: string,
-  description: string,
+  description?: string,
   media?: ReactNode,
   styleClass: string;
   children?: ReactNode
