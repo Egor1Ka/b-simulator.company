@@ -1,0 +1,123 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 6rem;
+  min-height: 100%;
+}
+
+.video {
+  border-radius: 4px;
+}
+
+.title {
+  margin: 48px 0px;
+  text-align: center;
+  font-family: Open Sans;
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 64px;
+}
+
+.licenses {
+  margin: 48px 0px 96px 0px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 20px;
+
+  .licensesButton {
+    width: 100%;
+  }
+}
+
+.questionText {
+  margin: 48px 0px;
+  text-align: center;
+
+  .questionTitle {
+    text-align: center;
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 64px;
+  }
+
+  .questionDescription {
+    color: white;
+    padding-top: 16px;
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+  }
+}
+
+
+.questionMainCard {
+  width: 100%;
+}
+
+
+.cardList {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-bottom: 128px;
+}
+
+.mainCard {
+  background: radial-gradient(100% 100% at 100% 0%, rgba(90, 152, 255, 70%) 0%, rgba(67, 138, 244, 0) 94.3%);
+}
+
+.card1 {
+  background: radial-gradient(100% 100% at 100% 100%, rgb(90 152 255 / 70%) 0%, rgba(67, 138, 244, 0) 94.3%);
+}
+
+.card2 {
+  background: radial-gradient(100% 100% at 0% 100%, rgb(90 152 255 / 70%) 0%, rgba(67, 138, 244, 0) 94.3%);
+}
+
+.card3 {
+  background: radial-gradient(100% 100% at 100% 50%, rgb(90 152 255 / 70%) 0%, rgba(67, 138, 244, 0) 94.3%);
+}
+
+.card4 {
+  background: radial-gradient(100% 100% at 0% 50%, rgba(90, 152, 255, 70%) 0%, rgba(67, 138, 244, 0) 94.3%);
+}
+
+.card5 {
+  background: radial-gradient(100% 100% at 100% 0%, rgba(90, 152, 255, 70%) 0%, rgba(67, 138, 244, 0) 94.3%);
+}
+
+.card6 {
+  background: radial-gradient(100% 100% at 0% 0%, rgba(90, 152, 255, 70%) 0%, rgba(67, 138, 244, 0) 94.3%);
+}
+
+
+@media (max-width: 1280px) {
+  .container {
+    padding: 1rem 3rem;
+  }
+}
+
+
+
+@media (max-width: 900px) {
+  .cardList {
+    flex-direction: column;
+  }
+
+  .container {
+    padding: 1rem 1rem;
+  }
+
+  .licenses {
+    flex-direction: column
+  }
+}
+
+@media (max-width: 600px) {}
