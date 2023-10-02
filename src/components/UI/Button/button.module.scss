@@ -24,6 +24,11 @@ $disabled-color: rgba(53, 57, 69, 1);
 
 .button {
     cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     padding: $padding-top $horizontal-padding;
     border: none;
     min-height: $min-heidth;
@@ -85,6 +90,10 @@ $disabled-color: rgba(53, 57, 69, 1);
 
     &__outlined:hover {
         color: rgba(60, 157, 254, 1);
+
+        svg * {
+            fill: rgba(60, 157, 254, 1);
+        }
     }
 
     &__outlined:active {

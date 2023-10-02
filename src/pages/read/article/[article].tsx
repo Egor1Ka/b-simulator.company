@@ -1,11 +1,10 @@
 import React from 'react';
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
-import Image from 'next/image';
 import Layout from '../../../components/chunks/Layout';
 import MarcdownRenderer from '../../../components/chunks/MarcdownRenderer';
 import { getPostData, PostData } from '../../../helpers/getPosts';
-import arrowLeft from '../../../../public/icons/arrow-left.svg';
+import ArrowLeft from '../../../../public/icons/arrow-left.svg';
 import styles from './article.module.scss';
 
 interface ReadProps {
@@ -24,7 +23,7 @@ const Article: React.FC<ReadProps> = ({ data }) => {
         <div className={styles.mainContent}>
           <div className={styles.navigation}>
             <div className={styles.navigationButton} role="button" tabIndex={0} onClick={navigateBack} onKeyDown={navigateBack}>
-              <Image src={arrowLeft} width={24} height={24} alt="icon" />
+              <ArrowLeft />
               <span>All news</span>
             </div>
           </div>

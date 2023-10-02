@@ -1,11 +1,10 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import cn from 'classnames';
-import Image from 'next/image';
 import Link from 'next/link';
 import Button from '../../UI/Button';
 import style from './Header.module.scss';
-import logo from '../../../../public/logo.svg';
+import Logo from '../../../../public/logo.svg';
 
 function Header() {
   const router = useRouter();
@@ -23,11 +22,7 @@ function Header() {
       <div className={style.headerContent}>
         <div className={style.logoWrapper}>
           <Link href="/">
-            <Image
-              src={logo}
-              alt="simulator"
-              height="23"
-            />
+            <Logo />
           </Link>
         </div>
 
@@ -49,7 +44,7 @@ function Header() {
               [style.active]: router.asPath === '/get',
             })}
             >
-              <Link href="/get" passHref>Get</Link>
+              <Link href="/download" passHref>Download</Link>
             </li>
             <li className={cn({
               [style.active]: router.asPath === '/contact',

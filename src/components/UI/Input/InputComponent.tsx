@@ -2,8 +2,7 @@ import React, {
   ReactNode, FormEventHandler,
 } from 'react';
 import classNames from 'classnames';
-import Image from 'next/image';
-import emailIcon from '../../../../public/icons/email-icon.svg';
+import EmailIcon from '../../../../public/icons/email-icon.svg';
 import styles from './InputComponent.module.scss';
 
 interface InputProps {
@@ -46,7 +45,7 @@ const Input: React.FC<InputProps> = ({
   return (
     <div className={formGroupClass}>
       <div className={styles.icon__container}>
-        {type === 'email' ? <Image src={emailIcon} width={16} height={16} alt="icon" /> : icon}
+        {type === 'email' ? <EmailIcon /> : icon}
       </div>
       <input
         className={styles.input}
