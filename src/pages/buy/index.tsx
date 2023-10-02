@@ -106,7 +106,7 @@ const Contact: React.FC = () => {
             title={t('by.titleCard5')}
             styleClass={styles.card5}
           >
-            <div >
+            <div>
               <div className={styles.descriptionSection}>
                 <div className={styles.P1}>
                   <h5>{t('by.descriptionCard5P1')}</h5>
@@ -138,8 +138,8 @@ const Contact: React.FC = () => {
                 </div>
               </div>
               <div className={styles.P3}>
-                <h5> {t('by.descriptionCard5P3')}</h5>
-                <p> {t('by.descriptionMainCard5P3ListItem1')}</p>
+                <h5>{t('by.descriptionCard5P3')}</h5>
+                <p>{t('by.descriptionMainCard5P3ListItem1')}</p>
               </div>
             </div>
           </CardFAQ>
