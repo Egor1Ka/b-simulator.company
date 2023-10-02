@@ -18,11 +18,11 @@ const Contact: React.FC = () => {
   const { t } = useTranslate();
   const [emailDemo, setEmailDemo] = useState('');
   const [emaiDemolError, setEmailDemoError] = useState<null | string>(null);
-  const hasEnteredInvalidEmaiDemolOnce = useRef<boolean>(true);
+  const [hasEnteredInvalidEmaiDemolOnce, setDemoOnce] = useState(true);
 
   const [emailPresentation, setEmailPresentation] = useState('');
   const [emailErrorPresentation, setEmailErrorPresentation] = useState<null | string>(null);
-  const hasEnteredInvalidPresentationlOnce = useRef<boolean>(true);
+  const [hasEnteredInvalidPresentationlOnce, setPresentationlOnce] = useState(true);
 
   const [successMessage, setSuccessMessage] = useState(false);
   const [iframeLoaded, setIframeLoaded] = useState(false);
@@ -30,7 +30,7 @@ const Contact: React.FC = () => {
   const handleChangeEmailPresentation = (value: string) => {
     if (value.length === 0) {
       setEmailErrorPresentation(null);
-    } else if (!hasEnteredInvalidPresentationlOnce.current && !isEmailValid(emailPresentation)) {
+    } else if (!hasEnteredInvalidPresentationlOnce && !isEmailValid(emailPresentation)) {
       setEmailErrorPresentation('Invalid email address');
     } else {
       setEmailErrorPresentation(null);
@@ -43,13 +43,13 @@ const Contact: React.FC = () => {
       setEmailErrorPresentation('Email is required');
     } else if (!isEmailValid(emailPresentation)) {
       setEmailErrorPresentation('Invalid email address');
-      hasEnteredInvalidPresentationlOnce.current = false;
+      setPresentationlOnce(false);
     } else if (!emailErrorPresentation) {
       try {
         await emailSubscribeRequest(emailPresentation, 'GET_Presentation');
         setEmailPresentation('');
         setSuccessMessage(true);
-        hasEnteredInvalidPresentationlOnce.current = true;
+        setPresentationlOnce(true);
       } catch (error) {
         setEmailErrorPresentation('server error');
       }
@@ -59,7 +59,7 @@ const Contact: React.FC = () => {
   const handleChangeEmailDemo = (value: string) => {
     if (value.length === 0) {
       setEmailDemoError(null);
-    } else if (!hasEnteredInvalidEmaiDemolOnce.current && !isEmailValid(emailDemo)) {
+    } else if (!hasEnteredInvalidEmaiDemolOnce && !isEmailValid(emailDemo)) {
       setEmailDemoError('Invalid email address');
     } else {
       setEmailDemoError(null);
@@ -72,13 +72,13 @@ const Contact: React.FC = () => {
       setEmailDemoError('Email is required');
     } else if (!isEmailValid(emailDemo)) {
       setEmailDemoError('Invalid email address');
-      hasEnteredInvalidEmaiDemolOnce.current = false;
+      setDemoOnce(false);
     } else if (!emaiDemolError) {
       try {
         await emailSubscribeRequest(emailDemo, 'GET_Demo');
         setEmailDemo('');
         setSuccessMessage(true);
-        hasEnteredInvalidEmaiDemolOnce.current = true;
+        setDemoOnce(true);
       } catch (error) {
         setEmailDemoError('server error');
       }
@@ -86,7 +86,7 @@ const Contact: React.FC = () => {
   };
 
   const handleIframeLoad = () => {
-    setTimeout(() => setIframeLoaded(true), 200);
+    setTimeout(() => setIframeLoaded(true), 500);
   };
 
   useEffect(() => {
