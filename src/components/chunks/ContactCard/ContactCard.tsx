@@ -8,10 +8,12 @@ interface ContactCarddProps {
   title: string;
   description: string;
   button: React.ReactNode;
-  options?: string[]
+  input?: React.ReactNode;
+  options?: string[];
+  styleClass?: string;
 }
 const ContactCard: React.FC<ContactCarddProps> = ({
-  type, title, description, button, options,
+  type, title, description, button, options, input, styleClass,
 }) => {
   const typeCard = classNames({
     [styles.licenseActive]: type === 'active',
@@ -22,9 +24,8 @@ const ContactCard: React.FC<ContactCarddProps> = ({
     [styles.ActiveOption]: type === 'active',
     [styles.DisabledOption]: type === 'disabled',
   });
-
   return (
-    <div className={typeCard}>
+    <div className={classNames(typeCard, styleClass)}>
       <div className={styles.licenseContainer}>
         <h2 className={styles.licenseTitle}>
           {title}
@@ -40,9 +41,14 @@ const ContactCard: React.FC<ContactCarddProps> = ({
           className={styles.licenseDescription}
           dangerouslySetInnerHTML={{ __html: description }}
         />
-        {
-          button
-        }
+        <div>
+          {
+            input
+          }
+          {
+            button
+          }
+        </div>
       </div>
     </div>
   );
