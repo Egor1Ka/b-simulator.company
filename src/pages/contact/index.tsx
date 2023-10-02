@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Layout from '@/components/chunks/Layout';
 import Button from '@/components/UI/Button';
 import Image from 'next/image';
