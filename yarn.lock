@@ -1411,7 +1411,7 @@
 
 "@types/json-schema@^7.0.12", "@types/json-schema@^7.0.8":
   version "7.0.13"
-  resolved "https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.13.tgz"
+  resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.13.tgz#02c24f4363176d2d18fc8b70b9f3c54aba178a85"
   integrity sha512-RbSSoHliUbnXj3ny0CNFOoxrIDV6SUGyStHsvDqosw6CkdPV8TtWGlfecuK4ToyMEAql6pzNxgCFKanovUzlgQ==
 
 "@types/json5@^0.0.29":

@@ -29,10 +29,10 @@ function Header() {
         <div className={style.linkGroup}>
           <ul>
             <li className={cn({
-              [style.active]: router.asPath === '/',
+              [style.active]: router.asPath === '/contact',
             })}
             >
-              <Link href="/" passHref>Home</Link>
+              <Link href="/contact" passHref>Contact</Link>
             </li>
             <li className={cn({
               [style.active]: router.asPath === '/read',
@@ -41,16 +41,16 @@ function Header() {
               <Link href="/read" passHref>Read</Link>
             </li>
             <li className={cn({
-              [style.active]: router.asPath === '/get',
+              [style.active]: router.asPath === '/download',
             })}
             >
               <Link href="/download" passHref>Download</Link>
             </li>
             <li className={cn({
-              [style.active]: router.asPath === '/contact',
+              [style.active]: router.asPath === '/buy',
             })}
             >
-              <Link href="/contact" passHref>Contact</Link>
+              <Link href="/buy" passHref>Buy</Link>
             </li>
           </ul>
         </div>
