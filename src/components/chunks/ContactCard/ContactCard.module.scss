@@ -7,7 +7,6 @@ $license-padding: 24px 40px 48px 40px;
     width: 100%;
     padding: $license-padding;
     border: 1px solid var(--neutral-50, #353945);
-    background: radial-gradient(65% 100% at 100% 0%, rgb(90 152 255 / 29%) 0%, rgba(67, 138, 244, 0) 94.3%);
     border-radius: 8px;
     min-width: 296px;
     min-height: 321px;
@@ -71,4 +70,47 @@ $license-padding: 24px 40px 48px 40px;
     line-height: 26px;
 
   }
+
+
+}
+
+.inputSection {
+  display: flex;
+  align-content: stretch;
+  align-items: center;
+  gap: 16px;
+}
+
+.activeContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 100px;
+  border: 1px solid var(--primary-border, #043B71);
+  background: var(--primary-surface, #072645);
+  width: 72px;
+  height: 72px;
+  margin-bottom: 24px;
+}
+
+.disabledContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 100px;
+  border: 1px solid var(--neutral-40, #8D94A7);
+  background: var(--neutral-50, #353945);
+  width: 72px;
+  height: 72px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 1280px) {
+
+  .inputSection {
+    display: block;
+  }
+
 }

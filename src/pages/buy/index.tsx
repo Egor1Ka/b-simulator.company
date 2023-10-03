@@ -6,6 +6,7 @@ import TextUnderlied from '@/components/chunks/TextUnderlied';
 import ContactCard from '@/components/chunks/ContactCard';
 import Button from '@/components/UI/Button';
 import CardFAQ from '@/components/chunks/CardFAQ/CardFAQ';
+import Head from 'next/head';
 import debug from '../../../public/videos/Debug.mp4';
 import styles from './BuyPage.module.scss';
 
@@ -25,6 +26,14 @@ const Contact: React.FC = () => {
 
   return (
     <Layout>
+      <Head>
+        <title>{process.env.NEXT_PUBLIC_META_BUY_TITLE}</title>
+        <meta
+          name="description"
+          content={process.env.NEXT_PUBLIC_META_BUY_DESCRIPTION}
+        />
+        <meta name="keywords" content={process.env.NEXT_PUBLIC_META_BUY_KEYWORDS} />
+      </Head>
       <div className={`${styles.container}`}>
         <h1 className={styles.title}>
           {t('by.titleP1')}
@@ -41,9 +50,9 @@ const Contact: React.FC = () => {
             description="RPS: 2 <br />Storage:15 Gb at <br />Duration: 30 days"
             button={(
               <Button
-                type="secondary"
+                type="primary"
+                styleClass={styles.freeButton}
                 link={process.env.NEXT_PUBLIC_CONTROL_LINK}
-                styleClass={styles.licensesButton}
               >
                 Free
               </Button>

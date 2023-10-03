@@ -11,7 +11,13 @@ import Input from '@/components/UI/Input';
 import classNames from 'classnames';
 import ContactCard from '../../components/chunks/ContactCard/index';
 import imageWorkshop from '../../../public/images/workshop.png';
+import Head from 'next/head';
+import SertificateIcon from '../../../public/icons/sertificateIcon.svg'
+import BookIcon from '../../../public/icons/book.svg'
+import DemoIcon from '../../../public/icons/demo.svg'
+import PresentationIcon from '../../../public/icons/presentation.svg'
 import styles from './ContactPage.module.scss';
+
 
 const contactUsCDU = process.env.NEXT_PUBLIC_CONTAT_US_SDU_LINK;
 const Contact: React.FC = () => {
@@ -98,8 +104,20 @@ const Contact: React.FC = () => {
     [styles.contactUsIframeContainer]: true,
     [styles.loaded]: iframeLoaded,
   });
+
   return (
     <Layout>
+      <Head>
+        <title>
+          {process.env.NEXT_PUBLIC_META_CONTACT_TITLE}
+        </title>
+        <meta
+          name="description"
+          content={process.env.NEXT_PUBLIC_META_CONTACT_DESCRIPTION}
+          key="desc"
+        />
+        <meta name="keywords" content={process.env.NEXT_PUBLIC_META_CONTACT_KEYWORDS} />
+      </Head>
       <div className={`${styles.container} contact`}>
         <h1 className={`${styles.contactTitle}`}>
           {t('contact.contact')}
@@ -165,6 +183,7 @@ const Contact: React.FC = () => {
         </section>
         <section className={styles.knowledgeCardContainer}>
           <ContactCard
+            icon={<SertificateIcon />}
             title="Certification"
             options={['Junior', 'Middle', 'Senior']}
             type="disabled"
@@ -179,6 +198,7 @@ const Contact: React.FC = () => {
             )}
           />
           <ContactCard
+            icon={<BookIcon />}
             title="Knowledge
             Sharing Night"
             type="active"
@@ -190,11 +210,12 @@ const Contact: React.FC = () => {
                 styleClass={styles.knowledgeCardButton}
                 link={process.env.NEXT_PUBLIC_CALENDLY_SHARING_NIGH_LINK}
               >
-                Book
+                Book Night
               </Button>
             )}
           />
           <ContactCard
+            icon={<PresentationIcon />}
             styleClass={styles.card3}
             title="Get your presentation "
             type="active"
@@ -210,6 +231,7 @@ const Contact: React.FC = () => {
             )}
             button={(
               <Button
+
                 type="secondary"
                 link=""
                 styleClass={styles.knowledgeCardButton}
@@ -221,6 +243,7 @@ const Contact: React.FC = () => {
           />
 
           <ContactCard
+            icon={<DemoIcon />}
             styleClass={styles.card4}
             title="Request a Demo"
             type="active"

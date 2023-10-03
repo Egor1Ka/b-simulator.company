@@ -7,11 +7,20 @@ import TextUnderlied from '@/components/chunks/TextUnderlied';
 import twinImg from '../../public/twin.png';
 import mainImg from '../../public/main.png';
 import Layout from '../components/chunks/Layout';
-
+import Head from 'next/head';
 import styles from './index.module.scss';
+console.log()
 
 const Main: React.FC = () => (
   <Layout>
+    <Head>
+      <title>{process.env.NEXT_PUBLIC_META_MAIN_TITLE}</title>
+      <meta
+        name="description"
+        content={process.env.NEXT_PUBLIC_META_MAIN_DESCRIPTION}
+      />
+      <meta name="keywords" content={process.env.NEXT_PUBLIC_META_MAIN_KEYWORDS} />
+    </Head>
     <main className={styles.main}>
       <div className={styles.headerContent}>
         <div className={styles.mainGroup}>

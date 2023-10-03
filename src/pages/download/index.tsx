@@ -7,10 +7,21 @@ import Button from '../../components/UI/Button';
 import sc from '../../../public/logo-short.png';
 import Apple from '../../../public/icons/apple.svg';
 import Windows from '../../../public/icons/windows.svg';
+import Head from 'next/head';
 import styles from './Download.module.scss';
 
 const Download: React.FC = () => (
   <Layout>
+    <Head>
+      <title>
+        Download
+      </title>
+      <meta
+        name="description"
+        content="Check out iPhone 12 XR Pro and iPhone 12 Pro Max. Visit your local store and for expert advice."
+        key="desc"
+      />
+    </Head>
     <main className={styles.main}>
       <div className={styles.mainContent}>
         <HeaderTitle>

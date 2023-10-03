@@ -6,6 +6,7 @@ import HeaderTitle from '../../components/chunks/HeaderTitle';
 import TextUnderlied from '../../components/chunks/TextUnderlied';
 import Codex from '../../components/chunks/Codex';
 import { getSortedPostsData, PostData } from '../../helpers/getPosts';
+import Head from 'next/head';
 import styles from './index.module.scss';
 
 interface ReadProps {
@@ -15,6 +16,14 @@ interface ReadProps {
 
 const Read: React.FC<ReadProps> = ({ initialPosts, totalPages }) => (
   <Layout>
+    <Head>
+      <title>{process.env.NEXT_PUBLIC_META_READ_TITLE} </title>
+      <meta
+        name="description"
+        content={process.env.NEXT_PUBLIC_META_READ_DESCRIPTION}
+      />
+      <meta name="keywords" content={process.env.NEXT_PUBLIC_META_READ_KEYWORDS} />
+    </Head>
     <main className={styles.main}>
       <div className={styles.mainContent}>
         <HeaderTitle>

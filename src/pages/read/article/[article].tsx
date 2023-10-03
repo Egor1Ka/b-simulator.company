@@ -6,6 +6,7 @@ import MarcdownRenderer from '../../../components/chunks/MarcdownRenderer';
 import { getPostData, PostData } from '../../../helpers/getPosts';
 import ArrowLeft from '../../../../public/icons/arrow-left.svg';
 import styles from './article.module.scss';
+import Head from 'next/head';
 
 interface ReadProps {
   data: PostData
@@ -19,6 +20,9 @@ const Article: React.FC<ReadProps> = ({ data }) => {
 
   return (
     <Layout>
+      <Head>
+        <title>{data.title}</title>
+      </Head>
       <main className={styles.main}>
         <div className={styles.mainContent}>
           <div className={styles.navigation}>
@@ -50,7 +54,6 @@ const Article: React.FC<ReadProps> = ({ data }) => {
 
 export const getServerSideProps: GetServerSideProps<ReadProps> = async ({ params }) => {
   const slug = params?.article as string;
-
   const {
     data,
   } = getPostData(slug);
@@ -60,12 +63,14 @@ export const getServerSideProps: GetServerSideProps<ReadProps> = async ({ params
       notFound: true,
     };
   }
-
+  console.log('data', data);
   return {
     props: {
       data,
     },
   };
 };
+
+
 
 export default Article;
