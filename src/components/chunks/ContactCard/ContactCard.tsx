@@ -1,7 +1,6 @@
 import React, {
 } from 'react';
 import classNames from 'classnames';
-import Image from 'next/image';
 import styles from './ContactCard.module.scss';
 
 interface ContactCarddProps {
@@ -22,7 +21,7 @@ const ContactCard: React.FC<ContactCarddProps> = ({
   options,
   input,
   styleClass,
-  icon
+  icon,
 }) => {
   const typeCard = classNames({
     [styles.licenseActive]: type === 'active',
@@ -38,15 +37,15 @@ const ContactCard: React.FC<ContactCarddProps> = ({
     [styles.activeContainer]: type === 'active',
     [styles.disabledContainer]: type === 'disabled',
   });
-  console.log('ssssss', iconContainer)
+
   return (
     <div className={classNames(typeCard, styleClass)}>
       <div className={styles.licenseContainer}>
-        {
-          icon && <div className={iconContainer}>
+        {icon && (
+          <div className={iconContainer}>
             {icon}
           </div>
-        }
+        )}
         <h2 className={styles.licenseTitle}>
           {title}
         </h2>

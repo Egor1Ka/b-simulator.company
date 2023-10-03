@@ -9,17 +9,17 @@ import SuccessNotification from '@/components/UI/SuccessNotification';
 import { useTranslate } from '@/hooks/useTranslate';
 import Input from '@/components/UI/Input';
 import classNames from 'classnames';
+import Head from 'next/head';
 import ContactCard from '../../components/chunks/ContactCard/index';
 import imageWorkshop from '../../../public/images/workshop.png';
-import Head from 'next/head';
-import SertificateIcon from '../../../public/icons/sertificateIcon.svg'
-import BookIcon from '../../../public/icons/book.svg'
-import DemoIcon from '../../../public/icons/demo.svg'
-import PresentationIcon from '../../../public/icons/presentation.svg'
+import SertificateIcon from '../../../public/icons/sertificateIcon.svg';
+import BookIcon from '../../../public/icons/book.svg';
+import DemoIcon from '../../../public/icons/demo.svg';
+import PresentationIcon from '../../../public/icons/presentation.svg';
 import styles from './ContactPage.module.scss';
 
-
 const contactUsCDU = process.env.NEXT_PUBLIC_CONTAT_US_SDU_LINK;
+
 const Contact: React.FC = () => {
   const { t } = useTranslate();
   const [emailDemo, setEmailDemo] = useState('');
@@ -231,7 +231,6 @@ const Contact: React.FC = () => {
             )}
             button={(
               <Button
-
                 type="secondary"
                 link=""
                 styleClass={styles.knowledgeCardButton}
@@ -241,7 +240,6 @@ const Contact: React.FC = () => {
               </Button>
             )}
           />
-
           <ContactCard
             icon={<DemoIcon />}
             styleClass={styles.card4}

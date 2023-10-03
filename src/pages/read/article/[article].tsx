@@ -1,12 +1,12 @@
 import React from 'react';
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import Layout from '../../../components/chunks/Layout';
 import MarcdownRenderer from '../../../components/chunks/MarcdownRenderer';
 import { getPostData, PostData } from '../../../helpers/getPosts';
 import ArrowLeft from '../../../../public/icons/arrow-left.svg';
 import styles from './article.module.scss';
-import Head from 'next/head';
 
 interface ReadProps {
   data: PostData
@@ -63,14 +63,12 @@ export const getServerSideProps: GetServerSideProps<ReadProps> = async ({ params
       notFound: true,
     };
   }
-  console.log('data', data);
+
   return {
     props: {
       data,
     },
   };
 };
-
-
 
 export default Article;

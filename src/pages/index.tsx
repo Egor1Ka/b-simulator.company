@@ -4,12 +4,11 @@ import Image from 'next/image';
 import Button from '@/components/UI/Button';
 import TextUnderlied from '@/components/chunks/TextUnderlied';
 // import { useTranslate } from '@/hooks/useTranslate';
+import Head from 'next/head';
 import twinImg from '../../public/twin.png';
 import mainImg from '../../public/main.png';
 import Layout from '../components/chunks/Layout';
-import Head from 'next/head';
 import styles from './index.module.scss';
-console.log()
 
 const Main: React.FC = () => (
   <Layout>
