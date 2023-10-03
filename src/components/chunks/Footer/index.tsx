@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import isEmailValid from '@/helpers/regularExpressions/isEmailValid';
 import emailSubscribeRequest from '@/API/emailSubscribeRequest';
@@ -13,7 +13,7 @@ function Footer(): React.JSX.Element {
   const [email, setEmail] = useState('');
   const [successMessage, setSuccessMessage] = useState(false);
   const [emailError, setemailError] = useState<null | string>(null);
-  const hasEnteredInvalidEmailOnce = useRef<boolean>(true);
+  const [hasEnteredInvalidEmailOnce, setHasEnteredInvalidEmailOnce] = useState(true);
   useEffect(() => {
     const timeout = setTimeout(() => setSuccessMessage(false), 3000);
     return () => clearTimeout(timeout);
@@ -22,7 +22,7 @@ function Footer(): React.JSX.Element {
   const handleChangeEmail = (value: string) => {
     if (value.length === 0) {
       setemailError(null);
-    } else if (!hasEnteredInvalidEmailOnce.current && !isEmailValid(email)) {
+    } else if (!hasEnteredInvalidEmailOnce && !isEmailValid(email)) {
       setemailError('Invalid email address');
     } else {
       setemailError(null);
@@ -35,13 +35,13 @@ function Footer(): React.JSX.Element {
       setemailError('Email is required');
     } else if (!isEmailValid(email)) {
       setemailError('Invalid email address');
-      hasEnteredInvalidEmailOnce.current = false;
+      setHasEnteredInvalidEmailOnce(false);
     } else if (!emailError) {
       try {
-        await emailSubscribeRequest(email);
+        await emailSubscribeRequest(email, 'GET_News');
         setEmail('');
         setSuccessMessage(true);
-        hasEnteredInvalidEmailOnce.current = true;
+        setHasEnteredInvalidEmailOnce(true);
       } catch (error) {
         setemailError('server error');
       }
