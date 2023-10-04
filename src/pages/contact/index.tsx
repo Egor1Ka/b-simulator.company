@@ -192,12 +192,12 @@ const Contact: React.FC = () => {
             )}
           />
           <ContactCard
+
             icon={<BookIcon />}
-            title="Knowledge
-            Sharing Night"
+            title="Knowledge Sharing Night"
             type="active"
             styleClass={styles.card2}
-            description="Duration: 2 hours <br />Participants: at least 2"
+            description="<strong>Duration:</strong> 2 hours <br /><strong>Participants:</strong> ≥ 2"
             button={(
               <Button
                 type="secondary"
@@ -213,10 +213,10 @@ const Contact: React.FC = () => {
             styleClass={styles.card3}
             title="Get your presentation "
             type="active"
-            description="Learn more about Simulator.Company"
+            description="Discover more about Simulator.Company."
             input={(
               <Input
-                placeholder="Your email"
+                placeholder="Email"
                 type="email"
                 value={emailPresentation}
                 onChange={handleChangeEmailPresentation}
@@ -230,7 +230,7 @@ const Contact: React.FC = () => {
                 styleClass={styles.knowledgeCardButton}
                 onClick={handleSendEmailClickPresentation}
               >
-                Get Presentation
+                Get presentation
               </Button>
             )}
           />
@@ -242,7 +242,7 @@ const Contact: React.FC = () => {
             description="See our product in action. Discover how our solution can transform your business"
             input={(
               <Input
-                placeholder="Your email "
+                placeholder="Email"
                 type="email"
                 value={emailDemo}
                 onChange={handleChangeEmailDemo}

@@ -41,10 +41,10 @@ const Contact: React.FC = () => {
         </h1>
         <section className={styles.licenses}>
           <ContactCard
-            title="Trial Licence"
+            title="Trial License"
             options={['Cloud', 'In-House']}
             type="active"
-            description="RPS: 2 <br />Storage:15 Gb at <br />Duration: 30 days"
+            description="<strong>RPS:</strong> 2 <br /><strong>Storage:</strong>15 Gb at <br /><strong>Duration:</strong> 30 days"
             button={(
               <Button
                 type="primary"
@@ -56,10 +56,10 @@ const Contact: React.FC = () => {
             )}
           />
           <ContactCard
-            title="Commercial Licence"
+            title="Commercial License"
             options={['Cloud', 'In-House']}
             type="disabled"
-            description="RPS: 2 to unlimited <br /> Storage: 15 GB to unlimited<br /> Starting at $40"
+            description="<strong>RPS:</strong> 2 to unlimited <br /> <strong>Storage:</strong> 15 GB to unlimited<br /> <strong>Price:</strong> Starting at $40"
             button={(
               <Button
                 styleClass={styles.licenseButton}
