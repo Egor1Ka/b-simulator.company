@@ -29,25 +29,25 @@ function Header() {
         <div className={style.linkGroup}>
           <ul>
             <li className={cn({
-              [style.active]: router.asPath === '/contact',
+              [style.active]: router.asPath.startsWith('/contact'),
             })}
             >
               <Link href="/contact" passHref>Contact</Link>
             </li>
             <li className={cn({
-              [style.active]: router.asPath === '/read',
+              [style.active]: router.asPath.startsWith('/read'),
             })}
             >
               <Link href="/read" passHref>Read</Link>
             </li>
             <li className={cn({
-              [style.active]: router.asPath === '/download',
+              [style.active]: router.asPath.startsWith('/download'),
             })}
             >
               <Link href="/download" passHref>Download</Link>
             </li>
             <li className={cn({
-              [style.active]: router.asPath === '/buy',
+              [style.active]: router.asPath.startsWith('/buy'),
             })}
             >
               <Link href="/buy" passHref>Buy</Link>
@@ -56,7 +56,7 @@ function Header() {
         </div>
 
         <div className={style.loginGroup}>
-          <Button onClick={goToLogIn} type="outlined">Login</Button>
+          <Button onClick={goToLogIn} type="outlined">Log in</Button>
           <Button onClick={goToControl}>Create Actor</Button>
         </div>
       </div>

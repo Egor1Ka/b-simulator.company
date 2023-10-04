@@ -32,7 +32,7 @@ const Codex: React.FC = () => {
             The EmergencE(Y) Thinkbook
           </h4>
           <p>
-            Alexander Witez
+            Alexander Vityaz
           </p>
           <Button onClick={goToLearnMore}>Learn more</Button>
         </div>

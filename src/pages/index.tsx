@@ -32,14 +32,16 @@ const Main: React.FC = () => (
               {' '}
               <br />
               {' '}
-              of your
+              of Your
               {' '}
               <TextUnderlied>Company</TextUnderlied>
             </span>
           </h1>
           <p>
             Describe and model everything as actors, connect in graphs,
-            and continuously computed upon.
+            {' '}
+            <br />
+            and continuously compute upon.
           </p>
           <div className={styles.buttonGroup}>
             <Button style={{ width: 160 }} type="secondary">Watch video</Button>
