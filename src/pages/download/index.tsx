@@ -21,7 +21,7 @@ const Download: React.FC = () => (
         <div className={styles.data}>
           <Image alt="logo" src={sc} width={160} height={160} />
           <div className={styles.dataTitle}>
-            Simulator.company
+            Simulator.Company
             {' '}
             <br />
             server for self-hosting

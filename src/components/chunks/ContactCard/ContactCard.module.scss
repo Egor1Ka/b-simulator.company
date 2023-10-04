@@ -26,6 +26,10 @@ $license-padding: 24px 40px 48px 40px;
     display: flex;
     flex-direction: column;
     height: 100%;
+
+    strong {
+      font-weight: 600;
+    }
   }
 
   &Title {

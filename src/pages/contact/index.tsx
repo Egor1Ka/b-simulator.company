@@ -179,18 +179,17 @@ const Contact: React.FC = () => {
             )}
           />
           <ContactCard
-            title="Knowledge
-            Sharing Night"
+            title="Knowledge sharing night"
             type="active"
             styleClass={styles.card2}
-            description="Duration: 2 hours <br />Participants: at least 2"
+            description="<strong>Duration:</strong> 2 hours <br /><strong>Participants:</strong> ≥ 2"
             button={(
               <Button
                 type="secondary"
                 styleClass={styles.knowledgeCardButton}
                 link={process.env.NEXT_PUBLIC_CALENDLY_SHARING_NIGH_LINK}
               >
-                Book
+                Book night
               </Button>
             )}
           />
@@ -198,10 +197,10 @@ const Contact: React.FC = () => {
             styleClass={styles.card3}
             title="Get your presentation "
             type="active"
-            description="Learn more about Simulator.Company"
+            description="Discover more about Simulator.Company."
             input={(
               <Input
-                placeholder="Your email"
+                placeholder="Email"
                 type="email"
                 value={emailPresentation}
                 onChange={handleChangeEmailPresentation}
@@ -215,7 +214,7 @@ const Contact: React.FC = () => {
                 styleClass={styles.knowledgeCardButton}
                 onClick={handleSendEmailClickPresentation}
               >
-                Get Presentation
+                Get presentation
               </Button>
             )}
           />
@@ -227,7 +226,7 @@ const Contact: React.FC = () => {
             description="See our product in action. Discover how our solution can transform your business"
             input={(
               <Input
-                placeholder="Your email "
+                placeholder="Email"
                 type="email"
                 value={emailDemo}
                 onChange={handleChangeEmailDemo}

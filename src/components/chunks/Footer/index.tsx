@@ -67,21 +67,24 @@ function Footer(): React.JSX.Element {
                 <li>About</li>
                 <li>Read</li>
                 <li>Terms of Service</li>
-                <li>Contact us</li>
+                <li>Contact Us</li>
               </ul>
             </section>
           </div>
           <div className={style.groupB}>
             <section>
               <h5>Subscribe to our newsletter</h5>
-              <p>The latest Corezoid news, articles, and resources, sent straight to your inbox.</p>
+              <p>
+                The latest Simulator.Company news, articles,
+                and resources sent straight to your email.
+              </p>
               <div className={style.emailGroup}>
                 <Input
                   error={emailError}
                   type="email"
                   value={email}
                   onChange={handleChangeEmail}
-                  placeholder="Your email address"
+                  placeholder="Email"
                 />
                 <Button onClick={handleSendEmailClick}>Subscribe</Button>
               </div>
