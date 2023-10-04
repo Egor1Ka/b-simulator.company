@@ -58,5 +58,32 @@
         "descriptionCard4": "Yes, you can have a free Cloud license with RPS=5 for an unlimited period. When you register for the first time, you are given 1 million State Changes. When you run out of them, you will not be able to send tasks to Processes and will have the RPS=0 limit.",
         "descriptionCard6": "No, we do not have this option.",
         "descriptionCard7": "Yes, you can. To do this, purchase a new license and specify the needed RPS."
+    },
+    "pageMetaInfo": {
+        "main": {
+            "title": "Simulator.Company | Digital twins | Business Applications and Technology",
+            "description": "Explore market-leading software and technology digital twin. Become an intelligent, sustainable enterprise with the best in cloud, platform, and sustainability solutions – no matter your industry or size.",
+            "keywords": "CRM, Customer Experience, customer relationship management, crm experience, crm technologies, customer experience cx, cx customer experience, crm cloud, customer experience solutions, customer experience B2B, Cloud ERP"
+        },
+        "read": {
+            "title": "Customer Success Stories | Simulator.Company Customer Experience",
+            "description": "Read customer stories to learn how Simulator.Company customers are using customer experience and CRM, ERP, HCM, EPM, SCM technologies.",
+            "keywords": "CRM experience, ERP experience, HCM experience, customer success stories, customer success, CRM success stories, customer success customer experience, CRM examples, ERP examples, HCM examples, CRM examples, customer experience stories, Call Center CRM, Construction CRM, Construction ERP, Construction HCM, Construction EPM, Construction SCM"
+        },
+        "contact": {
+            "title": "Simulator.Company Contacts",
+            "description": "Simulator.Company is eager to help you meet your IT needs. Our highly-trained sales staff can help you find a solution that's right for your enterprise, while our support and consulting agents can make sure your system is running at full capacity",
+            "keywords": "Contact, Simulator.Company Contacts, Simulator.Company training, user enablement, certification"
+        },
+        "buy":{
+            "title": "Pricing",
+            "description": "Multiple pricing options: Free, Starter, Trial Licence,Commercial Licence. Choose the one that works for you",
+            "keywords": "Simulator.Company pricing, crm pricing, pricing erp, Simulator.Company erp pricing, hrm pricing, best crm pricing,best erp pricing, best hrm pricing, crm software pricing, free crm, free erp, free hrm, free epm, free scm, free epm, crm trial connect, erp trial connect, hrm trial connect, epm trial connect, scm trial connect, epm trial connect"
+        },
+        "download":{
+            "title":"Simulator.Company |Download server for self-hosting",
+            "description":"Download the desktop version of Simulator.Company for free and start managing your business processes more efficiently",
+            "keywords":"Simulator.Company, download, CRM, ERP, HCM, EPM, SCM, Download desktop version, business process management, digital twins, free."
+        }
     }
 }

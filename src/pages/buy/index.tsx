@@ -6,9 +6,9 @@ import TextUnderlied from '@/components/chunks/TextUnderlied';
 import ContactCard from '@/components/chunks/ContactCard';
 import Button from '@/components/UI/Button';
 import CardFAQ from '@/components/chunks/CardFAQ/CardFAQ';
-import Head from 'next/head';
 import debug from '../../../public/videos/Debug.mp4';
 import styles from './BuyPage.module.scss';
+import SEO from '@/components/chunks/SEO';
 
 const Contact: React.FC = () => {
   const { t } = useTranslate();
@@ -26,14 +26,11 @@ const Contact: React.FC = () => {
 
   return (
     <Layout>
-      <Head>
-        <title>{process.env.NEXT_PUBLIC_META_BUY_TITLE}</title>
-        <meta
-          name="description"
-          content={process.env.NEXT_PUBLIC_META_BUY_DESCRIPTION}
-        />
-        <meta name="keywords" content={process.env.NEXT_PUBLIC_META_BUY_KEYWORDS} />
-      </Head>
+      <SEO
+        metaTitle={t('pageMetaInfo.buy.title')}
+        metaDescription={t('pageMetaInfo.buy.description')}
+        metaKeywords={t('pageMetaInfo.buy.keywords')}
+      />
       <div className={`${styles.container}`}>
         <h1 className={styles.title}>
           {t('by.titleP1')}

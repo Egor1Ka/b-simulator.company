@@ -17,6 +17,7 @@ import BookIcon from '../../../public/icons/book.svg';
 import DemoIcon from '../../../public/icons/demo.svg';
 import PresentationIcon from '../../../public/icons/presentation.svg';
 import styles from './ContactPage.module.scss';
+import SEO from '@/components/chunks/SEO';
 
 const contactUsCDU = process.env.NEXT_PUBLIC_CONTAT_US_SDU_LINK;
 
@@ -107,17 +108,11 @@ const Contact: React.FC = () => {
 
   return (
     <Layout>
-      <Head>
-        <title>
-          {process.env.NEXT_PUBLIC_META_CONTACT_TITLE}
-        </title>
-        <meta
-          name="description"
-          content={process.env.NEXT_PUBLIC_META_CONTACT_DESCRIPTION}
-          key="desc"
-        />
-        <meta name="keywords" content={process.env.NEXT_PUBLIC_META_CONTACT_KEYWORDS} />
-      </Head>
+      <SEO
+        metaTitle={t('pageMetaInfo.contact.title')}
+        metaDescription={t('pageMetaInfo.contact.description')}
+        metaKeywords={t('pageMetaInfo.contact.keywords')}
+      />
       <div className={`${styles.container} contact`}>
         <h1 className={`${styles.contactTitle}`}>
           {t('contact.contact')}
