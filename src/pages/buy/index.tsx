@@ -6,6 +6,7 @@ import TextUnderlied from '@/components/chunks/TextUnderlied';
 import ContactCard from '@/components/chunks/ContactCard';
 import Button from '@/components/UI/Button';
 import CardFAQ from '@/components/chunks/CardFAQ/CardFAQ';
+import SEO from '@/components/chunks/SEO';
 import debug from '../../../public/videos/Debug.mp4';
 import styles from './BuyPage.module.scss';
 
@@ -25,6 +26,10 @@ const Contact: React.FC = () => {
 
   return (
     <Layout>
+      <SEO
+        metaTitle={t('pageMetaInfo.buy.title')}
+        metaDescription={t('pageMetaInfo.buy.description')}
+      />
       <div className={`${styles.container}`}>
         <h1 className={styles.title}>
           {t('by.titleP1')}
@@ -38,12 +43,12 @@ const Contact: React.FC = () => {
             title="Trial License"
             options={['Cloud', 'In-House']}
             type="active"
-            description="<strong>RPS:</strong> 2 <br /><strong>Storage:</strong>15 Gb at <br /><strong>Duration:</strong> 30 days"
+            description="<strong>RPS:</strong> 2 <br /><strong>Storage:</strong>15 Gb<br /><strong>Duration:</strong> 30 days"
             button={(
               <Button
-                type="secondary"
+                type="primary"
+                styleClass={styles.freeButton}
                 link={process.env.NEXT_PUBLIC_CONTROL_LINK}
-                styleClass={styles.licensesButton}
               >
                 Free
               </Button>
