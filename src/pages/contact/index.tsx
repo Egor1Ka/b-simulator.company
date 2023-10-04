@@ -9,7 +9,7 @@ import SuccessNotification from '@/components/UI/SuccessNotification';
 import { useTranslate } from '@/hooks/useTranslate';
 import Input from '@/components/UI/Input';
 import classNames from 'classnames';
-import Head from 'next/head';
+import SEO from '@/components/chunks/SEO';
 import ContactCard from '../../components/chunks/ContactCard/index';
 import imageWorkshop from '../../../public/images/workshop.png';
 import SertificateIcon from '../../../public/icons/sertificateIcon.svg';
@@ -17,7 +17,6 @@ import BookIcon from '../../../public/icons/book.svg';
 import DemoIcon from '../../../public/icons/demo.svg';
 import PresentationIcon from '../../../public/icons/presentation.svg';
 import styles from './ContactPage.module.scss';
-import SEO from '@/components/chunks/SEO';
 
 const contactUsCDU = process.env.NEXT_PUBLIC_CONTAT_US_SDU_LINK;
 

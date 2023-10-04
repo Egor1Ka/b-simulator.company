@@ -1,12 +1,12 @@
 import React from 'react';
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
+import SEO from '@/components/chunks/SEO';
 import Layout from '../../../components/chunks/Layout';
 import MarcdownRenderer from '../../../components/chunks/MarcdownRenderer';
 import { getPostData, PostData } from '../../../helpers/getPosts';
 import ArrowLeft from '../../../../public/icons/arrow-left.svg';
 import styles from './article.module.scss';
-import SEO from '@/components/chunks/SEO';
 
 interface ReadProps {
   data: PostData
@@ -23,7 +23,7 @@ const Article: React.FC<ReadProps> = ({ data }) => {
       <SEO
         metaTitle={data.title}
         metaDescription={data.description}
-        metaKeywords={data.tags.join(" ")}
+        metaKeywords={data.tags.join(' ')}
       />
       <main className={styles.main}>
         <div className={styles.mainContent}>

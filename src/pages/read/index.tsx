@@ -1,4 +1,6 @@
 import React from 'react';
+import SEO from '@/components/chunks/SEO';
+import { useTranslate } from '@/hooks/useTranslate';
 import Layout from '../../components/chunks/Layout';
 import Pagination from '../../components/chunks/Pagination';
 import PostsList from '../../components/chunks/PostsList';
@@ -6,9 +8,7 @@ import HeaderTitle from '../../components/chunks/HeaderTitle';
 import TextUnderlied from '../../components/chunks/TextUnderlied';
 import Codex from '../../components/chunks/Codex';
 import { getSortedPostsData, PostData } from '../../helpers/getPosts';
-import SEO from '@/components/chunks/SEO';
 import styles from './index.module.scss';
-import { useTranslate } from '@/hooks/useTranslate';
 
 interface ReadProps {
   initialPosts: PostData[];
@@ -38,7 +38,7 @@ const Read: React.FC<ReadProps> = ({ initialPosts, totalPages }) => {
       </main>
     </Layout>
   );
-}
+};
 
 export async function getServerSideProps(): Promise<{ props: ReadProps }> {
   const { posts, totalPages } = getSortedPostsData(1);

@@ -29,7 +29,7 @@ const globalMeta: GlobalMeta = {
   metaDescription: 'Explore market-leading software and technology digital twin. Become an intelligent, sustainable enterprise with the best in cloud, platform, and sustainability solutions – no matter your industry or size',
   shareImage: '',
   article: false,
-  metaKeywords: 'CRM, Customer Experience, customer relationship management, crm experience, crm technologies, customer experience cx, cx customer experience, crm cloud, customer experience solutions, customer experience B2B, Cloud ER'
+  metaKeywords: 'CRM, Customer Experience, customer relationship management, crm experience, crm technologies, customer experience cx, cx customer experience, crm cloud, customer experience solutions, customer experience B2B, Cloud ER',
 };
 
 const MyApp: FC<MyAppProps> = ({ Component, pageProps = {} }) => {

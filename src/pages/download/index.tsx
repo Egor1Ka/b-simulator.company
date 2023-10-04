@@ -1,5 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
+import SEO from '@/components/chunks/SEO';
+import { useTranslate } from '@/hooks/useTranslate';
 import Layout from '../../components/chunks/Layout';
 import HeaderTitle from '../../components/chunks/HeaderTitle';
 import TextUnderlied from '../../components/chunks/TextUnderlied';
@@ -7,9 +9,7 @@ import Button from '../../components/UI/Button';
 import sc from '../../../public/logo-short.png';
 import Apple from '../../../public/icons/apple.svg';
 import Windows from '../../../public/icons/windows.svg';
-import SEO from '@/components/chunks/SEO';
 import styles from './Download.module.scss';
-import { useTranslate } from '@/hooks/useTranslate';
 
 const Download: React.FC = () => {
   const { t } = useTranslate();
@@ -73,6 +73,6 @@ const Download: React.FC = () => {
       </main>
     </Layout>
   );
-}
+};
 
 export default Download;

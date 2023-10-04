@@ -1,8 +1,6 @@
 import Head from 'next/head';
+import { GlobalContext } from '@/pages/_app';
 import { useContext } from 'react';
-import {
-  GlobalContext
-} from '../../../pages/_app';                     
 
 interface SeoProps {
   metaTitle?: string,

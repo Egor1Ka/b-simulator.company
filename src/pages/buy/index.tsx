@@ -6,9 +6,9 @@ import TextUnderlied from '@/components/chunks/TextUnderlied';
 import ContactCard from '@/components/chunks/ContactCard';
 import Button from '@/components/UI/Button';
 import CardFAQ from '@/components/chunks/CardFAQ/CardFAQ';
+import SEO from '@/components/chunks/SEO';
 import debug from '../../../public/videos/Debug.mp4';
 import styles from './BuyPage.module.scss';
-import SEO from '@/components/chunks/SEO';
 
 const Contact: React.FC = () => {
   const { t } = useTranslate();
