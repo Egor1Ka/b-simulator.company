@@ -17,7 +17,6 @@ const Main: React.FC = () => {
       <SEO
         metaTitle={t('pageMetaInfo.main.title')}
         metaDescription={t('pageMetaInfo.main.description')}
-        metaKeywords={t('pageMetaInfo.main.keywords')}
       />
       <main className={styles.main}>
         <div className={styles.headerContent}>
