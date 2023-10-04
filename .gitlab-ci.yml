@@ -6,6 +6,7 @@ stages:
   - build-pre
   - deploy-pre
   - build-prod
+  - deploy-prod
 
 build-pre:
   stage: build-pre
@@ -41,3 +42,43 @@ deploy-pre:
     - main
   tags:
     - gitlab 
+    
+
+build-prod:
+  stage: build-prod
+  variables:
+    workspace: utils-private
+    name: simulator_company_static
+    NODE_ENV: "production"
+    ## NODE_ENV: possible values "development" | "production" , use "production" when build to prod
+  script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    - docker build . -f Dockerfile -t $CI_REGISTRY/$workspace/$name:$CI_COMMIT_TAG  
+        --build-arg NODE_ENV=production
+    - docker push $CI_REGISTRY/$workspace/$name:$CI_COMMIT_TAG
+  only:
+    - tags
+  except:
+    - branches
+  tags:
+    - gitlab
+
+deploy-prod:
+  stage: deploy-prod
+  script: 
+    - mkdir -p ~/.ssh && chmod 700 ~/.ssh
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
+    - ssh ${SSH_USER}@${SSH_PROD_HOST} "sudo docker login -u \"$CI_REGISTRY_USER\" -p \"$CI_REGISTRY_PASSWORD\" $CI_REGISTRY && sudo docker pull $CI_REGISTRY/utils-private/$CI_PROJECT_TITLE:$CI_COMMIT_TAG"
+    - set +e
+    - ssh ${SSH_USER}@${SSH_PROD_HOST} "sudo docker stop $CI_PROJECT_TITLE"
+    - ssh ${SSH_USER}@${SSH_PROD_HOST} "sudo docker rm $CI_PROJECT_TITLE"
+    - ssh ${SSH_USER}@${SSH_PROD_HOST} "sudo docker rmi $(docker images | grep none | awk '{print $3}' | tr '\n' ' ') "
+    - set -e
+    - ssh ${SSH_USER}@${SSH_PROD_HOST} "sudo docker run -p 3000:3000 --restart=always -d --name $CI_PROJECT_TITLE --privileged -t $CI_REGISTRY/utils-private/$CI_PROJECT_TITLE:$CI_COMMIT_TAG"
+  only:
+    - tags
+  except:
+    - branches
+  tags:
+    - gitlab
