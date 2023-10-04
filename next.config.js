@@ -2,7 +2,8 @@ const nextConfig = {
   reactStrictMode: true,
   env: {
     NEXT_PUBLIC_FOOTER_WEBHOOK_APGV_DEV: 'https://9laj7akynv.apigw.corezoid.com/dev',
-    NEXT_PUBLIC_FOOTER_WEBHOOK_APGV_PROD: 'https://3iz07pcbi1.apigw.corezoid.com'
+    NEXT_PUBLIC_FOOTER_WEBHOOK_APGV_PROD: 'https://3iz07pcbi1.apigw.corezoid.com',
+    IS_PRODUCTION_BUILD: process.env.NODE_ENV === 'production'
   },
   i18n: {
     locales: ['en-US'],
@@ -12,9 +13,6 @@ const nextConfig = {
   images: {
     loader: 'default',
     domains: ['localhost'],
-  },
-  env: {
-    IS_PRODUCTION_BUILD: process.env.NODE_ENV === 'production'
   },
   webpack(config, { isServer }) {
     const prefix = config.assetPrefix ?? config.basePath ?? '';
