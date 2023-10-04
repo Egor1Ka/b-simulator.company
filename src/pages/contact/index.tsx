@@ -255,7 +255,7 @@ const Contact: React.FC = () => {
                 styleClass={styles.knowledgeCardButton}
                 onClick={handleSendEmailClickDemo}
               >
-                Get Presentation
+                Request Demo
               </Button>
             )}
           />

@@ -44,7 +44,7 @@ const Contact: React.FC = () => {
             title="Trial License"
             options={['Cloud', 'In-House']}
             type="active"
-            description="<strong>RPS:</strong> 2 <br /><strong>Storage:</strong>15 Gb at <br /><strong>Duration:</strong> 30 days"
+            description="<strong>RPS:</strong> 2 <br /><strong>Storage:</strong>15 Gb<br /><strong>Duration:</strong> 30 days"
             button={(
               <Button
                 type="primary"
