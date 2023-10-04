@@ -192,7 +192,6 @@ const Contact: React.FC = () => {
             )}
           />
           <ContactCard
-
             icon={<BookIcon />}
             title="Knowledge Sharing Night"
             type="active"
