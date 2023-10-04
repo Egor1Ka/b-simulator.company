@@ -23,7 +23,7 @@ const Article: React.FC<ReadProps> = ({ data }) => {
       <SEO
         metaTitle={data.title}
         metaDescription={data.description}
-        article={true}
+        article
       />
       <main className={styles.main}>
         <div className={styles.mainContent}>
