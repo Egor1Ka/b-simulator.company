@@ -110,7 +110,6 @@ const Contact: React.FC = () => {
       <SEO
         metaTitle={t('pageMetaInfo.contact.title')}
         metaDescription={t('pageMetaInfo.contact.description')}
-        metaKeywords={t('pageMetaInfo.contact.keywords')}
       />
       <div className={`${styles.container} contact`}>
         <h1 className={`${styles.contactTitle}`}>

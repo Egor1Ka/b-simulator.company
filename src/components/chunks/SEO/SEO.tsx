@@ -7,7 +7,6 @@ interface SeoProps {
   metaDescription?: string,
   shareImage?: string,
   article?: boolean,
-  metaKeywords?: string,
 }
 
 const SEO: React.FC<SeoProps> = ({
@@ -15,7 +14,6 @@ const SEO: React.FC<SeoProps> = ({
   metaDescription,
   shareImage,
   article,
-  metaKeywords,
 }) => {
   const defaultSeo = useContext(GlobalContext);
 
@@ -25,7 +23,6 @@ const SEO: React.FC<SeoProps> = ({
     metaDescription: metaDescription || defaultSeo?.metaDescription,
     shareImage: shareImage || defaultSeo?.shareImage,
     article: article || defaultSeo?.article,
-    metaKeywords: metaKeywords || defaultSeo?.metaKeywords,
   };
 
   return (
@@ -59,8 +56,6 @@ const SEO: React.FC<SeoProps> = ({
         )
       }
       {fullSeo.article && <meta property="og:type" content="article" />}
-      {fullSeo.metaKeywords && <meta name="keywords" content={metaKeywords} />}
-
       <meta name="viewport" content="width=device-width,initial-scale=1" />
     </Head>
   );

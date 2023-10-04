@@ -22,7 +22,6 @@ const Read: React.FC<ReadProps> = ({ initialPosts, totalPages }) => {
       <SEO
         metaTitle={t('pageMetaInfo.read.title')}
         metaDescription={t('pageMetaInfo.read.description')}
-        metaKeywords={t('pageMetaInfo.read.keywords')}
       />
       <main className={styles.main}>
         <div className={styles.mainContent}>

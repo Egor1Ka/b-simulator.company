@@ -18,7 +18,6 @@ const Download: React.FC = () => {
       <SEO
         metaTitle={t('pageMetaInfo.download.title')}
         metaDescription={t('pageMetaInfo.download.description')}
-        metaKeywords={t('pageMetaInfo.download.keywords')}
       />
       <main className={styles.main}>
         <div className={styles.mainContent}>

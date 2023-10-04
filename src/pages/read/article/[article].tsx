@@ -23,7 +23,7 @@ const Article: React.FC<ReadProps> = ({ data }) => {
       <SEO
         metaTitle={data.title}
         metaDescription={data.description}
-        metaKeywords={data.tags.join(' ')}
+        article={true}
       />
       <main className={styles.main}>
         <div className={styles.mainContent}>

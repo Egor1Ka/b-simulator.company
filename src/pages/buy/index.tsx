@@ -29,7 +29,6 @@ const Contact: React.FC = () => {
       <SEO
         metaTitle={t('pageMetaInfo.buy.title')}
         metaDescription={t('pageMetaInfo.buy.description')}
-        metaKeywords={t('pageMetaInfo.buy.keywords')}
       />
       <div className={`${styles.container}`}>
         <h1 className={styles.title}>
