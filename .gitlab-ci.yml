@@ -6,6 +6,7 @@ stages:
   - build-pre
   - deploy-pre
   - build-prod
+  - deploy-prod
 
 build-pre:
   stage: build-pre
