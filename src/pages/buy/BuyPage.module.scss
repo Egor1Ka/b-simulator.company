@@ -6,9 +6,8 @@
   padding: 1rem 6rem;
   min-height: 100%;
   background: #0D0E12;
+  color: white;
 }
-
-
 
 .video {
   border-radius: 4px;
@@ -38,7 +37,7 @@
   .licenseButton {
     padding: 0px 50px;
     display: inline-block;
-    
+
     &:focus {
       padding: 0px 47px;
     }

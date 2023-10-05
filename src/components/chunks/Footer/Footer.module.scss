@@ -1,6 +1,7 @@
 .footer {
     border-top: 1px solid rgba(53, 57, 69, 1);
     background-color: rgba(13, 14, 18, 1);
+    color: white;
 }
 
 .footerContent {
@@ -25,7 +26,8 @@
     flex-direction: row;
     justify-content: space-between;
 
-    .groupA, .groupB {
+    .groupA,
+    .groupB {
         display: flex;
         flex-direction: row;
         gap: 16px;
@@ -88,10 +90,11 @@
     flex-direction: row;
     justify-content: space-between;
 
-    .groupC, .groupD {
+    .groupC,
+    .groupD {
         display: flex;
         flex-direction: row;
-        justify-content: space-between; 
+        justify-content: space-between;
         gap: 40px;
         font-weight: 400;
         font-size: 12px;
