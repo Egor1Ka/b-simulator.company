@@ -1,6 +1,7 @@
 import React from 'react';
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
+import SEO from '@/components/chunks/SEO';
 import Layout from '../../../components/chunks/Layout';
 import MarcdownRenderer from '../../../components/chunks/MarcdownRenderer';
 import { getPostData, PostData } from '../../../helpers/getPosts';
@@ -19,6 +20,11 @@ const Article: React.FC<ReadProps> = ({ data }) => {
 
   return (
     <Layout>
+      <SEO
+        metaTitle={data.title}
+        metaDescription={data.description}
+        article
+      />
       <main className={styles.main}>
         <div className={styles.mainContent}>
           <div className={styles.navigation}>
@@ -50,7 +56,6 @@ const Article: React.FC<ReadProps> = ({ data }) => {
 
 export const getServerSideProps: GetServerSideProps<ReadProps> = async ({ params }) => {
   const slug = params?.article as string;
-
   const {
     data,
   } = getPostData(slug);

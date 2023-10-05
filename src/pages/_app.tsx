@@ -12,6 +12,8 @@ import '../styles/global.scss';
 interface GlobalMeta {
   metaTitle: string;
   metaDescription: string;
+  shareImage: string,
+  article: boolean,
 }
 
 interface MyAppProps {
@@ -22,8 +24,10 @@ interface MyAppProps {
 export const GlobalContext = createContext<GlobalMeta | null>(null);
 
 const globalMeta: GlobalMeta = {
-  metaTitle: 'Simulator Company | New site',
-  metaDescription: 'The best site in the world',
+  metaTitle: 'Simulator Company',
+  metaDescription: 'Explore market-leading software and technology digital twin. Become an intelligent, sustainable enterprise with the best in cloud, platform, and sustainability solutions – no matter your industry or size',
+  shareImage: '',
+  article: false,
 };
 
 const MyApp: FC<MyAppProps> = ({ Component, pageProps = {} }) => {

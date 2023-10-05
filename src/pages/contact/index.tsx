@@ -9,11 +9,17 @@ import SuccessNotification from '@/components/UI/SuccessNotification';
 import { useTranslate } from '@/hooks/useTranslate';
 import Input from '@/components/UI/Input';
 import classNames from 'classnames';
+import SEO from '@/components/chunks/SEO';
 import ContactCard from '../../components/chunks/ContactCard/index';
 import imageWorkshop from '../../../public/images/workshop.png';
+import SertificateIcon from '../../../public/icons/sertificateIcon.svg';
+import BookIcon from '../../../public/icons/book.svg';
+import DemoIcon from '../../../public/icons/demo.svg';
+import PresentationIcon from '../../../public/icons/presentation.svg';
 import styles from './ContactPage.module.scss';
 
 const contactUsCDU = process.env.NEXT_PUBLIC_CONTAT_US_SDU_LINK;
+
 const Contact: React.FC = () => {
   const { t } = useTranslate();
   const [emailDemo, setEmailDemo] = useState('');
@@ -98,8 +104,13 @@ const Contact: React.FC = () => {
     [styles.contactUsIframeContainer]: true,
     [styles.loaded]: iframeLoaded,
   });
+
   return (
     <Layout>
+      <SEO
+        metaTitle={t('pageMetaInfo.contact.title')}
+        metaDescription={t('pageMetaInfo.contact.description')}
+      />
       <div className={`${styles.container} contact`}>
         <h1 className={`${styles.contactTitle}`}>
           {t('contact.contact')}
@@ -165,6 +176,7 @@ const Contact: React.FC = () => {
         </section>
         <section className={styles.knowledgeCardContainer}>
           <ContactCard
+            icon={<SertificateIcon />}
             title="Certification"
             options={['Junior', 'Middle', 'Senior']}
             type="disabled"
@@ -179,7 +191,8 @@ const Contact: React.FC = () => {
             )}
           />
           <ContactCard
-            title="Knowledge sharing night"
+            icon={<BookIcon />}
+            title="Knowledge Sharing Night"
             type="active"
             styleClass={styles.card2}
             description="<strong>Duration:</strong> 2 hours <br /><strong>Participants:</strong> ≥ 2"
@@ -189,11 +202,12 @@ const Contact: React.FC = () => {
                 styleClass={styles.knowledgeCardButton}
                 link={process.env.NEXT_PUBLIC_CALENDLY_SHARING_NIGH_LINK}
               >
-                Book night
+                Book Night
               </Button>
             )}
           />
           <ContactCard
+            icon={<PresentationIcon />}
             styleClass={styles.card3}
             title="Get your presentation "
             type="active"
@@ -218,8 +232,8 @@ const Contact: React.FC = () => {
               </Button>
             )}
           />
-
           <ContactCard
+            icon={<DemoIcon />}
             styleClass={styles.card4}
             title="Request a Demo"
             type="active"
@@ -240,7 +254,7 @@ const Contact: React.FC = () => {
                 styleClass={styles.knowledgeCardButton}
                 onClick={handleSendEmailClickDemo}
               >
-                Get Presentation
+                Request Demo
               </Button>
             )}
           />

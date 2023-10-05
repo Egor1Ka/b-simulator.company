@@ -7,6 +7,15 @@
   min-height: 100%;
 }
 
+.freeButton {
+  padding: 0px 50px;
+  display: inline-block;
+
+  &:focus {
+    padding: 0px 47px;
+  }
+}
+
 .video {
   border-radius: 4px;
 }
@@ -72,11 +81,6 @@
   flex-direction: row;
 }
 
-.descriptionSection {
-  display: flex;
-  gap: 20px;
-}
-
 .mainCard {
   background: radial-gradient(100% 100% at 100% 0%, rgba(90, 152, 255, 70%) 0%, rgba(67, 138, 244, 0) 94.3%);
   margin-right: 0px;
@@ -126,8 +130,10 @@
 }
 
 .descriptionSection {
+  display: flex;
+  gap: 20px;
   width: 100%;
-  padding-bottom: 15px;
+  padding-bottom: 24px;
   border-bottom: 1px solid #8D94A7;
 
   .P1 {

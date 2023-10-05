@@ -20,6 +20,7 @@
   }
 }
 
+
 .contactUs {
   display: flex;
   margin-top: 24px;
@@ -68,6 +69,10 @@
     border-radius: 10px;
   }
 
+}
+
+.workshopInfoButton {
+  display: inline-block;
 }
 
 .card1 {
@@ -180,11 +185,6 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px 20px;
-    width: 100%;
-  }
-
-  &CardButton {
-    margin-top: 26px;
     width: 100%;
   }
 }
@@ -313,11 +313,23 @@
     padding: 1rem 3rem;
   }
 
+  .knowledge {
+    &CardButton {
+      margin-top: 26px;
+      width: 100%;
+    }
+  }
+
 }
 
 
 @media (max-width: 1000px) {
   .knowledge {
+    &CardButton {
+      margin-top: 26px;
+      width: 100%;
+    }
+
     &CardContainer {
       flex-direction: column
     }
@@ -378,9 +390,16 @@
     padding: 1rem 1rem;
   }
 
+
   .workshop {
     &InfoButton {
       width: 100%;
+    }
+  }
+
+  .descriptionSection {
+    .P2 {
+      margin-top: 24px;
     }
   }
 
