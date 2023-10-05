@@ -3,26 +3,16 @@ import React, {
 import Layout from '@/components/chunks/Layout';
 import { useTranslate } from '@/hooks/useTranslate';
 import TextUnderlied from '@/components/chunks/TextUnderlied';
+import debugGif from '../../../public/gif/state.gif';
 import ContactCard from '@/components/chunks/ContactCard';
 import Button from '@/components/UI/Button';
+import Image from 'next/image';
 import CardFAQ from '@/components/chunks/CardFAQ/CardFAQ';
 import SEO from '@/components/chunks/SEO';
-import debug from '../../../public/videos/Debug.mp4';
 import styles from './BuyPage.module.scss';
 
 const Contact: React.FC = () => {
   const { t } = useTranslate();
-  const video = (
-    <video
-      src={debug}
-      autoPlay
-      muted
-      loop
-      className={styles.video}
-      controls={false}
-      style={{ width: '100%', height: '100%' }}
-    />
-  );
 
   return (
     <Layout>
@@ -42,12 +32,13 @@ const Contact: React.FC = () => {
           <ContactCard
             title="Trial License"
             options={['Cloud', 'In-House']}
+            styleClass={styles.trialCard}
             type="active"
             description="<strong>RPS:</strong> 2 <br /><strong>Storage:</strong>15 Gb<br /><strong>Duration:</strong> 30 days"
             button={(
               <Button
                 type="primary"
-                styleClass={styles.freeButton}
+                styleClass={styles.licenseButton}
                 link={process.env.NEXT_PUBLIC_CONTROL_LINK}
               >
                 Free
@@ -57,14 +48,16 @@ const Contact: React.FC = () => {
           <ContactCard
             title="Commercial License"
             options={['Cloud', 'In-House']}
-            type="disabled"
+            styleClass={styles.commercialCard}
+            type="active"
             description="<strong>RPS:</strong> 2 to unlimited <br /> <strong>Storage:</strong> 15 GB to unlimited<br /> <strong>Price:</strong> Starting at $40"
             button={(
               <Button
+                type="primary"
                 styleClass={styles.licenseButton}
-                disabled
+                link={process.env.NEXT_PUBLIC_LICENSE_CONSTRUCTOR_LINK}
               >
-                Coming Soon
+                Buy
               </Button>
             )}
           />
@@ -80,7 +73,13 @@ const Contact: React.FC = () => {
         <section className={`${styles.questionDescription}`}>
           <CardFAQ
             media={(
-              video
+              <Image
+                src={debugGif.src}
+                alt='test'
+                width={debugGif.width}
+                height={debugGif.height}
+                className={styles.video}
+              />
             )}
             title={t('by.titleCard1')}
             description={t('by.descriptionMainCard')}
