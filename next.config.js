@@ -1,9 +1,31 @@
+const path = require('path');
+const dotenv = require('dotenv');
+
+const loadEnvConfig = () => {
+  const environment = process.env.ENVIRONMENT || 'dev';
+  const envFilePath = path.resolve(__dirname, `.env.${environment}`);
+  const result = dotenv.config({ path: envFilePath });
+
+  if (result.error) {
+    throw new Error(`Failed to load environment variables from ${envFilePath}`);
+  }
+
+  console.log(`Environment variables loaded from: ${envFilePath}`);
+
+  return result.parsed;
+};
+
+const envs = loadEnvConfig();
+
 const nextConfig = {
   reactStrictMode: true,
   env: {
-    NEXT_PUBLIC_FOOTER_WEBHOOK_APGV_DEV: 'https://9laj7akynv.apigw.corezoid.com/dev',
-    NEXT_PUBLIC_FOOTER_WEBHOOK_APGV_PROD: 'https://3iz07pcbi1.apigw.corezoid.com',
-    IS_PRODUCTION_BUILD: process.env.NODE_ENV === 'production'
+    IS_PRODUCTION_BUILD: envs.ENVIRONMENT === 'prod',
+    NEXT_PUBLIC_CONTAT_US_SDU_LINK: envs.NEXT_PUBLIC_CONTAT_US_SDU_LINK,
+    NEXT_PUBLIC_CALENDLY_WORKSHOP_LINK: envs.NEXT_PUBLIC_CALENDLY_WORKSHOP_LINK,
+    NEXT_PUBLIC_CALENDLY_SHARING_NIGH_LINK: envs.NEXT_PUBLIC_CALENDLY_SHARING_NIGH_LINK,
+    NEXT_PUBLIC_REQUEST_EMAIL_APGV: envs.NEXT_PUBLIC_CALENDLY_SHARING_NIGH_LINK,
+    NEXT_PUBLIC_CONTROL_LINK: envs.NEXT_PUBLIC_CALENDLY_SHARING_NIGH_LINK,
   },
   i18n: {
     locales: ['en-US'],
@@ -13,6 +35,9 @@ const nextConfig = {
   images: {
     loader: 'default',
     domains: ['localhost'],
+  },
+  sassOptions: {
+    includePaths: [path.join(__dirname, 'src/styles')],
   },
   webpack(config, { isServer }) {
     const prefix = config.assetPrefix ?? config.basePath ?? '';

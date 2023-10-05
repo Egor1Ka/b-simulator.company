@@ -6,8 +6,9 @@
     "node": "18.x"
   },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "cross-env ENVIRONMENT=dev next dev",
+    "build:production": "cross-env ENVIRONMENT=prod next build",
+    "build:development": "cross-env ENVIRONMENT=dev next build",
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install"
@@ -19,6 +20,8 @@
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "classnames": "^2.3.2",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.3.1",
     "eslint": "8.49.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-next": "13.4.19",
@@ -39,6 +42,7 @@
     "file-loader": "^6.2.0",
     "husky": "^8.0.0",
     "sass": "^1.66.1",
+    "sass-loader": "^13.3.2",
     "scss-reset": "^1.4.2"
   }
 }

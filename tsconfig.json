@@ -25,7 +25,8 @@
     "paths": {
       "@/*": [
         "./src/*"
-      ]
+      ],
+      "@mixins": ["./src/styles./mixins.scss"]
     }
   },
   "include": [

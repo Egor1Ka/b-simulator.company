@@ -13,12 +13,12 @@ build-pre:
   variables:
     workspace: utils-private
     name: simulator_company_static
-    NODE_ENV: "development"
+    config: "development"
     ## NODE_ENV: possible values "development" | "production" , use "production" when build to prod
   script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     - docker build . -f Dockerfile -t $CI_REGISTRY/$workspace/$name:latest  
-        --build-arg NODE_ENV=development
+        --build-arg config="$config"
     - docker push $CI_REGISTRY/$workspace/$name:latest
   only:
     - main
@@ -49,12 +49,11 @@ build-prod:
   variables:
     workspace: utils-private
     name: simulator_company_static
-    NODE_ENV: "production"
-    ## NODE_ENV: possible values "development" | "production" , use "production" when build to prod
+    config: "production"
   script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     - docker build . -f Dockerfile -t $CI_REGISTRY/$workspace/$name:$CI_COMMIT_TAG  
-        --build-arg NODE_ENV=production
+        --build-arg config="$config"
     - docker push $CI_REGISTRY/$workspace/$name:$CI_COMMIT_TAG
   only:
     - tags
