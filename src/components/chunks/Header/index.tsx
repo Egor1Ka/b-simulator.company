@@ -10,11 +10,13 @@ function Header() {
   const router = useRouter();
 
   const goToLogIn = () => {
-    window.open('https://account.corezoid.com/enter/login', '_self');
+    const link = `${process.env.NEXT_PUBLIC_LOGIN_LINK}/enter/login?redirect_uri=${encodeURIComponent(process.env.NEXT_PUBLIC_CONTROL_LINK || '')}`;
+    window.open(link, '_self');
   };
 
   const goToControl = () => {
-    window.open('https://control.events', '_self');
+    const link = process.env.NEXT_PUBLIC_CONTROL_LINK;
+    window.open(link, '_self');
   };
 
   return (
@@ -57,7 +59,7 @@ function Header() {
 
         <div className={style.loginGroup}>
           <Button onClick={goToLogIn} type="outlined">Log in</Button>
-          <Button onClick={goToControl}>Create Actor</Button>
+          <Button onClick={goToControl}>Start Free</Button>
         </div>
       </div>
     </header>

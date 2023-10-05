@@ -12,6 +12,16 @@ import styles from './index.module.scss';
 
 const Main: React.FC = () => {
   const { t } = useTranslate();
+  const goToLogIn = () => {
+    const link = `${process.env.NEXT_PUBLIC_LOGIN_LINK}/enter/login?redirect_uri=${encodeURIComponent(process.env.NEXT_PUBLIC_CONTROL_LINK || '')}`;
+    window.open(link, '_self');
+  };
+
+  const goToVideo = () => {
+    const link = 'https://www.youtube.com/watch?v=hyjXqow0ltk';
+    window.open(link, '_self');
+  };
+
   return (
     <Layout>
       <SEO
@@ -50,8 +60,8 @@ const Main: React.FC = () => {
               and continuously compute upon.
             </p>
             <div className={styles.buttonGroup}>
-              <Button style={{ width: 160 }} type="secondary">Watch video</Button>
-              <Button style={{ width: 160 }} type="primary">Start free</Button>
+              <Button style={{ width: 160 }} type="secondary" onClick={goToVideo}>Watch video</Button>
+              <Button style={{ width: 160 }} type="primary" onClick={goToLogIn}>Start free</Button>
             </div>
           </div>
           <div className={styles.imageGroup}>
