@@ -3,12 +3,12 @@ import React, {
 import Layout from '@/components/chunks/Layout';
 import { useTranslate } from '@/hooks/useTranslate';
 import TextUnderlied from '@/components/chunks/TextUnderlied';
-import debugGif from '../../../public/gif/state.gif';
+import SEO from '@/components/chunks/SEO';
 import ContactCard from '@/components/chunks/ContactCard';
 import Button from '@/components/UI/Button';
 import Image from 'next/image';
 import CardFAQ from '@/components/chunks/CardFAQ/CardFAQ';
-import SEO from '@/components/chunks/SEO';
+import debugGif from '../../../public/gif/state.gif';
 import styles from './BuyPage.module.scss';
 
 const Contact: React.FC = () => {
@@ -75,7 +75,7 @@ const Contact: React.FC = () => {
             media={(
               <Image
                 src={debugGif.src}
-                alt='test'
+                alt="gif debug"
                 width={debugGif.width}
                 height={debugGif.height}
                 className={styles.video}
