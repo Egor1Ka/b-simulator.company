@@ -17,8 +17,6 @@ const loadEnvConfig = () => {
 
 const envs = loadEnvConfig();
 
-console.log(envs.NEXT_PUBLIC_CONTAT_US_SDU_LINK);
-
 const nextConfig = {
   reactStrictMode: true,
   env: {
