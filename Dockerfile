@@ -1,4 +1,4 @@
-FROM node:18.12.1
+FROM node:18.16
 ARG NODE_ENV
 ENV NODE_ENV=$NODE_ENV
 COPY . /simulator_company_static
