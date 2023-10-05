@@ -45,9 +45,10 @@ export const getServerSideProps: GetServerSideProps<ReadProps> = async ({ params
   }
 
   const {
-    posts, totalPages,
+    posts,
+    totalPages,
   } = getSortedPostsData(parseInt(pageCount, 10));
-  
+
   return {
     props: {
       initialPosts: posts,
