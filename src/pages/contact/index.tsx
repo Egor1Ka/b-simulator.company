@@ -36,7 +36,7 @@ const Contact: React.FC = () => {
   const handleChangeEmailPresentation = (value: string) => {
     if (value.length === 0) {
       setEmailErrorPresentation(null);
-    } else if (!hasEnteredInvalidPresentationlOnce && !isEmailValid(emailPresentation)) {
+    } else if (!hasEnteredInvalidPresentationlOnce && !isEmailValid(value)) {
       setEmailErrorPresentation('Invalid email address');
     } else {
       setEmailErrorPresentation(null);
@@ -65,7 +65,7 @@ const Contact: React.FC = () => {
   const handleChangeEmailDemo = (value: string) => {
     if (value.length === 0) {
       setEmailDemoError(null);
-    } else if (!hasEnteredInvalidEmaiDemolOnce && !isEmailValid(emailDemo)) {
+    } else if (!hasEnteredInvalidEmaiDemolOnce && !isEmailValid(value)) {
       setEmailDemoError('Invalid email address');
     } else {
       setEmailDemoError(null);
