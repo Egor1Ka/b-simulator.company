@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import isEmailValid from '@/helpers/regularExpressions/isEmailValid';
 import emailSubscribeRequest from '@/API/emailSubscribeRequest';
 import SuccessNotification from '@/components/UI/SuccessNotification';
+import Arrow from '../../../../public/icons/arrow-right.svg';
 import Button from '../../UI/Button';
 import Input from '../../UI/Input';
 import awsPartnerImg from '../../../../public/aws-partner.png';
@@ -56,18 +58,23 @@ function Footer(): React.JSX.Element {
             <section>
               <h5>Resources</h5>
               <ul>
-                <li>Documentation</li>
-                <li>API</li>
-                <li>Scripts</li>
+                <li><a href="https://doc.corezoid.com/" target="_blank" rel="noopener noreferrer">Documentation</a></li>
+                <li><a href="https://control.events/api.html" target="_blank" rel="noopener noreferrer">API</a></li>
+                <li><a href="https://control.events/script.html" target="_blank" rel="noopener noreferrer">Scripts</a></li>
               </ul>
             </section>
             <section>
               <h5>Company</h5>
               <ul>
-                <li>About</li>
-                <li>Read</li>
-                <li>Terms of Service</li>
-                <li>Contact Us</li>
+                <li><Link href="/download" passHref>Download</Link></li>
+                <li><Link href="/read" passHref>Read</Link></li>
+                <li><Link href="/terms" passHref>Terms</Link></li>
+                <li>
+                  <Link className={style.coloredLink} href="/contact" passHref>
+                    Contact Us
+                    <Arrow />
+                  </Link>
+                </li>
               </ul>
             </section>
           </div>
