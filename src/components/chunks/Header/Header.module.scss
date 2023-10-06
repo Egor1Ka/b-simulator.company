@@ -16,6 +16,12 @@
     .logoWrapper {
         position: relative;
         cursor: pointer;
+        height: 24px;
+    }
+
+    &.mobileHeader {
+        padding: 24px 0;
+        display: none;
     }
 }
 
@@ -25,10 +31,22 @@
     padding-right: 24px;
     padding-left: 24px;
     max-width: 1192px;
+    margin: 0 auto;
     width: 100%;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    .mobileActions {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        button {
+            width: 24px;
+            height: 24px;
+        }
+    }
 }
 
 .linkGroup {
@@ -75,3 +93,86 @@
     gap: 16px;
     align-items: center;
 }
+
+.mobileMenu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: #0D0E12;
+    box-sizing: border-box;
+    color: #fff;
+    width: 100%;
+    top: 72px;
+
+    div {
+        li {
+            font-size: 18px;
+
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        display: none;
+        height: unset;
+
+        &.mobileHeader {
+            display: flex;
+
+            .active {
+                background: linear-gradient(270deg, rgba(88, 161, 255, 0) 0%, rgba(88, 161, 255, 0.24) 100%);
+
+                &:after {
+                    height: 100%;
+                    width: 2px;
+                    bottom: 0;
+                    left: 0;
+                }
+
+            }
+
+            .linkGroup {
+                padding: 24px 24px 0;
+            }
+
+            .linkGroup ul {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .linkGroup li {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .loginGroup {
+                padding: 24px;
+
+                button {
+                    flex-grow: 1;
+                    flex-basis: 0;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header {
+
+        &.mobileHeader {
+
+            .loginGroup {
+                padding: 24px;
+                flex-direction: column;
+
+                button {
+                    flex-grow: 1;
+                    flex-basis: 0;
+                    width: 100%;
+                }
+            }
+        }
+    }
+  }

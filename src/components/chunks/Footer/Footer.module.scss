@@ -56,6 +56,14 @@
                 font-size: 14px;
                 line-height: 22px;
                 color: rgba(255, 255, 255, 1);
+
+                .coloredLink {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 8px;
+                    color: #3C9DFE;
+                }
             }
         }
 
@@ -108,3 +116,52 @@
     align-items: center;
     gap: 16px;
 }
+
+@media screen and (max-width: 768px) {
+    .footer {
+        .footerContentTop {
+            flex-direction: column;
+            gap: 48px;
+        }
+
+        .footerContentBottom {
+            flex-direction: column;
+            gap: 48px;
+
+            .groupC {
+                justify-content: flex-start;
+            }
+
+            .groupD {
+                justify-content: center;
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+    .footer {
+        .footerContentTop {
+            .groupA {
+                flex-direction: column;
+                gap: 26px;
+            }
+        }
+
+        .emailGroup {
+            flex-direction: column;
+
+            button {
+                width: 100%;
+            }
+        }
+
+        .footerContentBottom {
+            .groupC {
+                justify-content: flex-start;
+                flex-direction: column;
+            }
+        }
+    }
+  }

@@ -76,3 +76,12 @@
   justify-content: center;
 }
 
+@media screen and (max-width: 480px) {
+  .mainGroup {
+    h1 {
+      font-size: 32px;
+      line-height: 40px;
+    }
+  }
+}
+
