@@ -53,3 +53,14 @@
   align-items: center;
   gap: 16px;
 }
+
+@media screen and (max-width: 480px) {
+  .dataButtons {
+    flex-direction: column;
+    width: 100%;
+
+    a, button {
+      width: 100% !important;
+    }
+  }
+}
