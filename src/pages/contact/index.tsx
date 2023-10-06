@@ -179,14 +179,16 @@ const Contact: React.FC = () => {
             icon={<SertificateIcon />}
             title="Certification"
             options={['Junior', 'Middle', 'Senior']}
-            type="disabled"
+            type="active"
+            styleClass={styles.card1}
             description="Junior Test: 20 min <br /> Middle Test: 6 hours <br /> Senior Test: 12 hours"
             button={(
               <Button
                 styleClass={styles.knowledgeCardButton}
-                disabled
+                type="secondary"
+                link={process.env.COREZOID_CERTIFICATION_LINK}
               >
-                Coming Soon
+                Request Certification
               </Button>
             )}
           />

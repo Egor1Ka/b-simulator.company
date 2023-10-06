@@ -30,11 +30,11 @@ const Contact: React.FC = () => {
         </h1>
         <section className={styles.licenses}>
           <ContactCard
-            title="Trial License"
-            options={['Cloud', 'In-House']}
+            title="Free"
+            options={['Cloud']}
             styleClass={styles.trialCard}
             type="active"
-            description="<strong>RPS:</strong> 2 <br /><strong>Storage:</strong> 15 Gb<br /><strong>Duration:</strong> unlimited"
+            description="<strong>RPS:</strong> 5 <br /><strong>Storage:</strong> 15 Gb<br /><strong>Duration:</strong> unlimited"
             button={(
               <Button
                 type="primary"
