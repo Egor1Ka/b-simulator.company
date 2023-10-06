@@ -1,44 +1,40 @@
-    
-  .mainContainer {
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100%;
+  background-color: rgba(13, 14, 18, 1);
+}
+
+.mainTitle {
+  font-size: 160px;
+  line-height: 160px;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 96px;
+  max-width: 560px;
+  width: 100%;
+  background-image: radial-gradient(50% 50% at 50% 50%, rgba(41, 97, 190, 0.72) 0%, rgba(67, 138, 244, 0.00) 100%);
+  background-position: 100% 5%;
+  background-repeat: no-repeat;
+  background-size: 100% 60%;
+
+  .buttonGroup {
+    margin-top: 48px;
     display: flex;
-    justify-content: center;
+    gap: 16px;;
     align-items: center;
-    height: 100vh;
-    color: black;
-  
-    .textCenter {
-      text-align: center;
-      h1,
-      h3 {
-        text-align: center;
-        margin: 10px;
-        cursor: default;
-      }
-  
-      h1 {
-        font-size: 8em;
-        transition: font-size 200ms ease-in-out;
-        border-bottom: 1px dashed white;
-      }
-      
-      button {
-        border: 1px solid white;
-        background: transparent;
-        outline: none;
-        padding: 10px 20px;
-        font-size: 1.1rem;
-        font-weight: bold;
-        color: black;
-        text-transform: uppercase;
-        text-decoration: underline;
-        transition: background-color 200ms ease-in;
-        margin: 20px 0;
-        
-        &:hover {
-          background-color: white;
-          color: #555;
-          cursor: pointer;
-        }
-      }
-    }
   }
+}
+
+.mainDescription {
+  max-width: 340px;
+  font-size: 14px;
+  line-height: 20px;
+}
