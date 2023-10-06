@@ -17,6 +17,7 @@ interface ReadProps {
 
 const Read: React.FC<ReadProps> = ({ initialPosts, totalPages }) => {
   const { t } = useTranslate();
+
   return (
     <Layout>
       <SEO

@@ -2,8 +2,6 @@
 import React from 'react';
 import cn from 'classnames';
 import { useRouter } from 'next/navigation';
-import ArrowLeft from '../../../../public/icons/arrowMobileLeft.svg';
-import ArrowRight from '../../../../public/icons/arrowMobileRight.svg';
 import styles from './Pagination.module.scss';
 
 interface PaginationProps {
@@ -61,22 +59,16 @@ const Pagination: React.FC<PaginationProps> = ({ pages, active }) => {
 
   return (
     <div className={styles.pagination}>
-      {active > 1
-        ? (
-          <>
-            <button
-              type="button"
-              className={`${styles.textButton} ${styles.button}`}
-              onClick={handlePrevClick}
-            >
-              Previous
-            </button>
-            <ArrowLeft
-              onClick={handlePrevClick}
-              className={styles.arrow}
-            />
-          </>
-        ) : <div />}
+      {active > 1 ? (
+        <button
+          type="button"
+          className={styles.textButton}
+          onClick={handlePrevClick}
+        >
+          Previous
+        </button>
+      ) : <div />}
+
       <div>
         <ul>
           {pageNumbers.map((page, index) => (
@@ -100,19 +92,13 @@ const Pagination: React.FC<PaginationProps> = ({ pages, active }) => {
       </div>
 
       {active < pages ? (
-        <>
-          <button
-            type="button"
-            className={`${styles.textButton} ${styles.button}`}
-            onClick={handleNextClick}
-          >
-            Next
-          </button>
-          <ArrowRight
-            onClick={handleNextClick}
-            className={styles.arrow}
-          />
-        </>
+        <button
+          type="button"
+          className={styles.textButton}
+          onClick={handleNextClick}
+        >
+          Next
+        </button>
       ) : <div />}
     </div>
   );
