@@ -78,7 +78,7 @@
 }
 
 .card1 {
-  background: radial-gradient(50% 50% at 50% 50%, rgba(41, 97, 190, 0.72) 0%, rgba(67, 138, 244, 0.00) 94.3%);
+  background: radial-gradient(100% 100% at 100% 100%, rgba(69, 110, 179, 0.72) 0%, rgba(67, 138, 244, 0) 94.3%)
 }
 
 .card2 {
@@ -423,5 +423,51 @@
       min-width: initial;
       width: 100%;
     }
+  }
+
+}
+
+@media (max-width: 420px) {
+  .contactUs {
+    margin-top: 0px;
+  }
+
+  .contactTitle {
+    font-size: 32px;
+    padding-bottom: 24px;
+  }
+
+  .contactUsTitle {
+    padding-top: 0px;
+    font-size: 24px;
+    width: 70%;
+    font-weight: 600;
+    line-height: 32px;
+  }
+
+  .workshopSection {
+    margin-top: 96px;
+  }
+
+  .workshopImageContainer {
+    min-height: auto;
+  }
+
+  .workshopImage {
+    min-height: auto;
+  }
+
+  .workshopImageSection {
+    min-height: auto;
+  }
+
+  .knowledgeCardContainer {
+    margin-top: 96px;
+    margin-bottom: 48px;
+  }
+
+  .workshopInfoTitle {
+    font-size: 24px;
+    line-height: 22px;
   }
 }

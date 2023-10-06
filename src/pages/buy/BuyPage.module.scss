@@ -207,3 +207,33 @@
     flex-direction: column
   }
 }
+
+@media (max-width: 420px) {
+  .title {
+    margin: 24px 0px 48px 0px;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+  }
+
+  .licenses {
+    margin: 0px;
+  }
+
+  .questionText {
+    .questionTitle {
+      font-size: 24px;
+      line-height: 32px;
+    }
+
+    .description {
+      font-size: 16px;
+      line-height: 24px
+    }
+  }
+
+  .questionDescription {
+    margin-bottom: 48px;
+  }
+
+}
