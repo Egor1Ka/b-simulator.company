@@ -19,9 +19,6 @@ const Codex: React.FC = () => {
             src={img}
             alt="book"
             height={232}
-            style={{
-              transform: 'scale(1.20) translate(-25%, 10px)',
-            }}
           />
         </div>
         <div className={style.contentBlock}>
