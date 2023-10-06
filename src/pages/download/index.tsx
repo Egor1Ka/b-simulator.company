@@ -11,8 +11,22 @@ import Apple from '../../../public/icons/apple.svg';
 import Windows from '../../../public/icons/windows.svg';
 import styles from './Download.module.scss';
 
+const downloadLinks = {
+  macArm: 'https://app.simulator.company/simulator-company-0.2.4-arm64.dmg',
+  macIntel: 'https://app.simulator.company/simulator-company-0.2.4-x64.dmg',
+  windows: 'https://app.simulator.company/simulator-company-0.1.5-setup.exe',
+};
+
 const Download: React.FC = () => {
   const { t } = useTranslate();
+
+  const handleDownload = (link: string) => {
+    const anchor = document.createElement('a');
+    anchor.href = link;
+    anchor.download = '';
+    anchor.click();
+  };
+
   return (
     <Layout>
       <SEO
@@ -39,6 +53,7 @@ const Download: React.FC = () => {
             </div>
             <div className={styles.dataButtons}>
               <Button
+                onClick={() => handleDownload(downloadLinks.macArm)}
                 type="outlined"
                 link="#"
                 style={{ width: 172 }}
@@ -48,6 +63,7 @@ const Download: React.FC = () => {
                 MacOS ARM
               </Button>
               <Button
+                onClick={() => handleDownload(downloadLinks.macIntel)}
                 type="outlined"
                 link="#"
                 style={{ width: 172 }}
@@ -57,6 +73,7 @@ const Download: React.FC = () => {
                 MacOS Intel
               </Button>
               <Button
+                onClick={() => handleDownload(downloadLinks.windows)}
                 type="outlined"
                 link="#"
                 style={{ width: 172 }}
