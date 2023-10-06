@@ -5,21 +5,11 @@
     justify-content: space-between;
     transition: all .3s;
     width: 100%;
-    color: white;
 
     ul {
         display: flex;
         flex-direction: row;
         gap: 24px;
-    }
-
-    .arrow {
-        display: none;
-        cursor: pointer;
-    }
-
-    .button {
-        color: white;
     }
 }
 
@@ -31,7 +21,6 @@
     text-align: left;
     padding: 10px;
     background-color: transparent;
-    color: white;
 
     &.fixed {
         width: 32px;
@@ -44,30 +33,5 @@
     &.active {
         border-radius: 4px;
         background-color: rgba(25, 115, 232, 1);
-    }
-}
-
-
-@media (max-width: 550px) {
-    .pagination {
-        .arrow {
-            display: block;
-        }
-
-        ul {
-            gap: 18px;
-        }
-
-        .button {
-            display: none;
-        }
-    }
-}
-
-@media (max-width: 400px) {
-    .pagination {
-        ul {
-            gap: 10px;
-        }
     }
 }

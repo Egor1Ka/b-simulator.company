@@ -34,7 +34,7 @@ const Contact: React.FC = () => {
             options={['Cloud', 'In-House']}
             styleClass={styles.trialCard}
             type="active"
-            description="<strong>RPS:</strong> 2 <br /><strong>Storage:</strong>15 Gb<br /><strong>Duration:</strong> 30 days"
+            description="<strong>RPS:</strong> 2 <br /><strong>Storage:</strong> 15 Gb<br /><strong>Duration:</strong> unlimited"
             button={(
               <Button
                 type="primary"
@@ -50,7 +50,7 @@ const Contact: React.FC = () => {
             options={['Cloud', 'In-House']}
             styleClass={styles.commercialCard}
             type="active"
-            description="<strong>RPS:</strong> 2 to unlimited <br /> <strong>Storage:</strong> 15 GB to unlimited<br /> <strong>Price:</strong> Starting at $40"
+            description="<strong>RPS:</strong> 2 to unlimited <br /> <strong>Storage:</strong> 15 GB to unlimited<br /> <strong>Price:</strong> starting at $40"
             button={(
               <Button
                 type="primary"
