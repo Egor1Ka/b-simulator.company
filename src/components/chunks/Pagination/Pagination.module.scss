@@ -55,7 +55,7 @@
         }
 
         ul {
-            gap: 18px;
+            gap: 5px;
         }
 
         .button {
@@ -64,10 +64,10 @@
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
     .pagination {
         ul {
-            gap: 10px;
+            gap: 0px;
         }
     }
 }
