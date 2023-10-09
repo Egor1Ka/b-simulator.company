@@ -27,7 +27,7 @@ const PageCount: React.FC<ReadProps> = ({ initialPosts, totalPages }) => {
               Read
             </TextUnderlied>
           </HeaderTitle>
-          <PostsList initialPosts={initialPosts} />
+          <PostsList initialPosts={initialPosts} active={Number(pageCount)} />
           <Pagination pages={totalPages} active={Number(pageCount)} />
         </div>
       </main>

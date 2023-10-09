@@ -1,17 +1,19 @@
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 import { PostData } from '../../../helpers/getPosts';
 
 import styles from './PostCard.module.scss';
 
 interface PostProps {
   item: PostData;
+  activePage?: number;
 }
 
-const PostCard: React.FC<PostProps> = ({ item }) => {
+const PostCard: React.FC<PostProps> = ({ item, activePage }) => {
   const router = useRouter();
+
   const goToArticle = (slug: string) => {
-    router.push(`/read/article/${slug}`);
+    router.push(`/read/article/${slug}${activePage ? `?activePage=${activePage}` : ''}`);
   };
   return (
     <li className={styles.post}>

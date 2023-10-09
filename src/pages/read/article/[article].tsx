@@ -14,8 +14,9 @@ interface ReadProps {
 
 const Article: React.FC<ReadProps> = ({ data }) => {
   const router = useRouter();
+  const { activePage } = router.query;
   const navigateBack = () => {
-    router.push('/read/');
+    router.push(`/read/${activePage ? `page/${activePage}` : ''}`);
   };
 
   return (
