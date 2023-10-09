@@ -24,7 +24,7 @@ function Footer(): React.JSX.Element {
   const handleChangeEmail = (value: string) => {
     if (value.length === 0) {
       setemailError(null);
-    } else if (!hasEnteredInvalidEmailOnce && !isEmailValid(email)) {
+    } else if (!hasEnteredInvalidEmailOnce && !isEmailValid(value)) {
       setemailError('Invalid email address');
     } else {
       setemailError(null);
@@ -38,7 +38,7 @@ function Footer(): React.JSX.Element {
     } else if (!isEmailValid(email)) {
       setemailError('Invalid email address');
       setHasEnteredInvalidEmailOnce(false);
-    } else if (!emailError) {
+    } else if (!emailError || isEmailValid(email)) {
       try {
         await emailSubscribeRequest(email, 'GET_News');
         setEmail('');
