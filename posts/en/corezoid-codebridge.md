@@ -25,6 +25,6 @@ October 13, 2021. Kyiv - Lisbon - Redwood. – This year [WebSummit](https://web
 
 Middleware partner company [Codebridge Technology](https://codebridge.tech/) will take part in the Web Summit conference. Codebridge was selected for the Web Summit as an [ALPHA](https://websummit.com/startups) startup. This means that the team will have their own booth and the opportunity to present a project on stage.
 
-Codebridge will showcase the “Knowledge Cloud” product, which was developed using [Corezoid Process Engine](https:/corezoid.com) technology. Knowledge Cloud is a modern knowledge management system designed specifically for legal and consulting companies.
+Codebridge will showcase the “Knowledge Cloud” product, which was developed using [Corezoid Process Engine](https://corezoid.com) technology. Knowledge Cloud is a modern knowledge management system designed specifically for legal and consulting companies.
 
 *“We created Knowledge Cloud for those who still use Sharepoint, Confluence or just folders on the corporate network. For those, who have been in the following situation: “Mmm… Who wrote a memo on constructive dividends 2 months ago? Was it Oksana or Alex? Oh, it was John and he left the company. Well, we’ll have to write a memo from scratch". – For such companies the Knowledge Cloud was created,"* – said Codebridge Konstantin Karpushin.

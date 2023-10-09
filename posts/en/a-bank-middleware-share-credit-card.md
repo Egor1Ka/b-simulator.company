@@ -26,7 +26,7 @@ lang: 'en'
 
 Ukraine, Dnipro, October 27, 2019 - [A-Bank](https://a-bank.com.ua/) became the first bank in the world to launch the credit card sharing service. Customers can setup limited shared access to their Mastercard cards. Also A-bank plans to launch shared access to Visa cards in November 2019. 
 
-Service was implemented on the basis of the patented [Share.CreditCard](http://share.creditcard/) technology together with A-Bank's Digital Transformation Partner, [Middleware](http://corezoid.com) company.
+Service was implemented on the basis of the patented [Share.CreditCard](http://share.creditcard/) technology together with A-Bank's Digital Transformation Partner, [Middleware](https://corezoid.com) company.
 
 “This is a very emotional service. All people love their children and family. At A-Bank we love our customers, and we’re extremely happy to provide Share.CreditCard service to A-Bank clients,” – says A-Bank CEO Yuri Kandaurov. – Parents will be able to give controlled access to cards to their children, husbands – to wives (and vice versa), children will be able to support their parents.”
 

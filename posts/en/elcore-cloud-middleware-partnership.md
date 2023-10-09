@@ -24,7 +24,7 @@ lang: 'en'
 | ![img](/images/elcore-cloud-logo.png) |
 | :---: |
 
-Elcore Cloud announced the signing of a partnership agreement with Middleware Inc. company (the USA), developer of the proprietary technologies [Corezoid](http://corezoid.com) Process Engine, [Sender](http://sender.mobi) Communication Engine, [Deepmemo](http://deepmemo.ai) Rules Engine, [Control.Events](http://control.events).
+Elcore Cloud announced the signing of a partnership agreement with Middleware Inc. company (the USA), developer of the proprietary technologies [Corezoid](https://corezoid.com) Process Engine, [Sender](http://sender.mobi) Communication Engine, [Deepmemo](http://deepmemo.ai) Rules Engine, [Control.Events](http://control.events).
 
 In addition to the existing portfolio, Elcore Cloud will have the opportunity to provide Licenses for the use of Middleware technologies to partners in Ukraine, Moldova, Belarus, Kazakhstan, Uzbekistan, Mongolia, Armenia, Georgia, Azerbaijan.
 
