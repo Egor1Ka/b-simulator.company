@@ -81,7 +81,7 @@ const Contact: React.FC = () => {
                 className={styles.video}
               />
             )}
-            title={t('by.titleCard1')}
+            title={t('by.titleCardStateChanges')}
             description={t('by.descriptionMainCard')}
             styleClass={styles.mainCard}
           >
