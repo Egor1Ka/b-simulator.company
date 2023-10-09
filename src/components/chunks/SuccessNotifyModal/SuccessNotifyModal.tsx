@@ -34,7 +34,7 @@ const SuccessNotifyModal: React.FC<ModalProps> = ({
         styleClass={styles.modalButton}
         onClick={onClose}
       >
-        Thank you!
+        Okay!
       </Button>
     </div>
   </Modal>
