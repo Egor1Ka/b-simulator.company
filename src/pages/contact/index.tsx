@@ -9,13 +9,12 @@ import { useTranslate } from '@/hooks/useTranslate';
 import Input from '@/components/UI/Input';
 import classNames from 'classnames';
 import SEO from '@/components/chunks/SEO';
-import Modal from '@/components/chunks/Modal';
+import SuccessNotifyModal from '@/components/chunks/SuccessNotifyModal';
 import ContactCard from '../../components/chunks/ContactCard/index';
 import imageWorkshop from '../../../public/images/workshop.png';
 import SertificateIcon from '../../../public/icons/sertificateIcon.svg';
 import BookIcon from '../../../public/icons/book.svg';
 import DemoIcon from '../../../public/icons/demo.svg';
-import SuccessIcon from '../../../public/icons/Success.svg';
 import PresentationIcon from '../../../public/icons/presentation.svg';
 import styles from './ContactPage.module.scss';
 
@@ -114,50 +113,18 @@ const Contact: React.FC = () => {
       />
       <div className={styles.main}>
         <div className={`${styles.container} contact`}>
-          <Modal
-            isOpen={isModalOpenGetPresentation}
+          <SuccessNotifyModal
+            visible={isModalOpenGetPresentation}
             onClose={getPresentationModalHandler}
-            styleClass={styles.modal}
-          >
-            <div className={styles.modalComtainer}>
-              <div className={styles.successIconContainer}>
-                <SuccessIcon />
-              </div>
-              <h1 className={styles.modalTitle}>Thank you for reaching out to us!</h1>
-              <p className={styles.modalDescription}>
-                Your submission has been received and we&apos;ll reply as soon as possible.
-              </p>
-              <Button
-                styleClass={styles.modalButton}
-                onClick={getPresentationModalHandler}
-              >
-                Thank you!
-              </Button>
-            </div>
-          </Modal>
-
-          <Modal
-            isOpen={isModalOpenRequestDemo}
+            title="Thank you for reaching out to us!"
+            description=" Your submission has been received and we&apos;ll reply as soon as possible."
+          />
+          <SuccessNotifyModal
+            visible={isModalOpenRequestDemo}
             onClose={requestDemoModalHandler}
-            styleClass={styles.modal}
-          >
-            <div className={styles.modalComtainer}>
-              <div className={styles.successIconContainer}>
-                <SuccessIcon />
-              </div>
-              <h1 className={styles.modalTitle}>Thank you for reaching out to us!</h1>
-              <p className={styles.modalDescription}>
-                Your submission has been received and we&apos;ll reply as soon as possible.
-              </p>
-              <Button
-                styleClass={styles.modalButton}
-                onClick={requestDemoModalHandler}
-              >
-                Thank you!
-              </Button>
-            </div>
-          </Modal>
-
+            title="Thank you for reaching out to us!"
+            description=" Your submission has been received and we&apos;ll reply as soon as possible."
+          />
           <h1 className={`${styles.contactTitle}`}>
             {t('contact.contact')}
             {' '}

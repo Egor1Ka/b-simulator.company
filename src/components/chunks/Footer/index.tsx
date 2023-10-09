@@ -4,10 +4,9 @@ import Link from 'next/link';
 import isEmailValid from '@/helpers/regularExpressions/isEmailValid';
 import emailSubscribeRequest from '@/API/emailSubscribeRequest';
 import Arrow from '../../../../public/icons/arrow-right.svg';
-import SuccessIcon from '../../../../public/icons/Success.svg';
 import Button from '../../UI/Button';
 import Input from '../../UI/Input';
-import Modal from '../Modal';
+import SuccessNotifyModal from '../SuccessNotifyModal';
 import awsPartnerImg from '../../../../public/aws-partner.png';
 import corezoidLogoImg from '../../../../public/corezoid-logo.png';
 import style from './Footer.module.scss';
@@ -51,27 +50,12 @@ function Footer(): React.JSX.Element {
 
   return (
     <footer className={style.footer}>
-      <Modal
-        isOpen={isModalOpenGetNews}
+      <SuccessNotifyModal
+        visible={isModalOpenGetNews}
         onClose={getNewsModalHandler}
-        styleClass={style.modal}
-      >
-        <div className={style.modalComtainer}>
-          <div className={style.successIconContainer}>
-            <SuccessIcon />
-          </div>
-          <h1 className={style.modalTitle}>Thank you for reaching out to us!</h1>
-          <p className={style.modalDescription}>
-            Your submission has been received and we&apos;ll reply as soon as possible.
-          </p>
-          <Button
-            styleClass={style.modalButton}
-            onClick={getNewsModalHandler}
-          >
-            Thank you!
-          </Button>
-        </div>
-      </Modal>
+        title="Thank you for reaching out to us!"
+        description=" Your submission has been received and we&apos;ll reply as soon as possible."
+      />
       <div className={style.footerContent}>
         <div className={style.footerContentTop}>
           <div className={style.groupA}>
