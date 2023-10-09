@@ -1,20 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Layout from '@/components/chunks/Layout';
 import Button from '@/components/UI/Button';
 import Image from 'next/image';
 import TextUnderlied from '@/components/chunks/TextUnderlied';
 import emailSubscribeRequest from '@/API/emailSubscribeRequest';
 import isEmailValid from '@/helpers/regularExpressions/isEmailValid';
-import SuccessNotification from '@/components/UI/SuccessNotification';
 import { useTranslate } from '@/hooks/useTranslate';
 import Input from '@/components/UI/Input';
 import classNames from 'classnames';
 import SEO from '@/components/chunks/SEO';
+import Modal from '@/components/chunks/Modal';
 import ContactCard from '../../components/chunks/ContactCard/index';
 import imageWorkshop from '../../../public/images/workshop.png';
 import SertificateIcon from '../../../public/icons/sertificateIcon.svg';
 import BookIcon from '../../../public/icons/book.svg';
 import DemoIcon from '../../../public/icons/demo.svg';
+import SuccessIcon from '../../../public/icons/Success.svg';
 import PresentationIcon from '../../../public/icons/presentation.svg';
 import styles from './ContactPage.module.scss';
 
@@ -30,8 +31,13 @@ const Contact: React.FC = () => {
   const [emailErrorPresentation, setEmailErrorPresentation] = useState<null | string>(null);
   const [hasEnteredInvalidPresentationlOnce, setPresentationlOnce] = useState(true);
 
-  const [successMessage, setSuccessMessage] = useState(false);
+  const [isModalOpenGetPresentation, setIsModalGetPresentation] = useState(false);
+  const [isModalOpenRequestDemo, setIsModalRequestDemo] = useState(false);
+
   const [iframeLoaded, setIframeLoaded] = useState(false);
+
+  const getPresentationModalHandler = () => setIsModalGetPresentation((prev) => !prev);
+  const requestDemoModalHandler = () => setIsModalRequestDemo((prev) => !prev);
 
   const handleChangeEmailPresentation = (value: string) => {
     if (value.length === 0) {
@@ -54,8 +60,8 @@ const Contact: React.FC = () => {
       try {
         await emailSubscribeRequest(emailPresentation, 'GET_Presentation');
         setEmailPresentation('');
-        setSuccessMessage(true);
         setPresentationlOnce(true);
+        setIsModalGetPresentation(true);
       } catch (error) {
         setEmailErrorPresentation('server error');
       }
@@ -83,8 +89,8 @@ const Contact: React.FC = () => {
       try {
         await emailSubscribeRequest(emailDemo, 'GET_Demo');
         setEmailDemo('');
-        setSuccessMessage(true);
         setDemoOnce(true);
+        setIsModalRequestDemo(true);
       } catch (error) {
         setEmailDemoError('server error');
       }
@@ -94,11 +100,6 @@ const Contact: React.FC = () => {
   const handleIframeLoad = () => {
     setTimeout(() => setIframeLoaded(true), 500);
   };
-
-  useEffect(() => {
-    const timeout = setTimeout(() => setSuccessMessage(false), 3000);
-    return () => clearTimeout(timeout);
-  }, [successMessage]);
 
   const containerClasses = classNames({
     [styles.contactUsIframeContainer]: true,
@@ -111,157 +112,202 @@ const Contact: React.FC = () => {
         metaTitle={t('pageMetaInfo.contact.title')}
         metaDescription={t('pageMetaInfo.contact.description')}
       />
-      <div className={`${styles.container} contact`}>
-        <h1 className={`${styles.contactTitle}`}>
-          {t('contact.contact')}
-          {' '}
-          <TextUnderlied>{t('contact.us')}</TextUnderlied>
-          {' '}
-        </h1>
-        <section className={styles.contactUs}>
-          <div className={styles.contactUsInfo}>
-            <h2 className={styles.contactUsTitle}>{t('contact.contactUs__title')}</h2>
-            <p className={styles.contactUsDescription}>{t('contact.contactUs__description')}</p>
-          </div>
-          <div className={containerClasses}>
-            <iframe
-              onLoad={handleIframeLoad}
-              title="Script"
-              src={contactUsCDU}
-              className={styles.contactUsIframe}
-            />
-          </div>
-        </section>
-        <section className={styles.workshopSection}>
-          <div className={styles.workshopImageSection}>
-            <div className={styles.workshopImageContainer}>
-              <Image alt="workshop" src={imageWorkshop} className={styles.workshopImage} />
-              <div className={styles.workshopImageDescription}>
-                The Curse of Frankenstein (1957) movie still
+      <div className={styles.main}>
+        <div className={`${styles.container} contact`}>
+          <Modal
+            isOpen={isModalOpenGetPresentation}
+            onClose={getPresentationModalHandler}
+            styleClass={styles.modal}
+          >
+            <div className={styles.modalComtainer}>
+              <div className={styles.successIconContainer}>
+                <SuccessIcon />
+              </div>
+              <h1 className={styles.modalTitle}>Thank you for reaching out to us!</h1>
+              <p className={styles.modalDescription}>
+                Your submission has been received and we&apos;ll reply as soon as possible.
+              </p>
+              <Button
+                styleClass={styles.modalButton}
+                onClick={getPresentationModalHandler}
+              >
+                Thank you!
+              </Button>
+            </div>
+          </Modal>
+
+          <Modal
+            isOpen={isModalOpenRequestDemo}
+            onClose={requestDemoModalHandler}
+            styleClass={styles.modal}
+          >
+            <div className={styles.modalComtainer}>
+              <div className={styles.successIconContainer}>
+                <SuccessIcon />
+              </div>
+              <h1 className={styles.modalTitle}>Thank you for reaching out to us!</h1>
+              <p className={styles.modalDescription}>
+                Your submission has been received and we&apos;ll reply as soon as possible.
+              </p>
+              <Button
+                styleClass={styles.modalButton}
+                onClick={requestDemoModalHandler}
+              >
+                Thank you!
+              </Button>
+            </div>
+          </Modal>
+
+          <h1 className={`${styles.contactTitle}`}>
+            {t('contact.contact')}
+            {' '}
+            <TextUnderlied>{t('contact.us')}</TextUnderlied>
+            {' '}
+          </h1>
+          <section className={styles.contactUs}>
+            <div className={styles.contactUsInfo}>
+              <h2 className={styles.contactUsTitle}>{t('contact.contactUs__title')}</h2>
+              <p className={styles.contactUsDescription}>{t('contact.contactUs__description')}</p>
+            </div>
+            <div className={containerClasses}>
+              <iframe
+                onLoad={handleIframeLoad}
+                title="Script"
+                src={contactUsCDU}
+                className={styles.contactUsIframe}
+              />
+            </div>
+          </section>
+          <section className={styles.workshopSection}>
+            <div className={styles.workshopImageSection}>
+              <div className={styles.workshopImageContainer}>
+                <Image alt="workshop" src={imageWorkshop} className={styles.workshopImage} />
+                <div className={styles.workshopImageDescription}>
+                  The Curse of Frankenstein (1957) movie still
+                </div>
               </div>
             </div>
-          </div>
-          <div className={styles.workshopInfoContainer}>
-            <h2 className={styles.workshopInfoTitle}>
-              <TextUnderlied>
-                <p>
-                  {t('contact.workshop__title')}
-                </p>
-              </TextUnderlied>
-              <br />
-              {t('contact.workshop__сase')}
-            </h2>
-            <div>
-              <span className={styles.workshopInfoDetails}>
-                {' '}
-                {t('contact.workshop__participants')}
-                {' '}
-              </span>
-              <span className={styles.workshopInfoDetails}>{t('contact.workshop__price')}</span>
+            <div className={styles.workshopInfoContainer}>
+              <h2 className={styles.workshopInfoTitle}>
+                <TextUnderlied>
+                  <p>
+                    {t('contact.workshop__title')}
+                  </p>
+                </TextUnderlied>
+                <br />
+                {t('contact.workshop__сase')}
+              </h2>
+              <div>
+                <span className={styles.workshopInfoDetails}>
+                  {' '}
+                  {t('contact.workshop__participants')}
+                  {' '}
+                </span>
+                <span className={styles.workshopInfoDetails}>{t('contact.workshop__price')}</span>
+              </div>
+              <p className={styles.workshopInfoTrainingProgram}>{t('contact.workshop__training__program')}</p>
+              <p className={styles.workshopInfoDescription}>{t('contact.workshop__description')}</p>
+              <div className={styles.workshopInfoButtonContainer}>
+                <Button
+                  styleClass={styles.workshopInfoButton}
+                  type="secondary"
+                  link={
+                    process.env.NEXT_PUBLIC_CALENDLY_WORKSHOP_LINK
+                  }
+                >
+                  Book workshop
+                </Button>
+              </div>
             </div>
-            <p className={styles.workshopInfoTrainingProgram}>{t('contact.workshop__training__program')}</p>
-            <p className={styles.workshopInfoDescription}>{t('contact.workshop__description')}</p>
-            <div className={styles.workshopInfoButtonContainer}>
-              <Button
-                styleClass={styles.workshopInfoButton}
-                type="secondary"
-                link={
-                  process.env.NEXT_PUBLIC_CALENDLY_WORKSHOP_LINK
-                }
-              >
-                Book workshop
-              </Button>
-            </div>
-          </div>
-        </section>
-        <section className={styles.knowledgeCardContainer}>
-          <ContactCard
-            icon={<SertificateIcon />}
-            title="Certification"
-            options={['Junior', 'Middle', 'Senior']}
-            type="active"
-            styleClass={styles.card1}
-            description="Junior Test: 20 min <br /> Middle Test: 6 hours <br /> Senior Test: 12 hours"
-            button={(
-              <Button
-                styleClass={styles.knowledgeCardButton}
-                type="secondary"
-                link={process.env.COREZOID_CERTIFICATION_LINK}
-              >
-                Request Certification
-              </Button>
-            )}
-          />
-          <ContactCard
-            icon={<BookIcon />}
-            title="Knowledge Sharing Night"
-            type="active"
-            styleClass={styles.card2}
-            description="<strong>Duration:</strong> 2 hours <br /><strong>Participants:</strong> ≥ 2"
-            button={(
-              <Button
-                type="secondary"
-                styleClass={styles.knowledgeCardButton}
-                link={process.env.NEXT_PUBLIC_CALENDLY_SHARING_NIGH_LINK}
-              >
-                Book Night
-              </Button>
-            )}
-          />
-          <ContactCard
-            icon={<PresentationIcon />}
-            styleClass={styles.card3}
-            title="Get your presentation "
-            type="active"
-            description="Discover more about Simulator.Company."
-            input={(
-              <Input
-                placeholder="Email"
-                type="email"
-                value={emailPresentation}
-                onChange={handleChangeEmailPresentation}
-                error={emailErrorPresentation}
-              />
-            )}
-            button={(
-              <Button
-                type="secondary"
-                link=""
-                styleClass={styles.knowledgeCardButton}
-                onClick={handleSendEmailClickPresentation}
-              >
-                Get presentation
-              </Button>
-            )}
-          />
-          <ContactCard
-            icon={<DemoIcon />}
-            styleClass={styles.card4}
-            title="Request a Demo"
-            type="active"
-            description="See our product in action. Discover how our solution can transform your business"
-            input={(
-              <Input
-                placeholder="Email"
-                type="email"
-                value={emailDemo}
-                onChange={handleChangeEmailDemo}
-                error={emaiDemolError}
-              />
-            )}
-            button={(
-              <Button
-                type="secondary"
-                link=""
-                styleClass={styles.knowledgeCardButton}
-                onClick={handleSendEmailClickDemo}
-              >
-                Request Demo
-              </Button>
-            )}
-          />
-        </section>
-        {successMessage && <SuccessNotification message="sucess" />}
+          </section>
+          <section className={styles.knowledgeCardContainer}>
+            <ContactCard
+              icon={<SertificateIcon />}
+              title="Certification"
+              options={['Junior', 'Middle', 'Senior']}
+              type="active"
+              styleClass={styles.card1}
+              description="Junior Test: 20 min <br /> Middle Test: 6 hours <br /> Senior Test: 12 hours"
+              button={(
+                <Button
+                  styleClass={styles.knowledgeCardButton}
+                  type="secondary"
+                  link={process.env.COREZOID_CERTIFICATION_LINK}
+                >
+                  Request Certification
+                </Button>
+              )}
+            />
+            <ContactCard
+              icon={<BookIcon />}
+              title="Knowledge Sharing Night"
+              type="active"
+              styleClass={styles.card2}
+              description="<strong>Duration:</strong> 2 hours <br /><strong>Participants:</strong> ≥ 2"
+              button={(
+                <Button
+                  type="secondary"
+                  styleClass={styles.knowledgeCardButton}
+                  link={process.env.NEXT_PUBLIC_CALENDLY_SHARING_NIGH_LINK}
+                >
+                  Book Night
+                </Button>
+              )}
+            />
+            <ContactCard
+              icon={<PresentationIcon />}
+              styleClass={styles.card3}
+              title="Get your presentation "
+              type="active"
+              description="Discover more about Simulator.Company."
+              input={(
+                <Input
+                  placeholder="Email"
+                  type="email"
+                  value={emailPresentation}
+                  onChange={handleChangeEmailPresentation}
+                  error={emailErrorPresentation}
+                />
+              )}
+              button={(
+                <Button
+                  type="secondary"
+                  link=""
+                  styleClass={styles.knowledgeCardButton}
+                  onClick={handleSendEmailClickPresentation}
+                >
+                  Get presentation
+                </Button>
+              )}
+            />
+            <ContactCard
+              icon={<DemoIcon />}
+              styleClass={styles.card4}
+              title="Request a Demo"
+              type="active"
+              description="See our product in action. Discover how our solution can transform your business"
+              input={(
+                <Input
+                  placeholder="Email"
+                  type="email"
+                  value={emailDemo}
+                  onChange={handleChangeEmailDemo}
+                  error={emaiDemolError}
+                />
+              )}
+              button={(
+                <Button
+                  type="secondary"
+                  link=""
+                  styleClass={styles.knowledgeCardButton}
+                  onClick={handleSendEmailClickDemo}
+                >
+                  Request Demo
+                </Button>
+              )}
+            />
+          </section>
+        </div>
       </div>
     </Layout>
   );

@@ -1,12 +1,27 @@
-.container {
+.main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 6rem;
+  min-height: 100%;
+  background-color: rgba(13, 14, 18, 1);
+  color: white;
+}
+
+.container {
+  display: flex;
+  margin: auto;
+  padding-right: 24px;
+  padding-left: 24px;
+  padding-top: 0;
+  padding-bottom: 96px;
+  max-width: 1192px;
+  width: 100%;
+  flex-direction: column;
   min-height: 100%;
   background: #0D0E12;
   color: white;
+  max-width: 1192px;
 }
 
 .video {
@@ -129,7 +144,7 @@
 
 .cardListTitle {
   font-weight: 900;
-
+  font-size: 18px;
 }
 
 .descriptionList {
