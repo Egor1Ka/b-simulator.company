@@ -38,7 +38,6 @@ const Modal: React.FC<ModalProps> = ({
   };
 
   const keyDownHandler = (e: KeyboardEvent<HTMLDivElement>) => {
-    console.log(e.key);
     if (e.key === 'Enter' || e.key === 'Space') {
       onClose();
     }
