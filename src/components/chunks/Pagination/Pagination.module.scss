@@ -47,7 +47,6 @@
     }
 }
 
-
 @media (max-width: 550px) {
     .pagination {
         .arrow {
@@ -60,6 +59,24 @@
 
         .button {
             display: none;
+        }
+    }
+}
+
+
+
+@media (max-width: 760px) {
+    .pagination {
+        ul {
+            gap: 14px;
+        }
+    }
+}
+
+@media (max-width: 610px) {
+    .pagination {
+        ul {
+            gap: 8px;
         }
     }
 }
