@@ -80,8 +80,12 @@
             "description": "Multiple pricing options: Free, Starter, Trial Licence,Commercial Licence. Choose the one that works for you"
         },
         "download": {
-            "title": "Simulator.Company |Download server for self-hosting",
+            "title": "Simulator.Company | Download server for self-hosting",
             "description": "Download the desktop version of Simulator.Company for free and start managing your business processes more efficiently"
+        },
+        "terms": {
+            "title": "Simulator.Company | Terms and Conditions",
+            "description": "Explore market-leading software and technology digital twin. Become an intelligent, sustainable enterprise with the best in cloud, platform, and sustainability solutions – no matter your industry or size."
         }
     },
     "notFound": {
