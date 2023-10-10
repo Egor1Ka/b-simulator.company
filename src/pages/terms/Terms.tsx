@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import cn from 'classnames';
 import SEO from '@/components/chunks/SEO';
+import { useRouter } from 'next/router';
 import { useTranslate } from '@/hooks/useTranslate';
 import Layout from '../../components/chunks/Layout';
 import TermsData from '../../components/chunks/TermsData';
 import HeaderTitle from '../../components/chunks/HeaderTitle';
 import TextUnderlied from '../../components/chunks/TextUnderlied';
+import NotFound from '../404';
 
 import terms from '../../constants/terms';
 
@@ -16,6 +18,11 @@ type Terms = 'cookie' | 'privacy' | 'customer';
 const Policy: React.FC = () => {
   const { t } = useTranslate();
   const [active, setActive] = useState<Terms>('cookie');
+  const router = useRouter();
+
+  if (router.pathname === '/terms') {
+    return <NotFound />;
+  }
 
   return (
     <Layout>

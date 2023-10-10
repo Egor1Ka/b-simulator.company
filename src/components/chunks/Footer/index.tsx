@@ -18,6 +18,7 @@ function Footer(): React.JSX.Element {
 
   const [isModalOpenGetNews, setIsModalOpenGetNews] = useState(false);
   const getNewsModalHandler = () => setIsModalOpenGetNews((prev) => !prev);
+  const termsLink = `${process.env.COREZOID_SITE}/terms-and-conditions`;
 
   const handleChangeEmail = (value: string) => {
     if (value.length === 0) {
@@ -72,11 +73,13 @@ function Footer(): React.JSX.Element {
               <ul>
                 <li><Link href="/download" passHref>Download</Link></li>
                 <li><Link href="/read" passHref>Read</Link></li>
-                <li><Link href="/terms" passHref>Terms</Link></li>
+                <li><a href={termsLink} target="_blank" rel="noopener noreferrer">Terms</a></li>
                 <li>
-                  <Link className={style.coloredLink} href="/contact" passHref>
-                    Contact Us
-                    <Arrow />
+                  <Link href="/contact" passHref>
+                    <span className={style.coloredLink}>
+                      <span>Contact Us</span>
+                      <Arrow />
+                    </span>
                   </Link>
                 </li>
               </ul>
