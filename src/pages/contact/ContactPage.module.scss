@@ -484,3 +484,13 @@
     line-height: 22px;
   }
 }
+
+@media (max-width: 370px) {
+  .workshopImageDescription {
+    font-size: 13px;
+  }
+
+  .ContactCard {
+    min-width: 280px;
+  }
+}

@@ -18,7 +18,8 @@ const emailSubscribeRequest = async (email: string, userChoice: string) => {
     }
     throw Error(response);
   } catch (error) {
-    return error;
+    console.log(error)
+    throw error;
   }
 };
 

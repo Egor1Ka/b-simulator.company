@@ -62,7 +62,7 @@ const Contact: React.FC = () => {
         setPresentationlOnce(true);
         setIsModalGetPresentation(true);
       } catch (error) {
-        setEmailErrorPresentation('server error');
+        setEmailErrorPresentation('Sorry try again later');
       }
     }
   };
@@ -91,7 +91,7 @@ const Contact: React.FC = () => {
         setDemoOnce(true);
         setIsModalRequestDemo(true);
       } catch (error) {
-        setEmailDemoError('server error');
+        setEmailDemoError('Sorry try again later');
       }
     }
   };
