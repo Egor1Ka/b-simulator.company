@@ -13,6 +13,7 @@
 
 @media screen and (max-width: 768px) {
     .postList {
+        margin-top: 48px;
         > ul {
             grid-template-columns: 1fr;
         }

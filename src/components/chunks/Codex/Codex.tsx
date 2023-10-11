@@ -18,7 +18,6 @@ const Codex: React.FC = () => {
           <Image
             src={img}
             alt="book"
-            height={232}
           />
         </div>
         <div className={style.contentBlock}>

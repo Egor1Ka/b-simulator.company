@@ -56,6 +56,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  overflow: hidden;
 
   .tags {
     display: flex;
@@ -63,6 +64,13 @@
     justify-content: space-between;
     align-items: center;
     gap: 12px;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
   }
 }
 
@@ -70,4 +78,15 @@
   width: 100%;
   margin-top: 48px;
   margin-bottom: 48px;
+}
+
+@media screen and (max-width: 768px) {
+  .articleTitle {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .navigation {
+    margin-top: 20px;
+  }
 }
