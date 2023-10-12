@@ -88,3 +88,12 @@
         }
     }
 }
+
+@media (max-width: 375px) {
+    .textButton {
+        &.fixed {
+            width: 25px;
+            height: 25px;
+        }
+    }
+}

@@ -44,7 +44,7 @@ function Footer(): React.JSX.Element {
         setHasEnteredInvalidEmailOnce(true);
         setIsModalOpenGetNews(true);
       } catch (error) {
-        setemailError('server error');
+        setemailError('Sorry try again later');
       }
     }
   };
