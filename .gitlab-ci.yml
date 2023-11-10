@@ -26,9 +26,7 @@ snyk-test:
       - snyk_results.html
       - snyk_results1.html
   only:
-    - tags
-  except:
-    - branches
+    - develop
   tags:
     - gitlab
 
