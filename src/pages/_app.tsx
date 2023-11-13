@@ -12,8 +12,8 @@ import '../styles/global.scss';
 interface GlobalMeta {
   metaTitle: string;
   metaDescription: string;
-  shareImage: string,
-  article: boolean,
+  shareImage: string;
+  article: boolean;
 }
 
 interface MyAppProps {
@@ -25,14 +25,15 @@ export const GlobalContext = createContext<GlobalMeta | null>(null);
 
 const globalMeta: GlobalMeta = {
   metaTitle: 'Simulator Company',
-  metaDescription: 'Explore market-leading software and technology digital twin. Become an intelligent, sustainable enterprise with the best in cloud, platform, and sustainability solutions – no matter your industry or size',
+  metaDescription:
+    'Explore market-leading software and technology digital twin. Become an intelligent, sustainable enterprise with the best in cloud, platform, and sustainability solutions – no matter your industry or size',
   shareImage: '',
   article: false,
 };
 
 const MyApp: FC<MyAppProps> = ({ Component, pageProps = {} }) => {
   const { locale, messages } = useLocale();
-  const isProduction = process.env.IS_PRODUCTION_BUILD;
+  const isProduction = process.env.ENVIRONMENT === 'prod';
 
   return (
     <>
@@ -41,9 +42,9 @@ const MyApp: FC<MyAppProps> = ({ Component, pageProps = {} }) => {
       {isProduction && <MetaScript />}
       <ControlChat />
 
-      <IntlProvider locale={locale as Locale} messages={messages}>
+      <IntlProvider locale={locale as Locale} messages={messages || {}}>
         <GlobalContext.Provider value={globalMeta}>
-          <Component {...pageProps} />
+          {typeof Component === 'function' ? <Component {...pageProps} /> : null}
         </GlobalContext.Provider>
       </IntlProvider>
     </>
