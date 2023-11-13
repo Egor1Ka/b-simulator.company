@@ -1,7 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 import cn from 'classnames';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 import ArrowLeft from '../../../../public/icons/arrowMobileLeft.svg';
 import ArrowRight from '../../../../public/icons/arrowMobileRight.svg';
 import styles from './Pagination.module.scss';

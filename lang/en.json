@@ -28,6 +28,7 @@
         "titleP3": "for your business",
         "questitonTitle": "F.A.Q.",
         "questitonDescription": "Frequently Asked Questions from our users",
+        "titleCardStateChanges": "What is State Change and how to calculate them?",
         "titleCard1": "What is RPS (Requests per second) and how to calculate them?",
         "titleCard2": "What happens if I use up all the State Changes of my license?",
         "titleCard3": "Is support included in the license?",
@@ -35,7 +36,9 @@
         "titleCard5": "What is the difference between paid Cloud and In-House licenses?",
         "titleCard6": "Do you give refunds?",
         "titleCard7": "Can I change the RPS for my license?",
-        "descriptionMainCard": "A State Change takes place when a task moves from one node to another. A task passing through four nodes gets three State Changes. Total number of State Changes can be expressed as SC = (N – 1) x T, where:",
+        "descriptionMainCardP1": "A State Change takes place when a task moves from one node to another. A task passing through four nodes gets three State Changes. Total number of State Changes can be expressed as",
+        "descriptionMainCardP2": " SC = (N – 1) x T",
+        "descriptionMainCardP3": ", where:",
         "descriptionMainCardListItem1": " is the number of State Changes",
         "descriptionMainCardListItem2": " is the number of nodes in a Process.",
         "descriptionMainCardListItem3": " is the number of tasks received in a Process",
@@ -55,7 +58,7 @@
         "descriptionCard1": "Requests per second (RPS) represent the number of tasks that can be sent to a Process within 1 second. For example, if you’ve purchased the 10 RPS license and try to send 11 tasks per 1 second to a Process, the last task won’t be sent to the Process, and you will receive the PRS limit reached error.",
         "descriptionCard2": "After all State Changes of your license have been used up, your RPS equals 0 and you can’t send tasks to a Process until you replenish your State Changes account.",
         "descriptionCard3": "Yes, all our clients receive a basic support package free of charge. Other support packages can be purchased individually. For more information, please go to the Support page.",
-        "descriptionCard4": "Yes, you can have a free Cloud license with RPS=5 for an unlimited period. When you register for the first time, you are given 1 million State Changes. When you run out of them, you will not be able to send tasks to Processes and will have the RPS=0 limit.",
+        "descriptionCard4": "Yes, you can have a free Cloud license with RPS=2 for an unlimited period. When you register for the first time, you are given 1 million State Changes. When you run out of them, you will not be able to send tasks to Processes and will have the RPS=0 limit.",
         "descriptionCard6": "No, we do not have this option.",
         "descriptionCard7": "Yes, you can. To do this, purchase a new license and specify the needed RPS."
     },
@@ -77,8 +80,12 @@
             "description": "Multiple pricing options: Free, Starter, Trial Licence,Commercial Licence. Choose the one that works for you"
         },
         "download": {
-            "title": "Simulator.Company |Download server for self-hosting",
+            "title": "Simulator.Company | Download server for self-hosting",
             "description": "Download the desktop version of Simulator.Company for free and start managing your business processes more efficiently"
+        },
+        "terms": {
+            "title": "Simulator.Company | Terms and Conditions",
+            "description": "Explore market-leading software and technology digital twin. Become an intelligent, sustainable enterprise with the best in cloud, platform, and sustainability solutions – no matter your industry or size."
         }
     },
     "notFound": {

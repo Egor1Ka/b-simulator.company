@@ -32,7 +32,7 @@ Now, after adding their METRO cards to Google Pay or Apple Wallet on smartphones
 
 *“We want our clients to be able to conveniently store their METRO cards in any digital wallet and maintain communication with the company. For that, we provide our clients with various card issuance channels and opportunities: a client is enabled to store a digital card in the METRO mobile app, in Apple Message chat bots, Viber, as well as partner mobile applications. Today we added Google Pay to the list. Clients can add their cards to Google Pay from the metro-cc website, from their mail-out, and at a shopping center having a QR-code scanned”* – noted Maria Drabkina, Head of Client Base Management Department, METRO.
 
-The project is implemented based on the [Corezoid Hyperautomation Engine](http://corezoid.com) technology in cooperation with Middleware company. The Corezoid platform is certified by [Apple](https://register.apple.com/business-chat) and [Google](https://developers.google.com/business-communications/business-messages/partners%2017:) for the use as a Messages Service Provider (MSP).
+The project is implemented based on the [Corezoid Hyperautomation Engine](https://corezoid.com) technology in cooperation with Middleware company. The Corezoid platform is certified by [Apple](https://register.apple.com/business-chat) and [Google](https://developers.google.com/business-communications/business-messages/partners%2017:) for the use as a Messages Service Provider (MSP).
 
 Card layouts:
 

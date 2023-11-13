@@ -1,25 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import isEmailValid from '@/helpers/regularExpressions/isEmailValid';
 import emailSubscribeRequest from '@/API/emailSubscribeRequest';
-import SuccessNotification from '@/components/UI/SuccessNotification';
 import Arrow from '../../../../public/icons/arrow-right.svg';
 import Button from '../../UI/Button';
 import Input from '../../UI/Input';
+import SuccessNotifyModal from '../SuccessNotifyModal';
 import awsPartnerImg from '../../../../public/aws-partner.png';
 import corezoidLogoImg from '../../../../public/corezoid-logo.png';
 import style from './Footer.module.scss';
 
 function Footer(): React.JSX.Element {
   const [email, setEmail] = useState('');
-  const [successMessage, setSuccessMessage] = useState(false);
   const [emailError, setemailError] = useState<null | string>(null);
   const [hasEnteredInvalidEmailOnce, setHasEnteredInvalidEmailOnce] = useState(true);
-  useEffect(() => {
-    const timeout = setTimeout(() => setSuccessMessage(false), 3000);
-    return () => clearTimeout(timeout);
-  }, [successMessage]);
+
+  const [isModalOpenGetNews, setIsModalOpenGetNews] = useState(false);
+  const getNewsModalHandler = () => setIsModalOpenGetNews((prev) => !prev);
+  const termsLink = `${process.env.COREZOID_SITE}/terms-and-conditions`;
 
   const handleChangeEmail = (value: string) => {
     if (value.length === 0) {
@@ -42,16 +41,22 @@ function Footer(): React.JSX.Element {
       try {
         await emailSubscribeRequest(email, 'GET_News');
         setEmail('');
-        setSuccessMessage(true);
         setHasEnteredInvalidEmailOnce(true);
+        setIsModalOpenGetNews(true);
       } catch (error) {
-        setemailError('server error');
+        setemailError('Sorry try again later');
       }
     }
   };
 
   return (
     <footer className={style.footer}>
+      <SuccessNotifyModal
+        visible={isModalOpenGetNews}
+        onClose={getNewsModalHandler}
+        title="Thank you for reaching out to us!"
+        description=" Your submission has been received and we&apos;ll reply as soon as possible."
+      />
       <div className={style.footerContent}>
         <div className={style.footerContentTop}>
           <div className={style.groupA}>
@@ -68,11 +73,13 @@ function Footer(): React.JSX.Element {
               <ul>
                 <li><Link href="/download" passHref>Download</Link></li>
                 <li><Link href="/read" passHref>Read</Link></li>
-                <li><Link href="/terms" passHref>Terms</Link></li>
+                <li><a href={termsLink} target="_blank" rel="noopener noreferrer">Terms</a></li>
                 <li>
-                  <Link className={style.coloredLink} href="/contact" passHref>
-                    Contact Us
-                    <Arrow />
+                  <Link href="/contact" passHref>
+                    <span className={style.coloredLink}>
+                      <span>Contact Us</span>
+                      <Arrow />
+                    </span>
                   </Link>
                 </li>
               </ul>
@@ -129,7 +136,6 @@ function Footer(): React.JSX.Element {
           </div>
         </div>
       </div>
-      {successMessage && <SuccessNotification message="success" />}
     </footer>
   );
 }

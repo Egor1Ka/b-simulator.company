@@ -118,3 +118,16 @@ $license-padding: 24px 40px 48px 40px;
   }
 
 }
+
+@media (max-width: 370px) {
+  .license {
+    &Active {
+      min-width: 280px;
+    }
+
+    &Disabled {
+      min-width: 280px;
+    }
+
+  }
+}

@@ -143,9 +143,9 @@ I have a choleric temperament, and I want everything done quickly. Fortunately, 
 
 #### You started working at “Ukrainian Railways” in October 2020. What projects were implemented quickly?
 
-> In partnership with Visa and based on [Corezoid Process Engine](http://Corezoid.com) technology by Middleware we launched the sale of the railway tickets in chatbots in Viber and Telegram messengers in just 2 months
+> In partnership with Visa and based on [Corezoid Process Engine](https://corezoid.com) technology by Middleware we launched the sale of the railway tickets in chatbots in Viber and Telegram messengers in just 2 months
 
-In partnership with Visa and based on [Corezoid Process Engine](http://Corezoid.com) technology by Middleware we launched the sale of the railway tickets in chatbots in Viber and Telegram messengers in just 2 months. We took a close look at the customer journey and tried to understand, what things could be improved quickly? The client journey begins with a purchase of a ticket, then you travel to the station, board the train, get services during the trip, get out of the train and finish your journey. Ideally, the whole trip ends with a service quality survey. In this customer journey, the very first stage, buying a ticket, could be significantly improved. 
+In partnership with Visa and based on [Corezoid Process Engine](https://corezoid.com) technology by Middleware we launched the sale of the railway tickets in chatbots in Viber and Telegram messengers in just 2 months. We took a close look at the customer journey and tried to understand, what things could be improved quickly? The client journey begins with a purchase of a ticket, then you travel to the station, board the train, get services during the trip, get out of the train and finish your journey. Ideally, the whole trip ends with a service quality survey. In this customer journey, the very first stage, buying a ticket, could be significantly improved. 
 
 It so happened that for a long time “Ukrainian Railways” did not have (and still does not have) its own mobile application for ticket sales. And the development of such an application is a rather long process.
 

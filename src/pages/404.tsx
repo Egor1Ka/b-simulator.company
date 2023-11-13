@@ -1,5 +1,5 @@
 import React from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 import SEO from '@/components/chunks/SEO';
 import { useTranslate } from '@/hooks/useTranslate';
 import Button from '@/components/UI/Button';

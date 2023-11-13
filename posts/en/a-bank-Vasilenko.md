@@ -98,7 +98,7 @@ We check how accurately a business analyst has built the process, whether it has
 #### How is the business logic tested?
 No later than yesterday, it took us 1.5 hours to set up on the host blocking of a certain type of transactions in Corezoid, to test business logic. It happens all the time in the bank: you want to test some hypothesis, launch a new product quickly, feel it, understand it, see whether your idea will work or not. Corezoid is well suited for this.
 
-When launching a new product, the business does not think where to get 12 more APIs. People try to take a pool of Corezoid processes and reuse them. You may grant colleagues an access to your processes. Some processes can be taken from [Corezoid Marketplace](http://market.corezoid.com).
+When launching a new product, the business does not think where to get 12 more APIs. People try to take a pool of Corezoid processes and reuse them. You may grant colleagues an access to your processes. Some processes can be taken from [Corezoid Marketplace](https://market.corezoid.com).
 
 #### Who is the owner of Corezoid as a system within the bank?
 Our IT department monitors the performance of Corezoid. We are the owners of Corezoid as a platform. At the same time, there is an owner of each process, who is responsible for the efficiency of the process logic following its launch.
