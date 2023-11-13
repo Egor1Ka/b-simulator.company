@@ -3,10 +3,32 @@ services:
   - docker:dind
 
 stages:
+  - snyk-test
   - build-pre
   - deploy-pre
   - build-prod
   - deploy-prod
+
+snyk-test:
+  stage: snyk-test
+  image: node:latest
+  before_script:
+    - npm install -g npm@latest
+    - npm install -g snyk
+    - npm install snyk-to-html -g
+  script:
+    - snyk auth $SNYK_TOKEN
+    - snyk code test --json | snyk-to-html -o snyk_results1.html
+    - snyk test --json | snyk-to-html -o snyk_results.html
+  artifacts:
+    when: always
+    paths: 
+      - snyk_results.html
+      - snyk_results1.html
+  only:
+    - develop
+  tags:
+    - gitlab
 
 build-pre:
   stage: build-pre
