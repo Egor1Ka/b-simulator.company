@@ -7,6 +7,7 @@ RUN yarn install \
     && yarn run build:"$config" \
     && rm -rf .git \
     && rm -rf .gitlab-ci.yml \
+    && rm -rf Dockerfile \
     && yarn cache clean
 
 FROM node:18.18-alpine
