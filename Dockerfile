@@ -1,7 +1,7 @@
 FROM node:18.18-alpine as build
 ARG config
 ENV config=$config
-WORKDIR /app
+WORKDIR /simulator_company_static
 COPY . .
 RUN yarn install \
     && yarn run build:"$config" \
@@ -10,8 +10,8 @@ RUN yarn install \
     && yarn cache clean
 
 FROM node:18.18-alpine
-WORKDIR /app
-COPY --from=build /app/dist /app
+WORKDIR /simulator_company_static
+COPY --from=build /simulator_company_static /simulator_company_static
 EXPOSE 3000
 CMD ["yarn", "run", "start"]
 
