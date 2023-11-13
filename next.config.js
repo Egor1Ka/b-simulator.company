@@ -20,8 +20,8 @@ const envs = loadEnvConfig();
 const nextConfig = {
   reactStrictMode: true,
   env: {
-    IS_PRODUCTION_BUILD: envs.ENVIRONMENT === 'prod',
-    ...envs
+    ...envs,
+    ENVIRONMENT: envs.ENVIRONMENT || 'dev',
   },
   i18n: {
     locales: ['en-US'],
