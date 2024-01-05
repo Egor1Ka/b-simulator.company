@@ -23,7 +23,9 @@
     "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off"
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "arrow-body-style": "off",
+    "import/no-extraneous-dependencies": "off"
   },
   "settings": {
     "import/extensions": [".ts", ".tsx"],

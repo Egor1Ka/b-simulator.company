@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -131,6 +133,10 @@ function Footer(): React.JSX.Element {
                 src={awsPartnerImg}
                 alt="aws partner"
                 height={60}
+                style={{
+                  width: 'auto',
+                  height: 60,
+                }}
               />
             </section>
           </div>

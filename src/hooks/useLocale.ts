@@ -1,5 +1,7 @@
-import { useRouter } from 'next/router';
+'use client';
+
 import { useCallback, useMemo } from 'react';
+import { useRouter } from 'next/navigation';
 import { flattenMessages, INestedMessages } from '../../lang/flattenMessages';
 import en from '../../lang/en.json';
 
@@ -10,16 +12,16 @@ const messages: Record<Locale, INestedMessages> = {
 };
 
 export const useLocale = () => {
-  const router = useRouter();
-
-  const flattenedMessages = useMemo(
-    () => flattenMessages(messages[router.locale as keyof typeof messages]),
-    [router],
-  );
+  const router: any = useRouter();
+  const tempLocale = 'en-US';
+  const flattenedMessages = useMemo(() => {
+    // return flattenMessages(messages[router.locale as keyof typeof messages]);
+    return flattenMessages(messages[tempLocale]);
+  }, []);
 
   const switchLocale = useCallback(
     (locale: Locale) => {
-      if (locale === router.locale) {
+      if (locale === tempLocale) {
         return null;
       }
 
@@ -28,5 +30,5 @@ export const useLocale = () => {
     },
     [router],
   );
-  return { locale: router.locale, switchLocale, messages: flattenedMessages };
+  return { locale: tempLocale, switchLocale, messages: flattenedMessages };
 };

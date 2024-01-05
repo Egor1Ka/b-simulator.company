@@ -1,5 +1,6 @@
 const path = require('path');
 const dotenv = require('dotenv');
+const withNextIntl = require('next-intl/plugin')();
 
 const loadEnvConfig = () => {
   const environment = process.env.ENVIRONMENT || 'dev';
@@ -23,11 +24,11 @@ const nextConfig = {
     ...envs,
     ENVIRONMENT: envs.ENVIRONMENT || 'dev',
   },
-  i18n: {
-    locales: ['en-US'],
-    defaultLocale: 'en-US',
-    localeDetection: false,
-  },
+  // i18n: {
+  //   locales: ['en-US'],
+  //   defaultLocale: 'en-US',
+  //   localeDetection: false,
+  // },
   images: {
     loader: 'default',
     domains: ['localhost'],
@@ -62,4 +63,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = withNextIntl(nextConfig);

@@ -1,7 +1,9 @@
+'use client';
+
 import React, { useState } from 'react';
-import { useRouter } from 'next/router';
 import cn from 'classnames';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import Button from '../../UI/Button';
 import Logo from '../../../../public/logo.svg';
 import Close from '../../../../public/icons/baseline-close.svg';
@@ -10,7 +12,7 @@ import Menu from '../../../../public/icons/baseline-menu.svg';
 import style from './Header.module.scss';
 
 function Header() {
-  const router = useRouter();
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
   const goToLogIn = () => {
@@ -41,7 +43,7 @@ function Header() {
             <ul>
               <li
                 className={cn({
-                  [style.active]: router.asPath.startsWith('/contact'),
+                  [style.active]: pathname.startsWith('/contact'),
                 })}
               >
                 <Link href="/contact" passHref>
@@ -50,7 +52,7 @@ function Header() {
               </li>
               <li
                 className={cn({
-                  [style.active]: router.asPath.startsWith('/read'),
+                  [style.active]: pathname.startsWith('/read'),
                 })}
               >
                 <Link href="/read" passHref>
@@ -59,7 +61,7 @@ function Header() {
               </li>
               <li
                 className={cn({
-                  [style.active]: router.asPath.startsWith('/download'),
+                  [style.active]: pathname.startsWith('/download'),
                 })}
               >
                 <Link href="/download" passHref>
@@ -68,7 +70,7 @@ function Header() {
               </li>
               <li
                 className={cn({
-                  [style.active]: router.asPath.startsWith('/buy'),
+                  [style.active]: pathname.startsWith('/buy'),
                 })}
               >
                 <Link href="/buy" passHref>
@@ -108,7 +110,7 @@ function Header() {
               <ul>
                 <li
                   className={cn({
-                    [style.active]: router.asPath.startsWith('/contact'),
+                    [style.active]: pathname.startsWith('/contact'),
                   })}
                 >
                   <Link href="/contact" passHref>
@@ -117,7 +119,7 @@ function Header() {
                 </li>
                 <li
                   className={cn({
-                    [style.active]: router.asPath.startsWith('/read'),
+                    [style.active]: pathname.startsWith('/read'),
                   })}
                 >
                   <Link href="/read" passHref>
@@ -126,7 +128,7 @@ function Header() {
                 </li>
                 <li
                   className={cn({
-                    [style.active]: router.asPath.startsWith('/download'),
+                    [style.active]: pathname.startsWith('/download'),
                   })}
                 >
                   <Link href="/download" passHref>
@@ -135,7 +137,7 @@ function Header() {
                 </li>
                 <li
                   className={cn({
-                    [style.active]: router.asPath.startsWith('/buy'),
+                    [style.active]: pathname.startsWith('/buy'),
                   })}
                 >
                   <Link href="/buy" passHref>

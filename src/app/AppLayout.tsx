@@ -1,7 +1,8 @@
-import React, { createContext, FC } from 'react';
+'use client';
+
+import React, { createContext, PropsWithChildren } from 'react';
 import { IntlProvider } from 'react-intl';
 import { Locale, useLocale } from '@/hooks/useLocale';
-
 import GtpScript from '../components/scripts/gtm';
 import LinkedInScript from '../components/scripts/linkedin';
 import MetaScript from '../components/scripts/meta';
@@ -16,14 +17,11 @@ interface GlobalMeta {
   article: boolean;
 }
 
-interface MyAppProps {
-  Component: FC<any>;
-  pageProps?: Record<string, any>;
-}
+type MyAppProps = PropsWithChildren;
 
 export const GlobalContext = createContext<GlobalMeta | null>(null);
 
-const globalMeta: GlobalMeta = {
+export const globalMeta: GlobalMeta = {
   metaTitle: 'Simulator Company',
   metaDescription:
     'Explore market-leading software and technology digital twin. Become an intelligent, sustainable enterprise with the best in cloud, platform, and sustainability solutions – no matter your industry or size',
@@ -31,10 +29,12 @@ const globalMeta: GlobalMeta = {
   article: false,
 };
 
-const MyApp: FC<MyAppProps> = ({ Component, pageProps = {} }) => {
+export default function MyApp({ children }: MyAppProps) {
   const { locale, messages } = useLocale();
   const isProduction = process.env.ENVIRONMENT === 'prod';
-
+  if (typeof window !== 'undefined') {
+    localStorage.setItem('v', '1.0.1');
+  }
   return (
     <>
       {isProduction && <GtpScript />}
@@ -43,12 +43,8 @@ const MyApp: FC<MyAppProps> = ({ Component, pageProps = {} }) => {
       <ControlChat />
 
       <IntlProvider locale={locale as Locale} messages={messages || {}}>
-        <GlobalContext.Provider value={globalMeta}>
-          {typeof Component === 'function' ? <Component {...pageProps} /> : null}
-        </GlobalContext.Provider>
+        <GlobalContext.Provider value={globalMeta}>{children}</GlobalContext.Provider>
       </IntlProvider>
     </>
   );
-};
-
-export default MyApp;
+}

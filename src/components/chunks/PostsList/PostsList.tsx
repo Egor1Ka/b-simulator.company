@@ -1,5 +1,5 @@
+import { PostData } from '@/lib/types';
 import PostCard from '../PostCard';
-import { PostData } from '../../../helpers/getPosts';
 
 import styles from './PostList.module.scss';
 

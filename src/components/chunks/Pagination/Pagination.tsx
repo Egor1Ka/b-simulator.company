@@ -1,7 +1,8 @@
-/* eslint-disable react/no-array-index-key */
+'use client';
+
 import React from 'react';
 import cn from 'classnames';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import ArrowLeft from '../../../../public/icons/arrowMobileLeft.svg';
 import ArrowRight from '../../../../public/icons/arrowMobileRight.svg';
 import styles from './Pagination.module.scss';
@@ -61,26 +62,24 @@ const Pagination: React.FC<PaginationProps> = ({ pages, active }) => {
 
   return (
     <div className={styles.pagination}>
-      {active > 1
-        ? (
-          <>
-            <button
-              type="button"
-              className={`${styles.textButton} ${styles.button}`}
-              onClick={handlePrevClick}
-            >
-              Previous
-            </button>
-            <ArrowLeft
-              onClick={handlePrevClick}
-              className={styles.arrow}
-            />
-          </>
-        ) : <div />}
+      {active > 1 ? (
+        <>
+          <button
+            type="button"
+            className={`${styles.textButton} ${styles.button}`}
+            onClick={handlePrevClick}
+          >
+            Previous
+          </button>
+          <ArrowLeft onClick={handlePrevClick} className={styles.arrow} />
+        </>
+      ) : (
+        <div />
+      )}
       <div>
         <ul>
-          {pageNumbers.map((page, index) => (
-            <li key={index}>
+          {pageNumbers.map((page) => (
+            <li key={`${page}`}>
               {page === 'ellipsis' ? (
                 <span className={styles.ellipsis}>&hellip;</span>
               ) : (
@@ -108,12 +107,11 @@ const Pagination: React.FC<PaginationProps> = ({ pages, active }) => {
           >
             Next
           </button>
-          <ArrowRight
-            onClick={handleNextClick}
-            className={styles.arrow}
-          />
+          <ArrowRight onClick={handleNextClick} className={styles.arrow} />
         </>
-      ) : <div />}
+      ) : (
+        <div />
+      )}
     </div>
   );
 };
