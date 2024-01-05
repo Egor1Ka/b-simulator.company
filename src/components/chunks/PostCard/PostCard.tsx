@@ -1,6 +1,8 @@
-import Image from 'next/image';
-import { useRouter } from 'next/router';
-import { PostData } from '../../../helpers/getPosts';
+'use client';
+
+import Image from 'next/legacy/image';
+import { useRouter } from 'next/navigation';
+import { PostData } from '@/lib/types';
 
 import styles from './PostCard.module.scss';
 
@@ -30,7 +32,7 @@ const PostCard: React.FC<PostProps> = ({ item, activePage }) => {
             src={item.image}
             layout="fill"
             objectFit="cover"
-            style={{ objectPosition: 'center 25%' }}
+            objectPosition="center 25%"
           />
         </div>
         <div className={styles.postGroup}>

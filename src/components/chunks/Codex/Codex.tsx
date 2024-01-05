@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import Button from '@/components/UI/Button';
 import img from '../../../../public/book.png';
@@ -16,6 +18,7 @@ const Codex: React.FC = () => {
       <div className={style.containerGroup}>
         <div className={style.imgBlock}>
           <Image
+            priority
             src={img}
             alt="book"
           />

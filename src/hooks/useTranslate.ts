@@ -1,9 +1,10 @@
-/* eslint-disable import/prefer-default-export */
+'use client';
+
 import { useIntl } from 'react-intl';
 import { useCallback } from 'react';
 import { TranslationKey } from '../../lang/flattenMessages';
 
-export const useTranslate = () => {
+const useTranslate = () => {
   const { formatMessage } = useIntl();
 
   const t = useCallback(
@@ -13,3 +14,5 @@ export const useTranslate = () => {
 
   return { t };
 };
+
+export default useTranslate;
