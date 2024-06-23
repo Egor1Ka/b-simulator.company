@@ -17,9 +17,6 @@ const HomeButtons = () => {
 
   return (
     <>
-      <Button style={{ width: 160 }} type="secondary" onClick={goToVideo}>
-        Watch video
-      </Button>
       <Button style={{ width: 160 }} type="primary" onClick={goToLogIn}>
         Start free
       </Button>
